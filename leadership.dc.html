@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  html{
+    --grad-brand: linear-gradient(100deg, #16256B 0%, #F27518 50%, #8E1D1B 100%);
+    --grad-brand-soft: linear-gradient(100deg, rgba(22,37,107,0.12) 0%, rgba(242,117,24,0.10) 50%, rgba(142,29,27,0.12) 100%);
+    --grad-brand-wash: linear-gradient(120deg, rgba(22,37,107,0.06) 0%, rgba(242,117,24,0.05) 50%, rgba(142,29,27,0.06) 100%);
+  }
+  html, body{margin:0;padding:0;background:#FFFFFF;color:#101114;}
+  a{text-decoration:none;color:inherit;}
+  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+</style>
+</helmet>
+<div style="background:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
+<div id="page-top">
+
+  <dc-import name="SiteHeader" active="leadership"></dc-import>
+  <div style="height:clamp(80px,10vw,98px);"></div>
+
+  <!-- LEADERSHIP HERO -->
+  <section style="padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(48px,6vw,72px);background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="max-width:880px;margin:0 auto;text-align:center;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(16,17,20,0.09);box-shadow:0 2px 10px rgba(16,17,20,0.04);color:#16256B;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#16256B;"></span>
+        Corporate Governance
+      </div>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0F141E;font-size:clamp(34px,4.6vw,56px);line-height:1.12;letter-spacing:-0.03em;margin:0 0 22px;">
+        The strategic minds <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">shaping the enterprise.</span>
+      </h1>
+      <p style="font-size:clamp(16.5px,1.35vw,18.5px);line-height:1.68;color:#4A4E57;max-width:680px;margin:0 auto;">
+        Sixteen years of disciplined leadership, strategic asset turnaround, and scalable global investment — guided by Preeti and Harihara Mahapatra.
+      </p>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT (DARK UNIFIED TEAM SECTION) -->
+  <section style="background:#0F141E;color:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);"></div>
+    <div style="max-width:1240px;margin:0 auto;">
+      <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
+          Team
+        </div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);color:#FFFFFF;letter-spacing:-0.02em;margin:0 0 16px;">Management</h2>
+        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,0.65);margin:0;">Sixteen years of disciplined leadership, strategic asset turnaround, and scalable global investment guiding every operating subsidiary.</p>
+      </div>
+      <!-- Preeti - featured -->
+      <div style="display:grid;grid-template-columns:minmax(240px,0.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,48px);align-items:center;margin-bottom:36px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:clamp(24px,3vw,36px);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:rgba(255,255,255,0.03);">
+            <img src="./assets/preeti.png" alt="Preeti Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+          </div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#FFFFFF;margin-top:16px;">Preeti Mahapatra</div>
+          <div style="color:#F2A15C;font-weight:700;font-size:14px;margin-top:4px;">Founder &amp; Chairperson</div>
+        </div>
+        <div style="position:relative;z-index:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 26px;">
+          <div style="font-weight:800;font-size:14px;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;">Experience and Qualifications:</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;flex-shrink:0;margin-top:6px;"></span>Strategic alliances with certified Microsoft &amp; Qlik technology partners</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;flex-shrink:0;margin-top:6px;"></span>Philanthropic institutions active across Gujarat, UP, Maharashtra &amp; Odisha</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;flex-shrink:0;margin-top:6px;"></span>High-level public governance experience and sporting franchise leadership</div>
+          </div>
+        </div>
+      </div>
+      <!-- Harihara - featured -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,0.85fr);gap:clamp(28px,4vw,48px);align-items:center;margin-bottom:56px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:clamp(24px,3vw,36px);position:relative;overflow:hidden;">
+        <div style="position:absolute;top:-40%;right:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-weight:800;font-size:14px;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;">Experience and Qualifications:</div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#16256B;flex-shrink:0;margin-top:6px;"></span>Master of Business Administration (MBA) &middot; 16+ Years Capital Stewardship</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#16256B;flex-shrink:0;margin-top:6px;"></span>Cross-border asset turnaround expertise across Asia, Europe, and UAE</div>
+            <div style="display:flex;gap:12px;align-items:flex-start;font-size:14.5px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#16256B;flex-shrink:0;margin-top:6px;"></span>Institutional board oversight and debt-equity restructuring mastery</div>
+          </div>
+        </div>
+        <div style="position:relative;z-index:1;">
+          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:rgba(255,255,255,0.03);">
+            <img src="./assets/hari.png" alt="Harihara Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+          </div>
+          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#FFFFFF;margin-top:16px;">Harihara Mahapatra</div>
+          <div style="color:#F2A15C;font-weight:700;font-size:14px;margin-top:4px;">Managing Director</div>
+        </div>
+      </div>
+      <!-- Anil + Himansu - standard grid -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="background:rgba(255,255,255,0.07);border-color:rgba(22,37,107,0.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(22,37,107,0.18);">
+          <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;width:88px;height:88px;border-radius:50%;overflow:hidden;margin:0 auto 18px;border:3px solid rgba(255,255,255,0.1);">
+            <img src="./assets/anil.jpg" alt="Anil Kumar" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="position:relative;z-index:1;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#FFFFFF;">Anil Kumar</div>
+          <div style="position:relative;z-index:1;color:#F2A15C;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-top:4px;">Director</div>
+          <p style="position:relative;z-index:1;font-size:13.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Overseeing corporate compliance, operational standards, and multi-vertical governance.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="background:rgba(255,255,255,0.07);border-color:rgba(142,29,27,0.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(142,29,27,0.18);">
+          <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;width:88px;height:88px;border-radius:50%;overflow:hidden;margin:0 auto 18px;border:3px solid rgba(255,255,255,0.1);">
+            <img src="./assets/himansu.jpg" alt="Himansu Nayak" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="position:relative;z-index:1;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#FFFFFF;">Himansu Nayak</div>
+          <div style="position:relative;z-index:1;color:#F2A15C;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-top:4px;">Director</div>
+          <p style="position:relative;z-index:1;font-size:13.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Leading strategic project execution, resource allocation, and institutional stakeholders.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section style="background:linear-gradient(180deg,#F7F6F2 0%,#EAE7DF 100%);padding:clamp(60px,7.5vw,90px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);">
+    <div style="max-width:820px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:#0F141E;letter-spacing:-0.02em;margin:0 0 28px;">
+        Connect with Group Leadership
+      </h2>
+      <a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);transition:all 0.25s ease;" style-hover="background:#8E1D1B;box-shadow:0 10px 28px rgba(142,29,27,0.28);transform:translateY(-2px);">
+        Reach Executive Secretariat
+        <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- CORPORATE FOOTER (CARD-FLOAT STYLE) -->
+  <footer style="background:#0F141E;padding:0 clamp(24px,4.5vw,64px) 0;">
+    <div style="max-width:1240px;margin:0 auto;position:relative;top:28px;background:#FAF9F6;border-radius:28px 28px 0 0;padding:clamp(44px,6vw,64px) clamp(32px,4.5vw,56px) clamp(56px,7vw,72px);box-shadow:0 -1px 2px rgba(16,17,20,0.03),0 -18px 40px rgba(16,17,20,0.06);">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:8px;">
+        <a href="#page-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;transition:all 0.2s ease;" style-hover="color:#8E1D1B;gap:12px;">
+          Back to top
+          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M7 2L2 7M7 2L12 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(240px,1.3fr) repeat(2,minmax(150px,1fr));gap:40px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span style="display:flex;gap:3px;height:18px;">
+              <span style="width:3px;border-radius:2px;background:#16256B;"></span>
+              <span style="width:3px;border-radius:2px;background:#F27518;"></span>
+              <span style="width:3px;border-radius:2px;background:#8E1D1B;"></span>
+            </span>
+            <span style="color:#0F141E;font-weight:800;font-size:17px;letter-spacing:0.04em;">MAHAPATRA</span>
+          </div>
+          <p style="font-size:14px;line-height:1.6;color:#5E636E;max-width:280px;margin:0 0 20px;">
+            A diversified global conglomerate built on Leadership with Trust, founded by Preeti Mahapatra.
+          </p>
+          <div style="display:flex;gap:10px;">
+            <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.3c0-1.5-.03-3.4-2.08-3.4-2.08 0-2.4 1.63-2.4 3.3V21h-4V9z"/></svg>
+            </a>
+            <a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Navigation</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="about.dc.html" style="color:#5E636E;font-size:14px;" style-hover="color:#8E1D1B;">About Our Group</a>
+            <a href="leadership.dc.html" style="color:#5E636E;font-size:14px;" style-hover="color:#8E1D1B;">Executive Leadership</a>
+            <a href="contact.dc.html" style="color:#5E636E;font-size:14px;" style-hover="color:#8E1D1B;">Corporate Inquiries</a>
+            <a href="business.dc.html#engineering" style="color:#5E636E;font-size:14px;" style-hover="color:#8E1D1B;">Engineering</a>
+            <a href="business.dc.html#technology" style="color:#5E636E;font-size:14px;" style-hover="color:#8E1D1B;">Information Technology</a>
+            <a href="business.dc.html#hospitality" style="color:#5E636E;font-size:14px;" style-hover="color:#8E1D1B;">Hospitality</a>
+          </div>
+        </div>
+        <div>
+          <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="mailto:contactus@mahapatrauniversal.com" style="color:#5E636E;font-size:14px;word-break:break-word;" style-hover="color:#8E1D1B;">contactus@mahapatrauniversal.com</a>
+            <span style="color:#5E636E;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="background:#0F141E;padding:36px clamp(24px,4.5vw,64px) 24px;margin-top:0;">
+      <div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;">
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:13px;font-weight:600;" style-hover="color:#FFFFFF;">Privacy Policy</a>
+        <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;letter-spacing:0.02em;">Mahapatra Universal Limited</span>
+        <span style="color:rgba(255,255,255,0.55);font-size:13px;">Copyright 2026 All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+
+</script>
+</body>
+</html>
