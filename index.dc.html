@@ -28,6 +28,18 @@
   html, body{margin:0;padding:0;background:#FFFFFF;color:#101114;scroll-behavior:smooth;}
   a{text-decoration:none;color:inherit;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+  .reveal{opacity:0;transform:translateY(36px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
+  .reveal-stagger > *{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+  .reveal-stagger.is-visible > *:nth-child(1){transition-delay:0.05s;}
+  .reveal-stagger.is-visible > *:nth-child(2){transition-delay:0.15s;}
+  .reveal-stagger.is-visible > *:nth-child(3){transition-delay:0.25s;}
+  .reveal-stagger.is-visible > *:nth-child(4){transition-delay:0.35s;}
+  .reveal-stagger.is-visible > *:nth-child(5){transition-delay:0.45s;}
+  @media (prefers-reduced-motion: reduce){
+    .reveal, .reveal-stagger > *{opacity:1!important;transform:none!important;transition:none!important;}
+  }
   @keyframes heroGradientShift{
     0%{background-position:0% 50%;}
     50%{background-position:100% 50%;}
@@ -146,7 +158,7 @@
   <!-- METRICS / STATS STRIP -->
   <section style="background:linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);background-image:radial-gradient(circle at 15% 20%,rgba(22,37,107,0.35) 0%,transparent 45%),radial-gradient(circle at 85% 80%,rgba(142,29,27,0.28) 0%,transparent 45%),linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);"></div>
-    <div style="max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,56px) clamp(24px,4.5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,3vw,40px);position:relative;">
+    <div class="reveal reveal-stagger" style="max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,56px) clamp(24px,4.5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,3vw,40px);position:relative;">
 
       <div style="position:relative;padding:8px 12px;">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:#9FA6B2;text-transform:uppercase;margin-bottom:10px;">Corporate Scope</div>
@@ -186,7 +198,7 @@
   <!-- ABOUT TEASER SECTION -->
   <section style="background:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(280px,0.9fr) minmax(0,1.1fr);gap:clamp(40px,6vw,72px);align-items:center;">
-      <div style="position:relative;">
+      <div class="reveal" style="position:relative;">
         <div style="background:#F2EFE9;border:1px solid rgba(16,17,20,0.08);border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 45px rgba(15,20,30,0.08);">
           <img src="./assets/headquarters.jpg" alt="Mahapatra Universal Headquarters" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
@@ -201,7 +213,7 @@
         </div>
       </div>
 
-      <div>
+      <div class="reveal" style="transition-delay:0.15s;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
           Corporate Overview
@@ -232,7 +244,7 @@
   <!-- PORTFOLIO SNAPSHOT -->
   <section style="background:#F7F6F2;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);">
     <div style="max-width:1240px;margin:0 auto;">
-      <div style="max-width:720px;margin:0 auto 40px;text-align:center;">
+      <div class="reveal" style="max-width:720px;margin:0 auto 40px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F27518;"></span>
           Portfolio Snapshot
@@ -246,7 +258,7 @@
         </span>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div class="reveal reveal-stagger" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
 
         <!-- Sceniuz -->
         <div style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease;display:flex;flex-direction:column;" style-hover="transform:translateY(-8px);box-shadow:0 28px 60px rgba(142,29,27,0.16);">
@@ -309,7 +321,7 @@
     <div style="{{ milestoneGlowStylePrev }}"></div>
     <div style="{{ milestoneGlowStyle }}"></div>
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);z-index:1;"></div>
-    <div style="max-width:920px;margin:0 auto;position:relative;z-index:1;">
+    <div class="reveal" style="max-width:920px;margin:0 auto;position:relative;z-index:1;">
       <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
@@ -362,7 +374,7 @@
   <!-- BUSINESS VERTICALS (EXECUTIVE CARDS) -->
   <section style="background:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;">
-      <div style="max-width:680px;margin:0 auto 52px;text-align:center;">
+      <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
           <span style="display:flex;gap:3px;height:12px;align-items:center;">
             <span style="width:2.5px;height:12px;border-radius:1px;background:#16256B;"></span>
@@ -376,7 +388,7 @@
         </h2>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:28px;">
+      <div class="reveal reveal-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:28px;">
 
         <!-- Engineering Card -->
         <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:36px 32px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(16,17,20,0.05),0 24px 48px -12px rgba(22,37,107,0.10);position:relative;overflow:hidden;">
@@ -446,7 +458,7 @@
   <!-- LEADERSHIP TEASER -->
   <section style="background:#0F141E;color:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;">
-      <div style="max-width:680px;margin:0 auto 52px;text-align:center;">
+      <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
           Executive Governance
@@ -456,7 +468,7 @@
         </h2>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:32px;max-width:920px;margin:0 auto;">
+      <div class="reveal reveal-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:32px;max-width:920px;margin:0 auto;">
         
         <!-- Preeti Profile -->
         <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;position:relative;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="background:rgba(255,255,255,0.07);border-color:rgba(142,29,27,0.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(142,29,27,0.18);">
@@ -494,7 +506,7 @@
   <!-- IN THE NEWS -->
   <section style="background:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;">
-      <div style="max-width:680px;margin:0 auto 52px;text-align:center;">
+      <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
           Market Presence
@@ -504,7 +516,7 @@
         </h2>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;">
+      <div class="reveal reveal-stagger" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;">
         
         <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(142,29,27,0.10);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="transform:translateY(-6px);box-shadow:0 1px 2px rgba(16,17,20,0.04),0 16px 32px rgba(16,17,20,0.08),0 30px 60px -12px rgba(142,29,27,0.2);border-color:rgba(142,29,27,0.3);">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
@@ -539,7 +551,7 @@
 
   <!-- CTA STRIP -->
   <section style="background:linear-gradient(115deg,rgba(22,37,107,0.05) 0%,rgba(242,117,24,0.05) 50%,rgba(142,29,27,0.05) 100%),linear-gradient(180deg,#F7F6F2 0%,#EAE7DF 100%);padding:clamp(60px,7.5vw,90px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);">
-    <div style="max-width:820px;margin:0 auto;text-align:center;">
+    <div class="reveal" style="max-width:820px;margin:0 auto;text-align:center;">
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:#0F141E;letter-spacing:-0.02em;margin:0 0 16px;">
         Partnering for <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Long-Term Enterprise Growth</span>
       </h2>
@@ -649,6 +661,16 @@ class Component extends DCLogic {
         utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js',
       });
     }
+
+    this.revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          this.revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('.reveal').forEach((el) => this.revealObserver.observe(el));
   }
   componentWillUnmount() {
     clearTimeout(this.timer);
@@ -657,6 +679,7 @@ class Component extends DCLogic {
     clearInterval(this.heroWordTimer);
     cancelAnimationFrame(this.raf);
     if (this.iti) this.iti.destroy();
+    if (this.revealObserver) this.revealObserver.disconnect();
   }
 
   cycleHeroWord() {
