@@ -16,6 +16,8 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.css">
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInputWithUtils.min.js"></script>
 <script src="./image-slot.js"></script>
 <style>
   html{
@@ -50,6 +52,14 @@
     position: relative;
     overflow: hidden;
   }
+  .iti{width:100%;}
+  #hero-phone-input{
+    width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);
+    border-radius:10px;padding:12px 14px 12px 52px;font-family:'Plus Jakarta Sans',sans-serif;
+    font-size:14px;font-weight:500;color:#101114;outline:none;
+  }
+  .iti__selected-flag{padding:0 8px 0 12px;}
+  .iti__country-list{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;border-radius:10px;box-shadow:0 12px 32px rgba(15,20,30,0.18);}
 </style>
 </helmet>
 <div style="background:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
@@ -59,55 +69,77 @@
 
   <!-- HERO SECTION (Fits exactly within 100vh viewport) -->
   <section style="min-height:100vh;box-sizing:border-box;padding:clamp(90px,11vh,112px) clamp(24px,4.5vw,64px) clamp(20px,3.5vh,40px);display:flex;align-items:center;position:relative;background-image:linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)), url('./assets/hero-bg.jpg');background-size:cover;background-position:center;">
-    <div style="max-width:1240px;width:100%;margin:0 auto;position:relative;z-index:1;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;">
+    <div style="max-width:1240px;width:100%;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,380px);gap:clamp(32px,5vw,56px);align-items:center;">
 
-      <!-- Enterprise Credential Badge with Signature 3-Bar Brand Insignia -->
-      <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.28);color:#FFFFFF;font-size:12.5px;font-weight:700;letter-spacing:0.06em;padding:6px 16px 6px 12px;border-radius:100px;margin-bottom:clamp(14px,2.2vh,24px);text-transform:uppercase;">
-        <span style="display:inline-flex;gap:3px;height:14px;align-items:center;">
-          <span style="width:2.5px;height:14px;border-radius:1px;background:#16256B;"></span>
-          <span style="width:2.5px;height:10px;border-radius:1px;background:#F27518;"></span>
-          <span style="width:2.5px;height:14px;border-radius:1px;background:#8E1D1B;"></span>
-        </span>
-        A Preeti Mahapatra Venture
+      <div style="opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;">
+
+        <!-- Enterprise Credential Badge with Signature 3-Bar Brand Insignia -->
+        <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.28);color:#FFFFFF;font-size:12.5px;font-weight:700;letter-spacing:0.06em;padding:6px 16px 6px 12px;border-radius:100px;margin-bottom:clamp(14px,2.2vh,24px);text-transform:uppercase;">
+          <span style="display:inline-flex;gap:3px;height:14px;align-items:center;">
+            <span style="width:2.5px;height:14px;border-radius:1px;background:#16256B;"></span>
+            <span style="width:2.5px;height:10px;border-radius:1px;background:#F27518;"></span>
+            <span style="width:2.5px;height:14px;border-radius:1px;background:#8E1D1B;"></span>
+          </span>
+          A Preeti Mahapatra Venture
+        </div>
+
+        <div style="max-width:640px;">
+          <!-- Captivating Hero Headline with Structured Emphasis -->
+          <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#FFFFFF;font-size:clamp(36px,4.4vw,62px);line-height:1.08;letter-spacing:-0.03em;margin:0;">
+            Building Global Scale.<br/>
+            Guided by <span style="{{ heroWordStyle }}">{{ heroWord }}</span> with Trust.
+          </h1>
+
+          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.82);max-width:560px;margin:clamp(14px,2vh,24px) 0 clamp(18px,2.5vh,28px);font-weight:400;">
+            Mahapatra Universal Limited is a diversified multinational conglomerate spanning Engineering, Information Technology, and Hospitality — five operating subsidiaries and eleven strategic verticals across seven countries.
+          </p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+            <span style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#0F141E;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 26px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:default;">
+              Explore Our Businesses
+              <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,0.4);color:#FFFFFF;font-weight:700;font-size:14.5px;padding:11.5px 24px;border-radius:100px;cursor:default;">
+              Executive Leadership
+            </span>
+          </div>
+
+          <!-- Trust Bar with 3-color accents -->
+          <div style="display:flex;align-items:center;gap:20px;margin-top:clamp(20px,2.8vh,32px);padding-top:clamp(16px,2vh,22px);border-top:1px solid rgba(255,255,255,0.2);">
+            <div style="display:flex;align-items:center;gap:7px;">
+              <span style="width:7px;height:7px;border-radius:50%;background:#16256B;"></span>
+              <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">7 Global Jurisdictions</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px;">
+              <span style="width:7px;height:7px;border-radius:50%;background:#F27518;"></span>
+              <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">11 Core Verticals</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:7px;">
+              <span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;"></span>
+              <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">Active Governance</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div style="max-width:800px;">
-        <!-- Captivating Hero Headline with Structured Emphasis -->
-        <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#FFFFFF;font-size:clamp(40px,5vw,72px);line-height:1.08;letter-spacing:-0.03em;margin:0;">
-          Building Global Scale.<br/>
-          Guided by <span style="{{ heroWordStyle }}">{{ heroWord }}</span> with Trust.
-        </h1>
+      <!-- Minimal Enquiry Form -->
+      <div style="opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;background:rgba(255,255,255,0.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,0.6);border-radius:20px;padding:clamp(22px,2.6vw,30px);box-shadow:0 24px 60px rgba(8,10,18,0.28);position:relative;overflow:hidden;">
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;color:#8A8F99;text-transform:uppercase;margin-bottom:6px;">Get in Touch</div>
+        <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#101114;font-size:clamp(20px,1.8vw,24px);letter-spacing:-0.01em;margin:0 0 18px;line-height:1.2;">Send Us an Enquiry</h3>
 
-        <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.82);max-width:560px;margin:clamp(14px,2vh,24px) 0 clamp(18px,2.5vh,28px);font-weight:400;">
-          Mahapatra Universal Limited is a diversified multinational conglomerate spanning Engineering, Information Technology, and Hospitality — five operating subsidiaries and eleven strategic verticals across seven countries.
-        </p>
+        <form style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" name="name" placeholder="Full Name" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
+          <input type="email" name="email" placeholder="Email Address" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
+          <input type="tel" id="hero-phone-input" name="phone" placeholder="Phone Number" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
+          <textarea name="message" placeholder="Your Message" rows="3" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;resize:none;"></textarea>
 
-        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-          <span style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#0F141E;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 26px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:default;">
-            Explore Our Businesses
+          <button type="submit" style="margin-top:4px;width:100%;background:#101114;color:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 20px;border:none;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+            Submit Enquiry
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-          <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,0.4);color:#FFFFFF;font-weight:700;font-size:14.5px;padding:11.5px 24px;border-radius:100px;cursor:default;">
-            Executive Leadership
-          </span>
-        </div>
-
-        <!-- Trust Bar with 3-color accents -->
-        <div style="display:flex;align-items:center;gap:20px;margin-top:clamp(20px,2.8vh,32px);padding-top:clamp(16px,2vh,22px);border-top:1px solid rgba(255,255,255,0.2);">
-          <div style="display:flex;align-items:center;gap:7px;">
-            <span style="width:7px;height:7px;border-radius:50%;background:#16256B;"></span>
-            <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">7 Global Jurisdictions</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:7px;">
-            <span style="width:7px;height:7px;border-radius:50%;background:#F27518;"></span>
-            <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">11 Core Verticals</span>
-          </div>
-          <div style="display:flex;align-items:center;gap:7px;">
-            <span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;"></span>
-            <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">Active Governance</span>
-          </div>
-        </div>
+          </button>
+        </form>
       </div>
+
     </div>
   </section>
 
@@ -273,9 +305,11 @@
   </section>
 
   <!-- MILESTONES TIMELINE (INTERACTIVE SCRUBBER) -->
-  <section style="background:linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);background-image:radial-gradient(circle at 12% 15%,rgba(22,37,107,0.3) 0%,transparent 45%),radial-gradient(circle at 88% 85%,rgba(142,29,27,0.25) 0%,transparent 45%),linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
-    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);"></div>
-    <div style="max-width:920px;margin:0 auto;">
+  <section style="background:linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
+    <div style="{{ milestoneGlowStylePrev }}"></div>
+    <div style="{{ milestoneGlowStyle }}"></div>
+    <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);z-index:1;"></div>
+    <div style="max-width:920px;margin:0 auto;position:relative;z-index:1;">
       <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
@@ -586,7 +620,7 @@
 <script type="text/x-dc" data-dc-script>
 
 class Component extends DCLogic {
-  state = { counts: { sub: 0, vert: 0, ctry: 0, cont: 0 }, activeMilestone: 0, fading: false, heroWordIndex: 0, heroWordFading: false };
+  state = { counts: { sub: 0, vert: 0, ctry: 0, cont: 0 }, activeMilestone: 0, prevMilestone: 0, fading: false, heroWordIndex: 0, heroWordFading: false };
 
   heroWords = ['Leadership', 'Integrity', 'Stewardship', 'Leadership'];
 
@@ -606,6 +640,15 @@ class Component extends DCLogic {
   componentDidMount() {
     this.timer = setTimeout(() => this.animateStats(), 400);
     this.heroWordTimer = setInterval(() => this.cycleHeroWord(), 2200);
+
+    const phoneInput = document.querySelector('#hero-phone-input');
+    if (phoneInput && window.intlTelInput) {
+      this.iti = window.intlTelInput(phoneInput, {
+        initialCountry: 'in',
+        separateDialCode: true,
+        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js',
+      });
+    }
   }
   componentWillUnmount() {
     clearTimeout(this.timer);
@@ -613,6 +656,7 @@ class Component extends DCLogic {
     clearTimeout(this.heroWordFadeTimer);
     clearInterval(this.heroWordTimer);
     cancelAnimationFrame(this.raf);
+    if (this.iti) this.iti.destroy();
   }
 
   cycleHeroWord() {
@@ -649,7 +693,7 @@ class Component extends DCLogic {
   goToMilestone(i) {
     if (i === this.state.activeMilestone || this.state.fading) return;
     clearTimeout(this.fadeTimer);
-    this.setState({ fading: true });
+    this.setState({ fading: true, prevMilestone: this.state.activeMilestone });
     this.fadeTimer = setTimeout(() => {
       this.setState({ activeMilestone: i, fading: false });
     }, 220);
@@ -689,6 +733,8 @@ class Component extends DCLogic {
       activeMilestoneCategory: m.category,
       activeMilestoneColor: m.color,
       activeMilestoneColorRgb: m.colorRgb,
+      milestoneGlowStyle: `position:absolute;inset:0;background-image:radial-gradient(circle at 12% 15%,rgba(${m.colorRgb},0.3) 0%,transparent 45%),radial-gradient(circle at 88% 85%,rgba(${m.colorRgb},0.22) 0%,transparent 45%);opacity:1;transition:opacity 0.9s ease;`,
+      milestoneGlowStylePrev: `position:absolute;inset:0;background-image:radial-gradient(circle at 12% 15%,rgba(${this.milestones[this.state.prevMilestone].colorRgb},0.3) 0%,transparent 45%),radial-gradient(circle at 88% 85%,rgba(${this.milestones[this.state.prevMilestone].colorRgb},0.22) 0%,transparent 45%);opacity:${fading ? '1' : '0'};transition:opacity 0.9s ease;`,
       milestoneYearStyle: `font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(56px,9vw,120px);color:${m.color};line-height:0.9;letter-spacing:-0.03em;transition:opacity 0.22s ease,transform 0.22s ease,color 0.3s ease;${fadeTransform}`,
       milestoneFadeStyle: `transition:opacity 0.22s ease,transform 0.22s ease;${fadeTransform}`,
       trackProgressStyle: `width:${100 / n}%;left:${(100 / n) * this.state.activeMilestone}%;`,
