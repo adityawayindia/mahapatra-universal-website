@@ -25,6 +25,7 @@
   }
   html, body{margin:0;padding:0;background:#FFFFFF;color:#101114;}
   a{text-decoration:none;color:inherit;}
+  p{font-weight:500;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
 
   /* ==================== RESPONSIVE LAYER ====================
@@ -72,12 +73,16 @@
 <div style="background:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
 <div id="page-top">
 
-  <dc-import name="SiteHeader" active="about"></dc-import>
-  <div style="height:clamp(80px,10vw,98px);"></div>
+  <div style="position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="position:absolute;top:0;left:0;right:0;height:clamp(560px,60vw,700px);background-image:radial-gradient(rgba(16,17,20,0.12) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(ellipse at center, rgba(22,37,107,0.10) 0%, rgba(242,117,24,0.07) 42%, transparent 70%);pointer-events:none;z-index:0;"></div>
 
-  <!-- ABOUT HERO -->
-  <section style="padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(48px,6vw,72px);background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
-    <div style="max-width:880px;margin:0 auto;text-align:center;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;">
+    <dc-import name="SiteHeader" active="about"></dc-import>
+    <div style="height:clamp(80px,10vw,98px);"></div>
+
+    <!-- ABOUT HERO -->
+    <section style="position:relative;padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(48px,6vw,72px);z-index:1;">
+    <div style="max-width:880px;margin:0 auto;text-align:center;position:relative;opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(16,17,20,0.09);box-shadow:0 2px 10px rgba(16,17,20,0.04);color:#8E1D1B;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
         <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
         About Mahapatra Universal
@@ -89,10 +94,11 @@
         A diversified multi-industry conglomerate founded by Preeti Mahapatra, spanning five core subsidiaries and eleven business verticals across seven countries.
       </p>
     </div>
-  </section>
+    </section>
+  </div>
 
   <!-- STORY SECTION -->
-  <section style="background:#FFFFFF;padding:0 clamp(24px,4.5vw,64px) clamp(64px,8vw,100px);">
+  <section style="background:#FFFFFF;padding:clamp(56px,7vw,88px) clamp(24px,4.5vw,64px) clamp(64px,8vw,100px);">
     <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(280px,0.9fr);gap:clamp(40px,6vw,72px);align-items:center;">
       <div>
         <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
