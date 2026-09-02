@@ -40,9 +40,9 @@
         Contact Us
       </a>
       <button onClick="{{ toggleMobile }}" aria-label="Menu" style="{{ hamburgerBtnStyle }}">
-        <span style="{{ barStyle(1) }}"></span>
-        <span style="{{ barStyle(2) }}"></span>
-        <span style="{{ barStyle(3) }}"></span>
+        <span style="{{ barStyle1 }}"></span>
+        <span style="{{ barStyle2 }}"></span>
+        <span style="{{ barStyle3 }}"></span>
       </button>
     </div>
   </div>
@@ -84,7 +84,9 @@ class Component extends DCLogic {
       desktopNavStyle: `display:${s.isMobile ? 'none' : 'flex'};align-items:center;gap:32px;`,
       ctaDisplayStyle: `display:${s.isMobile ? 'none' : 'inline-flex'};`,
       hamburgerBtnStyle: `display:${s.isMobile ? 'block' : 'none'};position:relative;background:rgba(15,20,30,0.06);border:1px solid rgba(15,20,30,0.1);border-radius:50%;cursor:pointer;padding:0;flex-shrink:0;width:36px;height:36px;`,
-      barStyle,
+      barStyle1: barStyle(1),
+      barStyle2: barStyle(2),
+      barStyle3: barStyle(3),
       navLinkStyle_about: navLink('about'),
       navLinkStyle_disabled: `color:rgba(15,20,30,0.35);font-weight:500;font-size:15px;letter-spacing:0.01em;font-family:'Plus Jakarta Sans',sans-serif;padding:6px 2px;cursor:default;`,
       toggleMobile: () => this.setState({ mobileOpen: !s.mobileOpen }),

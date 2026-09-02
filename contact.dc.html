@@ -28,6 +28,47 @@
   input::placeholder, textarea::placeholder{color:#9FA6B2;}
   input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !important;box-shadow:0 0 0 4px rgba(22,37,107,0.08) !important;}
   @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+
+  /* ==================== RESPONSIVE LAYER ====================
+     Layout-only adaptations for small screens.
+     Desktop rendering is unchanged. */
+  img{max-width:100%;}
+  *{-webkit-text-size-adjust:100%;}
+
+  /* Tablet landscape */
+  @media (max-width:1023px){
+    .r-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+  }
+
+  /* Tablet portrait / large phone */
+  @media (max-width:900px){
+    .r-split{grid-template-columns:minmax(0,1fr)!important;}
+    /* stacked splits whose image comes last in source get it back on top */
+    .r-rev > *:last-child{order:-1;}
+    .r-hero{min-height:auto!important;padding-top:clamp(108px,15vh,132px)!important;padding-bottom:clamp(48px,7vh,72px)!important;}
+    .r-hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:36px!important;}
+    .r-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:36px!important;}
+    .r-metric{border-left:0!important;}
+  }
+
+  /* Phone */
+  @media (max-width:640px){
+    .r-grid-4{grid-template-columns:minmax(0,1fr)!important;}
+    .r-footer-grid{grid-template-columns:minmax(0,1fr)!important;gap:30px!important;}
+    .r-footer-bottom{flex-direction:column!important;align-items:center!important;text-align:center!important;gap:10px!important;}
+    .r-hero-trust{flex-wrap:wrap!important;gap:10px 18px!important;}
+    .r-ms-head{flex-direction:column!important;align-items:flex-start!important;gap:16px!important;}
+    .r-stack-sm{flex-direction:column!important;align-items:flex-start!important;gap:10px!important;}
+    /* Stop iOS Safari zooming the viewport on field focus */
+    input,select,textarea{font-size:16px!important;}
+  }
+
+  /* Very narrow phones: auto-fit minimums are wider than the available track
+     and would force horizontal overflow. These grids are already single-column
+     at this width, so pinning them to 1fr is visually identical. */
+  @media (max-width:420px){
+    .r-cards{grid-template-columns:minmax(0,1fr)!important;}
+  }
 </style>
 </helmet>
 <div style="background:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
@@ -54,7 +95,7 @@
 
   <!-- FORM & CONTACT DETAILS SPLIT -->
   <section style="background:#FFFFFF;padding:0 clamp(24px,4.5vw,64px) clamp(64px,8vw,100px);">
-    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,0.85fr);gap:clamp(36px,5vw,68px);align-items:start;">
+    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,0.85fr);gap:clamp(36px,5vw,68px);align-items:start;">
 
       <!-- Corporate Inquiry Form Card -->
       <div style="background:#F7F6F2;border:1px solid rgba(16,17,20,0.08);border-radius:24px;padding:clamp(28px,4vw,44px);box-shadow:0 1px 2px rgba(16,17,20,0.04),0 12px 35px rgba(15,20,30,0.04),0 28px 56px -14px rgba(22,37,107,0.08);position:relative;overflow:hidden;">
@@ -71,12 +112,12 @@
         
         <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
           <div>
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
+            <div class="r-stack-sm" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
               <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#0F141E;letter-spacing:-0.02em;margin:0;">Corporate Inquiry Desk</h2>
               <span style="font-size:12px;font-weight:700;color:#8E8A80;letter-spacing:0.04em;">RESPONSE TIME: 24H</span>
             </div>
 
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:18px;">
+            <div class="r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:18px;">
               <div>
                 <label style="display:block;font-size:14px;font-weight:700;color:#0F141E;margin-bottom:8px;">Full Name *</label>
                 <input type="text" value="{{ form.name }}" onChange="{{ onChange('name') }}" placeholder="Executive name" style="width:100%;box-sizing:border-box;padding:14px 16px;font-size:15px;border-radius:12px;border:1px solid rgba(16,17,20,0.14);font-family:'Plus Jakarta Sans',sans-serif;background:#FFFFFF;transition:all 0.2s ease;" />
@@ -87,7 +128,7 @@
               </div>
             </div>
 
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:18px;">
+            <div class="r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:18px;">
               <div>
                 <label style="display:block;font-size:14px;font-weight:700;color:#0F141E;margin-bottom:8px;">Contact Number</label>
                 <input type="tel" value="{{ form.phone }}" onChange="{{ onChange('phone') }}" placeholder="+91 00000 00000" style="width:100%;box-sizing:border-box;padding:14px 16px;font-size:15px;border-radius:12px;border:1px solid rgba(16,17,20,0.14);font-family:'Plus Jakarta Sans',sans-serif;background:#FFFFFF;transition:all 0.2s ease;" />
@@ -169,7 +210,7 @@
 
   <!-- CORPORATE FOOTER (CARD-FLOAT STYLE) -->
   <footer style="background:#0F141E;padding:0 clamp(24px,4.5vw,64px) 0;">
-    <div style="max-width:1240px;margin:0 auto;position:relative;top:28px;background:#FAF9F6;border-radius:28px 28px 0 0;padding:clamp(44px,6vw,64px) clamp(32px,4.5vw,56px) clamp(56px,7vw,72px);box-shadow:0 -1px 2px rgba(16,17,20,0.03),0 -18px 40px rgba(16,17,20,0.06);"><div style="display:flex;justify-content:flex-end;margin-bottom:8px;"><a href="#page-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;transition:all 0.2s ease;" style-hover="color:#8E1D1B;gap:12px;">Back to top<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M7 2L2 7M7 2L12 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div style="display:grid;grid-template-columns:minmax(240px,1.3fr) repeat(2,minmax(150px,1fr));gap:40px;"><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;"><span style="display:flex;gap:3px;height:18px;"><span style="width:3px;border-radius:2px;background:#16256B;"></span><span style="width:3px;border-radius:2px;background:#F27518;"></span><span style="width:3px;border-radius:2px;background:#8E1D1B;"></span></span><span style="color:#0F141E;font-weight:800;font-size:17px;letter-spacing:0.04em;">MAHAPATRA</span></div><p style="font-size:16px;line-height:1.6;color:#3F434C;max-width:280px;margin:0 0 20px;">A diversified global conglomerate built on Leadership with Trust, founded by Preeti Mahapatra.</p><div style="display:flex;gap:10px;"><a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.3c0-1.5-.03-3.4-2.08-3.4-2.08 0-2.4 1.63-2.4 3.3V21h-4V9z"/></svg></a><a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a></div></div><div><div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Navigation</div><div style="display:flex;flex-direction:column;gap:11px;"><a href="about.dc.html" style="color:#3F434C;font-size:14px;" style-hover="color:#8E1D1B;">About Our Group</a><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Executive Leadership</span><a href="contact.dc.html" style="color:#3F434C;font-size:14px;" style-hover="color:#8E1D1B;">Corporate Inquiries</a><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Engineering</span><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Information Technology</span><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Hospitality</span></div></div><div><div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div><div style="display:flex;flex-direction:column;gap:11px;"><a href="mailto:contactus@mahapatrauniversal.com" style="color:#3F434C;font-size:14px;word-break:break-word;" style-hover="color:#8E1D1B;">contactus@mahapatrauniversal.com</a><span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span></div></div></div></div><div style="background:#0F141E;padding:36px clamp(24px,4.5vw,64px) 24px;margin-top:0;"><div style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;"><a href="#" style="color:rgba(255,255,255,0.55);font-size:13px;font-weight:600;" style-hover="color:#FFFFFF;">Privacy Policy</a><span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;letter-spacing:0.02em;">Mahapatra Universal Limited</span><span style="color:rgba(255,255,255,0.55);font-size:13px;">Copyright 2026 All rights reserved.</span></div></div></footer>
+    <div style="max-width:1240px;margin:0 auto;position:relative;top:28px;background:#FAF9F6;border-radius:28px 28px 0 0;padding:clamp(44px,6vw,64px) clamp(32px,4.5vw,56px) clamp(56px,7vw,72px);box-shadow:0 -1px 2px rgba(16,17,20,0.03),0 -18px 40px rgba(16,17,20,0.06);"><div style="display:flex;justify-content:flex-end;margin-bottom:8px;"><a href="#page-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;transition:all 0.2s ease;" style-hover="color:#8E1D1B;gap:12px;">Back to top<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M7 2L2 7M7 2L12 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><div class="r-footer-grid" style="display:grid;grid-template-columns:minmax(240px,1.3fr) repeat(2,minmax(150px,1fr));gap:40px;"><div><div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;"><span style="display:flex;gap:3px;height:18px;"><span style="width:3px;border-radius:2px;background:#16256B;"></span><span style="width:3px;border-radius:2px;background:#F27518;"></span><span style="width:3px;border-radius:2px;background:#8E1D1B;"></span></span><span style="color:#0F141E;font-weight:800;font-size:17px;letter-spacing:0.04em;">MAHAPATRA</span></div><p style="font-size:16px;line-height:1.6;color:#3F434C;max-width:280px;margin:0 0 20px;">A diversified global conglomerate built on Leadership with Trust, founded by Preeti Mahapatra.</p><div style="display:flex;gap:10px;"><a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.3c0-1.5-.03-3.4-2.08-3.4-2.08 0-2.4 1.63-2.4 3.3V21h-4V9z"/></svg></a><a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a></div></div><div><div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Navigation</div><div style="display:flex;flex-direction:column;gap:11px;"><a href="about.dc.html" style="color:#3F434C;font-size:14px;" style-hover="color:#8E1D1B;">About Our Group</a><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Executive Leadership</span><a href="contact.dc.html" style="color:#3F434C;font-size:14px;" style-hover="color:#8E1D1B;">Corporate Inquiries</a><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Engineering</span><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Information Technology</span><span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Hospitality</span></div></div><div><div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div><div style="display:flex;flex-direction:column;gap:11px;"><a href="mailto:contactus@mahapatrauniversal.com" style="color:#3F434C;font-size:14px;word-break:break-word;" style-hover="color:#8E1D1B;">contactus@mahapatrauniversal.com</a><span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span></div></div></div></div><div style="background:#0F141E;padding:36px clamp(24px,4.5vw,64px) 24px;margin-top:0;"><div class="r-footer-bottom" style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;"><a href="#" style="color:rgba(255,255,255,0.55);font-size:13px;font-weight:600;" style-hover="color:#FFFFFF;">Privacy Policy</a><span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;letter-spacing:0.02em;">Mahapatra Universal Limited</span><span style="color:rgba(255,255,255,0.55);font-size:13px;">Copyright 2026 All rights reserved.</span></div></div></footer>
 
 </div>
 </div>
