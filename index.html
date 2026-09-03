@@ -1,130 +1,61 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
-  }
-  window.scrollTo(0, 0);
-</script>
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.css">
+<link rel="stylesheet" href="./main.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInputWithUtils.min.js"></script>
-<script src="./image-slot.js"></script>
-<style>
-  html{
-    --grad-brand: linear-gradient(100deg, #16256B 0%, #F27518 50%, #8E1D1B 100%);
-    --grad-brand-soft: linear-gradient(100deg, rgba(22,37,107,0.12) 0%, rgba(242,117,24,0.10) 50%, rgba(142,29,27,0.12) 100%);
-    --grad-brand-wash: linear-gradient(120deg, rgba(22,37,107,0.06) 0%, rgba(242,117,24,0.05) 50%, rgba(142,29,27,0.06) 100%);
-  }
-  html, body{margin:0;padding:0;background:#FFFFFF;color:#101114;scroll-behavior:smooth;}
-  a{text-decoration:none;color:inherit;}
-  @keyframes fadeUp{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
-  .reveal{opacity:0;transform:translateY(36px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1);}
-  .reveal.is-visible{opacity:1;transform:translateY(0);}
-  .reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);}
-  .reveal-stagger > *{opacity:0;transform:translateY(28px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1);}
-  .reveal-stagger.is-visible > *:nth-child(1){transition-delay:0.05s;}
-  .reveal-stagger.is-visible > *:nth-child(2){transition-delay:0.15s;}
-  .reveal-stagger.is-visible > *:nth-child(3){transition-delay:0.25s;}
-  .reveal-stagger.is-visible > *:nth-child(4){transition-delay:0.35s;}
-  .reveal-stagger.is-visible > *:nth-child(5){transition-delay:0.45s;}
-  @media (prefers-reduced-motion: reduce){
-    .reveal, .reveal-stagger > *{opacity:1!important;transform:none!important;transition:none!important;}
-  }
-  @keyframes heroGradientShift{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-  }
-  @keyframes orbFloat1{
-    0%, 100%{transform:translate(0px, 0px) scale(1);}
-    50%{transform:translate(40px, -30px) scale(1.18);}
-  }
-  @keyframes orbFloat2{
-    0%, 100%{transform:translate(0px, 0px) scale(1);}
-    50%{transform:translate(-40px, 30px) scale(1.22);}
-  }
-  @keyframes orbFloat3{
-    0%, 100%{transform:translate(0px, 0px) scale(0.9);}
-    50%{transform:translate(30px, 40px) scale(1.15);}
-  }
-  .hero-animated-bg{
-    background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 35%, #F4F6FC 70%, #FFFFFF 100%);
-    background-size: 200% 200%;
-    animation: heroGradientShift 14s ease infinite;
-    position: relative;
-    overflow: hidden;
-  }
-  .iti{width:100%;}
-  #hero-phone-input{
-    width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);
-    border-radius:10px;padding:12px 14px 12px 52px;font-family:'Plus Jakarta Sans',sans-serif;
-    font-size:14px;font-weight:500;color:#101114;outline:none;
-  }
-  .iti__selected-flag{padding:0 8px 0 12px;}
-  .iti__country-list{font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;border-radius:10px;box-shadow:0 12px 32px rgba(15,20,30,0.18);}
-
-  /* ==================== RESPONSIVE LAYER ====================
-     Layout-only adaptations for small screens.
-     Desktop rendering is unchanged. */
-  img{max-width:100%;}
-  *{-webkit-text-size-adjust:100%;}
-
-  /* Tablet landscape */
-  @media (max-width:1023px){
-    .r-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
-  }
-
-  /* Tablet portrait / large phone */
-  @media (max-width:900px){
-    .r-split{grid-template-columns:minmax(0,1fr)!important;}
-    /* stacked splits whose image comes last in source get it back on top */
-    .r-rev > *:last-child{order:-1;}
-    .r-hero{min-height:auto!important;padding-top:clamp(108px,15vh,132px)!important;padding-bottom:clamp(48px,7vh,72px)!important;}
-    .r-hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:36px!important;}
-    .r-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:36px!important;}
-    .r-metric{border-left:0!important;}
-  }
-
-  /* Phone */
-  @media (max-width:640px){
-    .r-grid-4{grid-template-columns:minmax(0,1fr)!important;}
-    .r-footer-grid{grid-template-columns:minmax(0,1fr)!important;gap:30px!important;}
-    .r-footer-bottom{flex-direction:column!important;align-items:center!important;text-align:center!important;gap:10px!important;}
-    .r-hero-trust{flex-wrap:wrap!important;gap:10px 18px!important;}
-    .r-ms-head{flex-direction:column!important;align-items:flex-start!important;gap:16px!important;}
-    .r-stack-sm{flex-direction:column!important;align-items:flex-start!important;gap:10px!important;}
-    /* Stop iOS Safari zooming the viewport on field focus */
-    input,select,textarea{font-size:16px!important;}
-  }
-
-  /* Very narrow phones: auto-fit minimums are wider than the available track
-     and would force horizontal overflow. These grids are already single-column
-     at this width, so pinning them to 1fr is visually identical. */
-  @media (max-width:420px){
-    .r-cards{grid-template-columns:minmax(0,1fr)!important;}
-  }
-</style>
-</helmet>
+<script src="./main.js" defer></script>
+<title>Mahapatra Universal Limited</title>
+</head>
+<body>
 <div style="background:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
 <div id="page-top">
 
-  <dc-import name="SiteHeader" active="home"></dc-import>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a href="index.html" class="site-header-logo">
+        <span class="site-header-bars">
+          <span style="background:#16256B;"></span>
+          <span style="background:#F27518;"></span>
+          <span style="background:#8E1D1B;"></span>
+        </span>
+        <span class="site-header-wordmark">
+          <b>MAHAPATRA</b>
+          <small>Universal Limited</small>
+        </span>
+      </a>
+
+      <nav class="site-nav">
+        <a href="about.html">About Us</a>
+        <a href="business.html">Businesses</a>
+        <a href="leadership.html">Leadership</a>
+      </nav>
+
+      <div class="site-header-actions">
+        <a href="contact.html" class="site-header-cta">Contact Us</a>
+        <button class="hamburger-btn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-panel">
+      <a href="about.html">About Us</a>
+      <a href="business.html">Businesses</a>
+      <a href="leadership.html">Leadership</a>
+      <a href="contact.html" class="mobile-cta">Contact Us</a>
+    </div>
+  </header>
 
   <!-- HERO SECTION (Fits exactly within 100vh viewport) -->
   <section class="r-hero" style="min-height:100vh;box-sizing:border-box;padding:clamp(90px,11vh,112px) clamp(24px,4.5vw,64px) clamp(20px,3.5vh,40px);display:flex;align-items:center;position:relative;background-image:linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)), url('./assets/hero-bg.jpg');background-size:cover;background-position:center;">
     <div class="r-hero-grid" style="max-width:1240px;width:100%;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,380px);gap:clamp(32px,5vw,56px);align-items:center;">
 
-      <div style="opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s forwards;">
+      <div class="fade-up" style="animation-delay:0.1s;">
 
         <!-- Enterprise Credential Badge with Signature 3-Bar Brand Insignia -->
         <div style="display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.14);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.28);color:#FFFFFF;font-size:12.5px;font-weight:700;letter-spacing:0.06em;padding:6px 16px 6px 12px;border-radius:100px;margin-bottom:clamp(14px,2.2vh,24px);text-transform:uppercase;">
@@ -140,7 +71,7 @@
           <!-- Captivating Hero Headline with Structured Emphasis -->
           <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#FFFFFF;font-size:clamp(36px,4.4vw,62px);line-height:1.08;letter-spacing:-0.03em;margin:0;">
             Building Global Scale.<br/>
-            Guided by <span style="{{ heroWordStyle }}">{{ heroWord }}</span> with Trust.
+            Guided by <span class="hero-word">Leadership</span> with Trust.
           </h1>
 
           <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.82);max-width:560px;margin:clamp(14px,2vh,24px) 0 clamp(18px,2.5vh,28px);font-weight:400;">
@@ -176,11 +107,11 @@
       </div>
 
       <!-- Minimal Enquiry Form -->
-      <div style="opacity:0;animation:fadeUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.25s forwards;background:rgba(255,255,255,0.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,0.6);border-radius:20px;padding:clamp(22px,2.6vw,30px);box-shadow:0 24px 60px rgba(8,10,18,0.28);position:relative;overflow:hidden;">
+      <div class="fade-up-delay" style="background:rgba(255,255,255,0.82);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,0.6);border-radius:20px;padding:clamp(22px,2.6vw,30px);box-shadow:0 24px 60px rgba(8,10,18,0.28);position:relative;overflow:hidden;">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;color:#8A8F99;text-transform:uppercase;margin-bottom:6px;">Get in Touch</div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#101114;font-size:clamp(20px,1.8vw,24px);letter-spacing:-0.01em;margin:0 0 18px;line-height:1.2;">Send Us an Enquiry</h3>
 
-        <form style="display:flex;flex-direction:column;gap:12px;">
+        <form style="display:flex;flex-direction:column;gap:12px;" onsubmit="event.preventDefault();">
           <input type="text" name="name" placeholder="Full Name" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
           <input type="email" name="email" placeholder="Email Address" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
           <input type="tel" id="hero-phone-input" name="phone" placeholder="Phone Number" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
@@ -204,7 +135,7 @@
       <div style="position:relative;padding:8px 12px;">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:#9FA6B2;text-transform:uppercase;margin-bottom:10px;">Corporate Scope</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,4.2vw,52px);color:#FFFFFF;letter-spacing:-0.03em;line-height:1;">
-          {{ statSubsidiaries }}
+          <span data-stat-target="5">0</span>
         </div>
         <div style="font-size:14.5px;font-weight:600;color:rgba(255,255,255,0.85);margin-top:8px;">Subsidiaries Operating</div>
       </div>
@@ -212,7 +143,7 @@
       <div class="r-metric" style="position:relative;padding:8px 12px;border-left:1px solid rgba(255,255,255,0.1);">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:#9FA6B2;text-transform:uppercase;margin-bottom:10px;">Diversification</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,4.2vw,52px);color:#FFFFFF;letter-spacing:-0.03em;line-height:1;">
-          {{ statVerticals }}
+          <span data-stat-target="11">0</span>
         </div>
         <div style="font-size:14.5px;font-weight:600;color:rgba(255,255,255,0.85);margin-top:8px;">Business Verticals</div>
       </div>
@@ -220,7 +151,7 @@
       <div class="r-metric" style="position:relative;padding:8px 12px;border-left:1px solid rgba(255,255,255,0.1);">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:#9FA6B2;text-transform:uppercase;margin-bottom:10px;">Global Footprint</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,4.2vw,52px);color:#FFFFFF;letter-spacing:-0.03em;line-height:1;">
-          {{ statCountries }}
+          <span data-stat-target="7">0</span>
         </div>
         <div style="font-size:14.5px;font-weight:600;color:rgba(255,255,255,0.85);margin-top:8px;">Countries with Presence</div>
       </div>
@@ -228,7 +159,7 @@
       <div class="r-metric" style="position:relative;padding:8px 12px;border-left:1px solid rgba(255,255,255,0.1);">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:#9FA6B2;text-transform:uppercase;margin-bottom:10px;">International Reach</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,4.2vw,52px);color:#FFFFFF;letter-spacing:-0.03em;line-height:1;">
-          {{ statContinents }}
+          <span data-stat-target="3">0</span>
         </div>
         <div style="font-size:14.5px;font-weight:600;color:rgba(255,255,255,0.85);margin-top:8px;">Continents Connected</div>
       </div>
@@ -260,12 +191,12 @@
           Corporate Overview
         </div>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);color:#0F141E;line-height:1.18;letter-spacing:-0.02em;margin:0 0 20px;">
-          A <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">legacy</span> of disciplined enterprise, a future of enduring <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">impact</span>.
+          A <span class="text-gradient">legacy</span> of disciplined enterprise, a future of enduring <span class="text-gradient">impact</span>.
         </h2>
         <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 28px;max-width:580px;">
           Headquartered in India with operations reaching seven countries across three continents, Mahapatra Universal Limited unites five premier subsidiaries under one standard — building high-performance, future-ready organizations guided by transparency, capital efficiency, and strategic execution.
         </p>
-        <a href="about.dc.html" style="display:inline-flex;align-items:center;gap:10px;color:#0F141E;font-weight:700;font-size:15.5px;padding-bottom:4px;border-bottom:2px solid #0F141E;transition:all 0.2s ease;" style-hover="color:#8E1D1B;border-color:#8E1D1B;gap:14px;">
+        <a href="about.html" style="display:inline-flex;align-items:center;gap:10px;color:#0F141E;font-weight:700;font-size:15.5px;padding-bottom:4px;border-bottom:2px solid #0F141E;transition:all 0.2s ease;">
           Learn More About Our Group
           <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -291,7 +222,7 @@
           Portfolio Snapshot
         </div>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,44px);color:#0F141E;letter-spacing:-0.02em;margin:0 0 28px;line-height:1.2;">
-          <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Diverse portfolio</span>, strong finances, reinvesting dividends for growth.
+          <span class="text-gradient">Diverse portfolio</span>, strong finances, reinvesting dividends for growth.
         </h2>
         <span style="display:inline-flex;align-items:center;gap:8px;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:14.5px;padding:13px 26px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:default;">
           Explore our cases
@@ -302,7 +233,7 @@
       <div class="reveal reveal-stagger r-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
 
         <!-- Sceniuz -->
-        <div style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease;display:flex;flex-direction:column;" style-hover="transform:translateY(-8px);box-shadow:0 28px 60px rgba(142,29,27,0.16);">
+        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
           <div style="height:4px;background:#8E1D1B;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/sceniuz-logo.png" alt="Sceniuz Information Technology" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -315,7 +246,7 @@
         </div>
 
         <!-- Futura -->
-        <div style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease;display:flex;flex-direction:column;" style-hover="transform:translateY(-8px);box-shadow:0 28px 60px rgba(22,37,107,0.16);">
+        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
           <div style="height:4px;background:#16256B;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/futura-logo.png" alt="Futura Hotels &amp; Resorts" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -328,7 +259,7 @@
         </div>
 
         <!-- Happy Hours -->
-        <div style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease;display:flex;flex-direction:column;" style-hover="transform:translateY(-8px);box-shadow:0 28px 60px rgba(15,20,30,0.16);">
+        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
           <div style="height:4px;background:#0F141E;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/happyhours-logo.png" alt="Happy Hours Platform" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -341,7 +272,7 @@
         </div>
 
         <!-- Preeti's -->
-        <div style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),box-shadow 0.35s ease;display:flex;flex-direction:column;" style-hover="transform:translateY(-8px);box-shadow:0 28px 60px rgba(242,117,24,0.16);">
+        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
           <div style="height:4px;background:#F27518;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/preetis-logo.png" alt="Preeti's Retail" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -358,9 +289,9 @@
   </section>
 
   <!-- MILESTONES TIMELINE (INTERACTIVE SCRUBBER) -->
-  <section style="background:linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
-    <div style="{{ milestoneGlowStylePrev }}"></div>
-    <div style="{{ milestoneGlowStyle }}"></div>
+  <section data-milestones style="background:linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.14) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 30%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 50% 30%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div class="ms-glow" data-ms-glow></div>
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);z-index:1;"></div>
     <div class="reveal" style="max-width:920px;margin:0 auto;position:relative;z-index:1;">
       <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
@@ -373,41 +304,31 @@
       </div>
 
       <div class="r-ms-head" style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;margin-bottom:20px;overflow:hidden;">
-        <div style="{{ milestoneYearStyle }}">{{ activeMilestoneYear }}</div>
+        <div class="ms-fade" data-ms-year style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(56px,9vw,120px);line-height:0.9;letter-spacing:-0.03em;"></div>
         <div style="display:flex;gap:10px;flex-shrink:0;margin-top:10px;">
-          <button onClick="{{ prevMilestone }}" aria-label="Previous milestone" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);color:#FFFFFF;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;" style-hover="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.35);">
+          <button class="ms-nav-btn" data-ms-prev aria-label="Previous milestone">
             <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M12 7H2M2 7L7 2M2 7L7 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
-          <button onClick="{{ nextMilestone }}" aria-label="Next milestone" style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);color:#FFFFFF;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s ease;" style-hover="background:rgba(255,255,255,0.14);border-color:rgba(255,255,255,0.35);">
+          <button class="ms-nav-btn" data-ms-next aria-label="Next milestone">
             <svg width="16" height="16" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
       </div>
 
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;{{ milestoneFadeStyle }}">
-        <span style="background:rgba(255,255,255,0.08);border:1px solid rgba({{ activeMilestoneColorRgb }},0.35);color:{{ activeMilestoneColor }};padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:0.06em;">{{ activeMilestoneCategory }}</span>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <span class="ms-fade" data-ms-category style="background:rgba(255,255,255,0.08);border:1px solid;padding:5px 12px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:0.06em;"></span>
       </div>
-      <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(20px,2.2vw,26px);color:#FFFFFF;margin:0 0 10px;{{ milestoneFadeStyle }}">{{ activeMilestoneTitle }}</h3>
-      <p style="font-size:16px;line-height:1.7;color:rgba(255,255,255,0.7);max-width:640px;margin:0 0 40px;{{ milestoneFadeStyle }}">{{ activeMilestoneDesc }}</p>
+      <h3 class="ms-fade" data-ms-title style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(20px,2.2vw,26px);color:#FFFFFF;margin:0 0 10px;"></h3>
+      <p class="ms-fade" data-ms-desc style="font-size:16px;line-height:1.7;color:rgba(255,255,255,0.7);max-width:640px;margin:0 0 40px;"></p>
 
       <!-- Horizontal track -->
       <div style="position:relative;border-top:1px solid rgba(255,255,255,0.12);padding-top:28px;display:flex;gap:4px;">
-        <div style="position:absolute;top:-1px;left:0;height:2px;background:{{ activeMilestoneColor }};border-radius:2px;transition:left 0.4s cubic-bezier(0.16,1,0.3,1),width 0.4s cubic-bezier(0.16,1,0.3,1),background 0.4s ease;{{ trackProgressStyle }}"></div>
-        <div onClick="{{ setMilestone(0) }}" style="{{ trackItemStyle(0) }}">
-          <span style="{{ dotStyle(0) }}"></span>
-        </div>
-        <div onClick="{{ setMilestone(1) }}" style="{{ trackItemStyle(1) }}">
-          <span style="{{ dotStyle(1) }}"></span>
-        </div>
-        <div onClick="{{ setMilestone(2) }}" style="{{ trackItemStyle(2) }}">
-          <span style="{{ dotStyle(2) }}"></span>
-        </div>
-        <div onClick="{{ setMilestone(3) }}" style="{{ trackItemStyle(3) }}">
-          <span style="{{ dotStyle(3) }}"></span>
-        </div>
-        <div onClick="{{ setMilestone(4) }}" style="{{ trackItemStyle(4) }}">
-          <span style="{{ dotStyle(4) }}"></span>
-        </div>
+        <div class="ms-progress" data-ms-progress></div>
+        <div class="ms-track-item" data-ms-item><span class="ms-dot"></span></div>
+        <div class="ms-track-item" data-ms-item><span class="ms-dot"></span></div>
+        <div class="ms-track-item" data-ms-item><span class="ms-dot"></span></div>
+        <div class="ms-track-item" data-ms-item><span class="ms-dot"></span></div>
+        <div class="ms-track-item" data-ms-item><span class="ms-dot"></span></div>
       </div>
     </div>
   </section>
@@ -425,7 +346,7 @@
           Core Competencies
         </div>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);color:#0F141E;letter-spacing:-0.02em;margin:0;">
-          Our Primary <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Business Verticals</span>
+          Our Primary <span class="text-gradient">Business Verticals</span>
         </h2>
       </div>
 
@@ -510,9 +431,9 @@
       </div>
 
       <div class="reveal reveal-stagger r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:32px;max-width:920px;margin:0 auto;">
-        
+
         <!-- Preeti Profile -->
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;position:relative;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="background:rgba(255,255,255,0.07);border-color:rgba(142,29,27,0.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(142,29,27,0.18);">
+        <div class="hover-card" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;position:relative;overflow:hidden;">
           <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
           <div style="position:relative;z-index:1;border-radius:16px;overflow:hidden;aspect-ratio:4/3;margin-bottom:20px;background:rgba(255,255,255,0.03);">
             <img src="./assets/preeti.png" alt="Preeti Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
@@ -523,7 +444,7 @@
         </div>
 
         <!-- Harihara Profile -->
-        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;position:relative;overflow:hidden;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="background:rgba(255,255,255,0.07);border-color:rgba(22,37,107,0.4);transform:translateY(-6px);box-shadow:0 20px 50px rgba(22,37,107,0.18);">
+        <div class="hover-card" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:22px;padding:24px;position:relative;overflow:hidden;">
           <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;z-index:0;"></div>
           <div style="position:relative;z-index:1;border-radius:16px;overflow:hidden;aspect-ratio:4/3;margin-bottom:20px;background:rgba(255,255,255,0.03);">
             <img src="./assets/hari.png" alt="Harihara Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
@@ -553,13 +474,13 @@
           Market Presence
         </div>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);color:#0F141E;letter-spacing:-0.02em;margin:0;">
-          Recent <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Corporate Disclosures</span>
+          Recent <span class="text-gradient">Corporate Disclosures</span>
         </h2>
       </div>
 
       <div class="reveal reveal-stagger r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;">
-        
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(142,29,27,0.10);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="transform:translateY(-6px);box-shadow:0 1px 2px rgba(16,17,20,0.04),0 16px 32px rgba(16,17,20,0.08),0 30px 60px -12px rgba(142,29,27,0.2);border-color:rgba(142,29,27,0.3);">
+
+        <div class="hover-card" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(142,29,27,0.10);">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
             <span style="font-size:12px;font-weight:700;color:#8E1D1B;text-transform:uppercase;letter-spacing:0.06em;">Aviation Capital</span>
             <span style="font-size:12px;color:#8E8A80;font-weight:600;">2023</span>
@@ -568,7 +489,7 @@
           <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0;">Preeti and Harihara Mahapatra jointly acquired an equity stake exceeding 21% to support capital restructuring.</p>
         </div>
 
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(22,37,107,0.10);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="transform:translateY(-6px);box-shadow:0 1px 2px rgba(16,17,20,0.04),0 16px 32px rgba(16,17,20,0.08),0 30px 60px -12px rgba(22,37,107,0.2);border-color:rgba(22,37,107,0.3);">
+        <div class="hover-card" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(22,37,107,0.10);">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
             <span style="font-size:12px;font-weight:700;color:#16256B;text-transform:uppercase;letter-spacing:0.06em;">Sports &amp; Media</span>
             <span style="font-size:12px;color:#8E8A80;font-weight:600;">2025</span>
@@ -577,7 +498,7 @@
           <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0;">Acquisition of a professional T20 cricket team, promoting youth athletic talent and Barabati Stadium infrastructure.</p>
         </div>
 
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(242,117,24,0.10);transition:all 0.35s cubic-bezier(0.16,1,0.3,1);" style-hover="transform:translateY(-6px);box-shadow:0 1px 2px rgba(16,17,20,0.04),0 16px 32px rgba(16,17,20,0.08),0 30px 60px -12px rgba(242,117,24,0.2);border-color:rgba(242,117,24,0.3);">
+        <div class="hover-card" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:18px;padding:30px 26px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 22px rgba(16,17,20,0.05),0 22px 44px -12px rgba(242,117,24,0.10);">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
             <span style="font-size:12px;font-weight:700;color:#F27518;text-transform:uppercase;letter-spacing:0.06em;">Retail Equity</span>
             <span style="font-size:12px;color:#8E8A80;font-weight:600;">2025</span>
@@ -594,12 +515,12 @@
   <section style="background:linear-gradient(115deg,rgba(22,37,107,0.05) 0%,rgba(242,117,24,0.05) 50%,rgba(142,29,27,0.05) 100%),linear-gradient(180deg,#F7F6F2 0%,#EAE7DF 100%);padding:clamp(60px,7.5vw,90px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);">
     <div class="reveal" style="max-width:820px;margin:0 auto;text-align:center;">
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:#0F141E;letter-spacing:-0.02em;margin:0 0 16px;">
-        Partnering for <span style="background:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;">Long-Term Enterprise Growth</span>
+        Partnering for <span class="text-gradient">Long-Term Enterprise Growth</span>
       </h2>
       <p style="font-size:16px;line-height:1.65;color:#4A4E57;margin:0 0 34px;">
         Whether exploring joint ventures, capital investments, or technology advisory, our corporate desk responds within one business day.
       </p>
-      <a href="contact.dc.html" style="display:inline-flex;align-items:center;gap:10px;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);transition:all 0.25s ease;" style-hover="background:#8E1D1B;box-shadow:0 10px 28px rgba(142,29,27,0.28);transform:translateY(-2px);">
+      <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);transition:all 0.25s ease;">
         Initiate a Discussion
         <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -610,7 +531,7 @@
   <footer style="background:#0F141E;padding:0 clamp(24px,4.5vw,64px) 0;">
     <div style="max-width:1240px;margin:0 auto;position:relative;top:28px;background:#FAF9F6;border-radius:28px 28px 0 0;padding:clamp(44px,6vw,64px) clamp(32px,4.5vw,56px) clamp(56px,7vw,72px);box-shadow:0 -1px 2px rgba(16,17,20,0.03),0 -18px 40px rgba(16,17,20,0.06);">
       <div style="display:flex;justify-content:flex-end;margin-bottom:8px;">
-        <a href="#page-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;transition:all 0.2s ease;" style-hover="color:#8E1D1B;gap:12px;">
+        <a href="#page-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;">
           Back to top
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M7 2L2 7M7 2L12 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -629,10 +550,10 @@
             A diversified global conglomerate built on Leadership with Trust, founded by Preeti Mahapatra.
           </p>
           <div style="display:flex;gap:10px;">
-            <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;">
+            <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.3c0-1.5-.03-3.4-2.08-3.4-2.08 0-2.4 1.63-2.4 3.3V21h-4V9z"/></svg>
             </a>
-            <a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;transition:all 0.2s ease;" style-hover="background:#0F141E;color:#FFFFFF;">
+            <a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg>
             </a>
           </div>
@@ -640,9 +561,9 @@
         <div>
           <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Navigation</div>
           <div style="display:flex;flex-direction:column;gap:11px;">
-            <a href="about.dc.html" style="color:#3F434C;font-size:14px;" style-hover="color:#8E1D1B;">About Our Group</a>
+            <a href="about.html" style="color:#3F434C;font-size:14px;">About Our Group</a>
             <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Executive Leadership</span>
-            <a href="contact.dc.html" style="color:#3F434C;font-size:14px;" style-hover="color:#8E1D1B;">Corporate Inquiries</a>
+            <a href="contact.html" style="color:#3F434C;font-size:14px;">Corporate Inquiries</a>
             <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Engineering</span>
             <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Information Technology</span>
             <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Hospitality</span>
@@ -651,7 +572,7 @@
         <div>
           <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div>
           <div style="display:flex;flex-direction:column;gap:11px;">
-            <a href="mailto:contactus@mahapatrauniversal.com" style="color:#3F434C;font-size:14px;word-break:break-word;" style-hover="color:#8E1D1B;">contactus@mahapatrauniversal.com</a>
+            <a href="mailto:contactus@mahapatrauniversal.com" style="color:#3F434C;font-size:14px;word-break:break-word;">contactus@mahapatrauniversal.com</a>
             <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span>
           </div>
         </div>
@@ -659,7 +580,7 @@
     </div>
     <div style="background:#0F141E;padding:36px clamp(24px,4.5vw,64px) 24px;margin-top:0;">
       <div class="r-footer-bottom" style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;">
-        <a href="#" style="color:rgba(255,255,255,0.55);font-size:13px;font-weight:600;" style-hover="color:#FFFFFF;">Privacy Policy</a>
+        <a href="#" style="color:rgba(255,255,255,0.55);font-size:13px;font-weight:600;">Privacy Policy</a>
         <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;letter-spacing:0.02em;">Mahapatra Universal Limited</span>
         <span style="color:rgba(255,255,255,0.55);font-size:13px;">Copyright 2026 All rights reserved.</span>
       </div>
@@ -668,148 +589,5 @@
 
 </div>
 </div>
-
-</x-dc>
-<script type="text/x-dc" data-dc-script>
-
-class Component extends DCLogic {
-  state = { counts: { sub: 0, vert: 0, ctry: 0, cont: 0 }, activeMilestone: 0, prevMilestone: 0, fading: false, heroWordIndex: 0, heroWordFading: false };
-
-  heroWords = ['Leadership', 'Integrity', 'Stewardship', 'Leadership'];
-
-  milestones = [
-    { year: '2011', label: 'Group Inception', category: 'FOUNDATION', color: '#5B7FE0', colorRgb: '91,127,224',
-      desc: 'Mahapatra Universal Limited was formally incorporated, establishing the cornerstone for a scalable, diversified multi-sector industrial conglomerate.' },
-    { year: '2011-2023', label: 'Multi-Sector Expansion', category: 'DIVERSIFICATION', color: '#F27518', colorRgb: '242,117,24',
-      desc: 'Scaled into five independent operating subsidiaries across 11 key verticals -- Engineering, Data Technology, Hospitality, and Asset Restructuring across 7 countries.' },
-    { year: '2023', label: '₹1,100 Cr Strategic SpiceJet Stake', category: 'AVIATION CAPITAL', color: '#E0615C', colorRgb: '224,97,92',
-      desc: 'Preeti and Harihara Mahapatra orchestrated an equity acquisition exceeding 21% in SpiceJet, supporting landmark capital restructuring in commercial aviation.' },
-    { year: '2025', label: 'Odisha Pro T20 Franchise Ownership', category: 'SPORTS ASSET', color: '#4FC3A1', colorRgb: '79,195,161',
-      desc: 'Acquired a marquee professional cricket franchise, backing premier regional sports development and infrastructure at Barabati Stadium.' },
-    { year: '2025', label: 'SILGO Retail Limited Equity Investment', category: 'NSE LISTED ASSET', color: '#F2A15C', colorRgb: '242,161,92',
-      desc: 'Completed a strategic capital infusion into the publicly listed jewellery powerhouse, strengthening group presence in luxury gems and retail commodities.' },
-  ];
-
-  componentDidMount() {
-    this.timer = setTimeout(() => this.animateStats(), 400);
-    this.heroWordTimer = setInterval(() => this.cycleHeroWord(), 2200);
-
-    const phoneInput = document.querySelector('#hero-phone-input');
-    if (phoneInput && window.intlTelInput) {
-      this.iti = window.intlTelInput(phoneInput, {
-        initialCountry: 'in',
-        separateDialCode: true,
-        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js',
-      });
-    }
-
-    this.revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          this.revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-    document.querySelectorAll('.reveal').forEach((el) => this.revealObserver.observe(el));
-  }
-  componentWillUnmount() {
-    clearTimeout(this.timer);
-    clearTimeout(this.fadeTimer);
-    clearTimeout(this.heroWordFadeTimer);
-    clearInterval(this.heroWordTimer);
-    cancelAnimationFrame(this.raf);
-    if (this.iti) this.iti.destroy();
-    if (this.revealObserver) this.revealObserver.disconnect();
-  }
-
-  cycleHeroWord() {
-    this.setState({ heroWordFading: true });
-    this.heroWordFadeTimer = setTimeout(() => {
-      this.setState({
-        heroWordIndex: (this.state.heroWordIndex + 1) % this.heroWords.length,
-        heroWordFading: false,
-      });
-    }, 260);
-  }
-
-  animateStats() {
-    const targets = { sub: 5, vert: 11, ctry: 7, cont: 3 };
-    const duration = 1400;
-    const start = performance.now();
-    const ease = (t) => 1 - Math.pow(1 - t, 3);
-    const tick = (now) => {
-      const p = Math.min(1, (now - start) / duration);
-      const e = ease(p);
-      this.setState({
-        counts: {
-          sub: Math.round(targets.sub * e),
-          vert: Math.round(targets.vert * e),
-          ctry: Math.round(targets.ctry * e),
-          cont: Math.round(targets.cont * e),
-        },
-      });
-      if (p < 1) this.raf = requestAnimationFrame(tick);
-    };
-    this.raf = requestAnimationFrame(tick);
-  }
-
-  goToMilestone(i) {
-    if (i === this.state.activeMilestone || this.state.fading) return;
-    clearTimeout(this.fadeTimer);
-    this.setState({ fading: true, prevMilestone: this.state.activeMilestone });
-    this.fadeTimer = setTimeout(() => {
-      this.setState({ activeMilestone: i, fading: false });
-    }, 220);
-  }
-  setMilestone(i) { this.goToMilestone(i); }
-  prevMilestone() { this.goToMilestone((this.state.activeMilestone + this.milestones.length - 1) % this.milestones.length); }
-  nextMilestone() { this.goToMilestone((this.state.activeMilestone + 1) % this.milestones.length); }
-
-  renderVals() {
-    const m = this.milestones[this.state.activeMilestone];
-    const n = this.milestones.length;
-    const fading = this.state.fading;
-    const trackItemStyle = (i) => {
-      const active = i === this.state.activeMilestone;
-      return `cursor:pointer;padding:10px 4px;display:flex;flex-direction:column;align-items:center;gap:8px;flex:1;transition:opacity 0.3s ease;opacity:${active ? '1' : '0.6'};`;
-    };
-    const dotStyle = (i) => {
-      const active = i === this.state.activeMilestone;
-      const c = this.milestones[i].color;
-      return `width:${active ? '12px' : '8px'};height:${active ? '12px' : '8px'};border-radius:50%;background:${c};transition:all 0.3s cubic-bezier(0.16,1,0.3,1);box-shadow:${active ? `0 0 0 5px rgba(${this.milestones[i].colorRgb},0.2)` : 'none'};`;
-    };
-    const labelStyle = (i) => {
-      const active = i === this.state.activeMilestone;
-      return `font-size:13px;font-weight:${active ? '800' : '600'};color:${active ? '#FFFFFF' : 'rgba(255,255,255,0.65)'};letter-spacing:0.02em;white-space:nowrap;transition:color 0.3s ease,font-weight 0.3s ease;`;
-    };
-    const fadeTransform = fading ? 'opacity:0;transform:translateY(10px);' : 'opacity:1;transform:translateY(0);';
-    return {
-      heroWord: this.heroWords[this.state.heroWordIndex],
-      heroWordStyle: `color:#FFFFFF;display:inline-block;background-image:var(--grad-brand);background-repeat:no-repeat;background-size:100% 4px;background-position:0 100%;padding-bottom:6px;transition:opacity 0.26s ease,transform 0.26s ease;${this.state.heroWordFading ? 'opacity:0;transform:translateY(8px);' : 'opacity:1;transform:translateY(0);'}`,
-      statSubsidiaries: this.state.counts.sub,
-      statVerticals: this.state.counts.vert,
-      statCountries: this.state.counts.ctry,
-      statContinents: this.state.counts.cont,
-      activeMilestoneYear: m.year,
-      activeMilestoneTitle: m.label,
-      activeMilestoneDesc: m.desc,
-      activeMilestoneCategory: m.category,
-      activeMilestoneColor: m.color,
-      activeMilestoneColorRgb: m.colorRgb,
-      milestoneGlowStyle: `position:absolute;inset:0;background-image:radial-gradient(circle at 12% 15%,rgba(${m.colorRgb},0.3) 0%,transparent 45%),radial-gradient(circle at 88% 85%,rgba(${m.colorRgb},0.22) 0%,transparent 45%);opacity:1;transition:opacity 0.9s ease;`,
-      milestoneGlowStylePrev: `position:absolute;inset:0;background-image:radial-gradient(circle at 12% 15%,rgba(${this.milestones[this.state.prevMilestone].colorRgb},0.3) 0%,transparent 45%),radial-gradient(circle at 88% 85%,rgba(${this.milestones[this.state.prevMilestone].colorRgb},0.22) 0%,transparent 45%);opacity:${fading ? '1' : '0'};transition:opacity 0.9s ease;`,
-      milestoneYearStyle: `font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(56px,9vw,120px);color:${m.color};line-height:0.9;letter-spacing:-0.03em;transition:opacity 0.22s ease,transform 0.22s ease,color 0.3s ease;${fadeTransform}`,
-      milestoneFadeStyle: `transition:opacity 0.22s ease,transform 0.22s ease;${fadeTransform}`,
-      trackProgressStyle: `width:${100 / n}%;left:${(100 / n) * this.state.activeMilestone}%;`,
-      setMilestone: (i) => () => this.setMilestone(i),
-      prevMilestone: () => this.prevMilestone(),
-      nextMilestone: () => this.nextMilestone(),
-      trackItemStyle, dotStyle, labelStyle,
-    };
-  }
-}
-
-</script>
 </body>
 </html>
