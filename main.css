@@ -718,3 +718,32 @@ html.mu-no-splash #mu-splash{display:none;}
   #mu-splash.is-leaving .mu-splash-stage{animation:none;}
   @keyframes muFadeOnly{to{opacity:0;}}
 }
+
+/* Mobile body copy: slightly larger and darker for readability on small screens.
+   Body text is set inline throughout the pages, so these overrides match the
+   exact inline sizes/colours in use and need !important to win. */
+@media (max-width:640px){
+  p[style*="font-size:14px"]{font-size:15px!important;}
+  p[style*="font-size:14.5px"]{font-size:15.5px!important;}
+  p[style*="font-size:15px"]{font-size:16px!important;}
+  p[style*="font-size:15.5px"]{font-size:16.5px!important;}
+  p[style*="font-size:16px"]{font-size:17px!important;}
+  li[style*="font-size:14.5px"], span[style*="font-size:14.5px"]{font-size:15.5px!important;}
+  li[style*="font-size:15px"], span[style*="font-size:15px"]{font-size:16px!important;}
+  li[style*="font-size:15.5px"], span[style*="font-size:15.5px"]{font-size:16.5px!important;}
+  li[style*="font-size:16px"], span[style*="font-size:16px"]{font-size:17px!important;}
+
+  [style*="color:#3F434C"]{color:#2A2E37!important;}
+  [style*="color:#4A4E57"]{color:#33373F!important;}
+  [style*="color:#717682"]{color:#5A5F6B!important;}
+}
+
+/* Footer body text: same mobile bump — these use classes, not inline styles,
+   plus the copyright bar uses translucent white on the dark bottom strip. */
+@media (max-width:640px){
+  .footer-link{font-size:15px;color:#2A2E37;}
+  .site-footer-tagline{font-size:17px;color:#2A2E37;}
+  .site-footer-address{font-size:14.5px;color:#2A2E37;}
+  .r-footer-bottom span[style*="color:rgba(255,255,255,0.7)"]{color:rgba(255,255,255,0.85)!important;}
+  .r-footer-bottom span[style*="color:rgba(255,255,255,0.55)"]{color:rgba(255,255,255,0.75)!important;}
+}
