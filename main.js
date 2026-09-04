@@ -2,6 +2,41 @@
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 
+  // Intro splash: dismiss once the page is ready, after a short minimum on-screen time.
+  (function initSplash() {
+    var splash = document.getElementById('mu-splash');
+    var root = document.documentElement;
+    if (!splash || root.classList.contains('mu-no-splash')) {
+      root.classList.remove('mu-splash-lock');
+      if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
+      return;
+    }
+
+    var MIN_MS = 1400;   // let the logo animation finish
+    var MAX_MS = 3200;   // hard cap on slow connections
+    var start = Date.now();
+    var done = false;
+
+    function dismiss() {
+      if (done) return;
+      done = true;
+      splash.classList.add('is-leaving');
+      root.classList.remove('mu-splash-lock');
+      window.scrollTo(0, 0);
+      setTimeout(function () {
+        if (splash.parentNode) splash.parentNode.removeChild(splash);
+      }, 800);
+    }
+
+    function ready() {
+      setTimeout(dismiss, Math.max(0, MIN_MS - (Date.now() - start)));
+    }
+
+    if (document.readyState === 'complete') ready();
+    else window.addEventListener('load', ready);
+    setTimeout(dismiss, MAX_MS);
+  })();
+
   // Mobile menu toggle
   document.addEventListener('DOMContentLoaded', function () {
     var btn = document.querySelector('.hamburger-btn');
@@ -78,25 +113,145 @@
       setTimeout(animateStats, 400);
     }
 
-    // Phone input (intl-tel-input)
-    var phoneInput = document.querySelector('#hero-phone-input');
-    if (phoneInput && window.intlTelInput) {
-      window.intlTelInput(phoneInput, {
-        initialCountry: 'in',
-        separateDialCode: true,
-        utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js',
+    // Phone inputs (intl-tel-input) -- applies to every tel field with a country selector
+    var phoneInputs = document.querySelectorAll('input[type="tel"][data-intl-phone]');
+    if (phoneInputs.length && window.intlTelInput) {
+      phoneInputs.forEach(function (input) {
+        window.intlTelInput(input, {
+          initialCountry: 'in',
+          separateDialCode: true,
+          utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js',
+        });
       });
     }
 
     // Milestones scrubber
     initMilestones();
 
-    // Dossier nav horizontal scroll (drag + wheel)
-    initDossierScroll();
-
     // Contact form
     initContactForm();
+
+    // Hero enquiry form
+    initHeroForm();
   });
+
+  // ---- Shared form validation ----
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  // Accepts optional leading + and 7-15 digits total, allowing spaces/dashes/parens as separators.
+  var PHONE_RE = /^\+?[0-9()\-\s]{7,20}$/;
+  // Letters (incl. accented), spaces, apostrophes, hyphens and periods -- no digits.
+  var NAME_RE = /^[\p{L}][\p{L}\s.'-]*$/u;
+
+  function fieldLabel(input) {
+    if (input.name === 'name') return 'name';
+    if (input.name === 'email') return 'email address';
+    if (input.name === 'phone') return 'phone number';
+    if (input.name === 'message') return 'message';
+    return 'field';
+  }
+
+  function validateField(input) {
+    var value = input.value.trim();
+    var required = input.hasAttribute('required');
+
+    if (!value) {
+      if (required) return 'Please enter your ' + fieldLabel(input) + '.';
+      return '';
+    }
+
+    if (input.type === 'email' && !EMAIL_RE.test(value)) {
+      return 'Please enter a valid email address.';
+    }
+
+    if (input.name === 'name' && !NAME_RE.test(value)) {
+      return 'Please enter a valid name (letters only).';
+    }
+
+    if (input.type === 'tel') {
+      var digits = value.replace(/[^0-9]/g, '');
+      if (!PHONE_RE.test(value) || digits.length < 7 || digits.length > 15) {
+        return 'Please enter a valid phone number.';
+      }
+    }
+
+    var minLength = input.getAttribute('minlength');
+    if (minLength && value.length < parseInt(minLength, 10)) {
+      if (input.tagName === 'TEXTAREA') {
+        return 'Please provide a bit more detail (' + minLength + '+ characters).';
+      }
+      return 'Please enter at least ' + minLength + ' characters.';
+    }
+
+    var maxLength = input.getAttribute('maxlength');
+    if (maxLength && value.length > parseInt(maxLength, 10)) {
+      return 'Please keep this under ' + maxLength + ' characters.';
+    }
+
+    return '';
+  }
+
+  function showFieldError(input, message) {
+    var errorEl = input.getAttribute('aria-describedby') ? document.getElementById(input.getAttribute('aria-describedby')) : null;
+    if (message) {
+      input.classList.add('form-field-invalid');
+      input.setAttribute('aria-invalid', 'true');
+      if (errorEl) {
+        errorEl.textContent = message;
+        errorEl.classList.add('is-visible');
+      }
+    } else {
+      input.classList.remove('form-field-invalid');
+      input.removeAttribute('aria-invalid');
+      if (errorEl) {
+        errorEl.textContent = '';
+        errorEl.classList.remove('is-visible');
+      }
+    }
+  }
+
+  function setupLiveValidation(form) {
+    var fields = form.querySelectorAll('input[name], textarea[name]');
+    fields.forEach(function (input) {
+      if (input.name === 'name') {
+        input.addEventListener('beforeinput', function (e) {
+          if (e.data && /[0-9]/.test(e.data)) e.preventDefault();
+        });
+      }
+      input.addEventListener('blur', function () {
+        showFieldError(input, validateField(input));
+      });
+      input.addEventListener('input', function () {
+        if (input.classList.contains('form-field-invalid')) {
+          showFieldError(input, validateField(input));
+        }
+      });
+    });
+  }
+
+  function validateForm(form) {
+    var fields = form.querySelectorAll('input[name], textarea[name]');
+    var firstInvalid = null;
+    var isValid = true;
+
+    fields.forEach(function (input) {
+      var message = validateField(input);
+      showFieldError(input, message);
+      if (message) {
+        isValid = false;
+        if (!firstInvalid) firstInvalid = input;
+      }
+    });
+
+    var submitError = form.querySelector('[data-form-error]');
+    if (submitError) {
+      submitError.classList.toggle('is-visible', !isValid);
+    }
+
+    if (firstInvalid) firstInvalid.focus();
+
+    return isValid;
+  }
 
   function initMilestones() {
     var root = document.querySelector('[data-milestones]');
@@ -231,103 +386,29 @@
     render();
   }
 
-  function initDossierScroll() {
-    var el = document.querySelector('.dossier-scroll');
-    if (!el) return;
-
-    var prevBtn = document.querySelector('[data-dossier-prev]');
-    var nextBtn = document.querySelector('[data-dossier-next]');
-    var thumb = document.querySelector('[data-dossier-thumb]');
-
-    function maxScroll() { return el.scrollWidth - el.clientWidth; }
-
-    function updateUI() {
-      var max = maxScroll();
-      var scrollable = max > 2;
-
-      if (prevBtn) prevBtn.disabled = !scrollable || el.scrollLeft <= 2;
-      if (nextBtn) nextBtn.disabled = !scrollable || el.scrollLeft >= max - 2;
-
-      if (thumb) {
-        if (!scrollable) {
-          thumb.style.width = '100%';
-          thumb.style.left = '0';
-        } else {
-          var thumbWidth = Math.max(12, (el.clientWidth / el.scrollWidth) * 100);
-          var travel = 100 - thumbWidth;
-          var progress = el.scrollLeft / max;
-          thumb.style.width = thumbWidth + '%';
-          thumb.style.left = (travel * progress) + '%';
-        }
-      }
-    }
-
-    el.addEventListener('scroll', updateUI, { passive: true });
-    window.addEventListener('resize', updateUI);
-
-    if (prevBtn) prevBtn.addEventListener('click', function () {
-      el.scrollBy({ left: -el.clientWidth * 0.6, behavior: 'smooth' });
-    });
-    if (nextBtn) nextBtn.addEventListener('click', function () {
-      el.scrollBy({ left: el.clientWidth * 0.6, behavior: 'smooth' });
-    });
-
-    // Vertical wheel scrolls the strip horizontally
-    el.addEventListener('wheel', function (e) {
-      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-      if (maxScroll() <= 0) return;
-      e.preventDefault();
-      el.scrollLeft += e.deltaY;
-    }, { passive: false });
-
-    // Links/text are natively draggable in most browsers, which hijacks
-    // mousemove before our custom drag-to-scroll ever sees it.
-    el.addEventListener('dragstart', function (e) { e.preventDefault(); });
-
-    // Click-and-drag scrolling for mouse users
-    var isDown = false;
-    var startX = 0;
-    var startScroll = 0;
-    var dragged = false;
-
-    el.addEventListener('mousedown', function (e) {
-      isDown = true;
-      dragged = false;
-      startX = e.pageX;
-      startScroll = el.scrollLeft;
-      el.classList.add('is-dragging');
-    });
-    window.addEventListener('mouseup', function () {
-      if (!isDown) return;
-      isDown = false;
-      el.classList.remove('is-dragging');
-    });
-    window.addEventListener('mousemove', function (e) {
-      if (!isDown) return;
-      var delta = e.pageX - startX;
-      if (Math.abs(delta) > 4) dragged = true;
-      el.scrollLeft = startScroll - delta;
-    });
-    // Suppress the tab click that follows a drag
-    el.addEventListener('click', function (e) {
-      if (dragged) {
-        e.preventDefault();
-        e.stopPropagation();
-      }
-      dragged = false;
-    }, true);
-
-    updateUI();
-  }
-
   function initContactForm() {
     var form = document.querySelector('[data-contact-form]');
     if (!form) return;
     var formPanel = document.querySelector('[data-contact-form-panel]');
     var successPanel = document.querySelector('[data-contact-success-panel]');
+    setupLiveValidation(form);
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (!validateForm(form)) return;
       if (formPanel) formPanel.style.display = 'none';
+      if (successPanel) successPanel.style.display = 'block';
+    });
+  }
+
+  function initHeroForm() {
+    var form = document.querySelector('[data-hero-form]');
+    if (!form) return;
+    var successPanel = document.querySelector('[data-hero-success-panel]');
+    setupLiveValidation(form);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateForm(form)) return;
+      form.style.display = 'none';
       if (successPanel) successPanel.style.display = 'block';
     });
   }

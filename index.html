@@ -3,15 +3,105 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preload" as="image" href="./assets/hero-bg.jpg" fetchpriority="high">
+<meta name="description" content="Mahapatra Universal Limited is a diversified Indian conglomerate driving growth across infrastructure, energy, and industrial fabrication — building the foundations of a stronger, more sustainable India.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://mahapatrauniversal.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mahapatra Universal Limited">
+<meta property="og:url" content="https://mahapatrauniversal.com/">
+<meta property="og:title" content="Mahapatra Universal Limited">
+<meta property="og:description" content="A diversified Indian conglomerate driving growth across infrastructure, energy, and industrial fabrication.">
+<meta property="og:image" content="https://mahapatrauniversal.com/assets/hero-bg.jpg">
+<meta property="og:locale" content="en_IN">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mahapatra Universal Limited">
+<meta name="twitter:description" content="A diversified Indian conglomerate driving growth across infrastructure, energy, and industrial fabrication.">
+<meta name="twitter:image" content="https://mahapatrauniversal.com/assets/hero-bg.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.css">
+<link rel="preload" as="image" href="./assets/mahapatra-logo.png" fetchpriority="high">
+<script>
+/* Intro splash gate — runs before <body> paints so page-to-page navigation never flashes it. */
+(function(){
+  var show = true;
+  try {
+    var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || null;
+    var type = nav ? nav.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : 'navigate');
+    if (type === 'reload') {
+      show = true;                       // refresh: always show
+    } else if (type === 'back_forward') {
+      show = false;                      // restored history entry
+    } else if (document.referrer) {
+      var r = document.createElement('a'); r.href = document.referrer;
+      if (r.host === location.host) show = false;   // internal page switch
+    }
+  } catch (e) { show = true; }
+  if (!show) document.documentElement.className += ' mu-no-splash';
+  else { document.documentElement.className += ' mu-splash-lock'; setTimeout(function(){ document.documentElement.classList.remove('mu-splash-lock'); }, 6000); }
+})();
+</script>
 <link rel="stylesheet" href="./main.css">
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/intlTelInputWithUtils.min.js"></script>
 <script src="./main.js" defer></script>
 <title>Mahapatra Universal Limited</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Mahapatra Universal Limited",
+  "url": "https://mahapatrauniversal.com/",
+  "logo": "https://mahapatrauniversal.com/assets/mahapatra-logo.png",
+  "description": "Mahapatra Universal Limited is a diversified Indian conglomerate driving growth across infrastructure, energy, and industrial fabrication.",
+  "email": "contactus@mahapatrauniversal.com",
+  "telephone": "+91-22-6264-2345",
+  "address": [
+    {
+      "@type": "PostalAddress",
+      "name": "Registered Office",
+      "streetAddress": "Office No. 5C-F, 5th Floor, Rushabh Chambers, Makwana Road, Gamdevi, Marol, Andheri (E)",
+      "addressLocality": "Mumbai",
+      "addressRegion": "Maharashtra",
+      "postalCode": "400059",
+      "addressCountry": "IN"
+    },
+    {
+      "@type": "PostalAddress",
+      "name": "Branch Office",
+      "streetAddress": "2nd Floor, West Wing, PGL Citi Mart, Plot No. M-15, NH-5, H.B. Colony, Baramunda",
+      "addressLocality": "Bhubaneswar",
+      "postalCode": "751003",
+      "addressCountry": "IN"
+    }
+  ],
+  "sameAs": [],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Infrastructure Development" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energy Solutions" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Industrial Fabrication" } }
+  ]
+}
+</script>
 </head>
 <body>
+
+<div id="mu-splash" role="status" aria-label="Loading Mahapatra Universal Limited">
+  <span class="mu-splash-rule"></span>
+  <div class="mu-splash-stage">
+    <div style="position:relative;">
+      <img class="mu-splash-logo" src="./assets/mahapatra-logo.png" alt="Mahapatra Universal Limited" width="771" height="208">
+      <span class="mu-splash-sheen"></span>
+    </div>
+    <div class="mu-splash-track"><span></span></div>
+    <div class="mu-splash-tag">Building India&rsquo;s Foundations</div>
+  </div>
+</div>
 <div style="background:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
 <div id="page-top">
 
@@ -79,29 +169,13 @@
           </p>
 
           <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
-            <span style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#0F141E;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 26px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:default;">
+            <a href="business.html" class="solid-white-btn" style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;color:#0F141E;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 26px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);">
               Explore Our Businesses
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-            <span style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,0.4);color:#FFFFFF;font-weight:700;font-size:14.5px;padding:11.5px 24px;border-radius:100px;cursor:default;">
+            </a>
+            <a href="leadership.html" class="frosted-btn" style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.1);backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,0.4);color:#FFFFFF;font-weight:700;font-size:14.5px;padding:11.5px 24px;border-radius:100px;">
               Executive Leadership
-            </span>
-          </div>
-
-          <!-- Trust Bar with 3-color accents -->
-          <div class="r-hero-trust" style="display:flex;align-items:center;gap:20px;margin-top:clamp(20px,2.8vh,32px);padding-top:clamp(16px,2vh,22px);border-top:1px solid rgba(255,255,255,0.2);">
-            <div style="display:flex;align-items:center;gap:7px;">
-              <span style="width:7px;height:7px;border-radius:50%;background:#16256B;"></span>
-              <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">7 Global Jurisdictions</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:7px;">
-              <span style="width:7px;height:7px;border-radius:50%;background:#F27518;"></span>
-              <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">3 Continents</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:7px;">
-              <span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;"></span>
-              <span style="font-size:12.5px;color:rgba(255,255,255,0.75);font-weight:600;">Active Governance</span>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -111,13 +185,36 @@
         <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;color:#8A8F99;text-transform:uppercase;margin-bottom:6px;">Get in Touch</div>
         <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#101114;font-size:clamp(20px,1.8vw,24px);letter-spacing:-0.01em;margin:0 0 18px;line-height:1.2;">Send Us an Enquiry</h3>
 
-        <form style="display:flex;flex-direction:column;gap:12px;" onsubmit="event.preventDefault();">
-          <input type="text" name="name" placeholder="Full Name" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
-          <input type="email" name="email" placeholder="Email Address" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
-          <input type="tel" id="hero-phone-input" name="phone" placeholder="Phone Number" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
-          <textarea name="message" placeholder="Your Message" rows="3" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;resize:none;"></textarea>
+        <div data-hero-success-panel style="display:none;text-align:center;padding:28px 8px;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(22,37,107,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 7" stroke="#16256B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h4 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#101114;margin:0 0 8px;">Enquiry Sent</h4>
+          <p style="font-size:14px;line-height:1.55;color:#4A4E57;margin:0;">Thank you — our team will be in touch shortly.</p>
+        </div>
 
-          <button type="submit" style="margin-top:4px;width:100%;background:#101114;color:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 20px;border:none;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
+        <form data-hero-form novalidate>
+          <div class="form-submit-error" data-form-error>Please correct the highlighted fields below and try again.</div>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+          <div>
+            <input type="text" id="hero-name" name="name" placeholder="Full Name" required minlength="2" maxlength="120" autocomplete="name" aria-describedby="hero-name-error" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
+            <div class="field-error-msg" id="hero-name-error" role="alert"></div>
+          </div>
+          <div>
+            <input type="email" id="hero-email" name="email" placeholder="Email Address" required maxlength="254" autocomplete="email" aria-describedby="hero-email-error" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
+            <div class="field-error-msg" id="hero-email-error" role="alert"></div>
+          </div>
+          <div>
+            <input type="tel" id="hero-phone-input" name="phone" placeholder="Phone Number" data-intl-phone aria-describedby="hero-phone-error" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;">
+            <div class="field-error-msg" id="hero-phone-error" role="alert"></div>
+          </div>
+          <div>
+            <textarea id="hero-message" name="message" placeholder="Your Message" rows="3" required minlength="10" maxlength="4000" aria-describedby="hero-message-error" style="width:100%;box-sizing:border-box;background:#F7F7F8;border:1px solid rgba(16,17,20,0.12);border-radius:10px;padding:12px 14px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:500;color:#101114;outline:none;resize:none;"></textarea>
+            <div class="field-error-msg" id="hero-message-error" role="alert"></div>
+          </div>
+          </div>
+
+          <button type="submit" class="cta-solid-red" style="margin-top:12px;width:100%;background:#101114;color:#FFFFFF;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14.5px;letter-spacing:0.01em;padding:13px 20px;border:none;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;">
             Submit Enquiry
             <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -186,7 +283,7 @@
       </div>
 
       <div class="reveal" style="transition-delay:0.15s;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
           Corporate Overview
         </div>
@@ -196,7 +293,7 @@
         <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 28px;max-width:580px;">
           Headquartered in Mumbai with operations reaching seven countries across three continents, Mahapatra Universal Limited unites four premier brands under one standard — building high-performance, future-ready organizations guided by transparency, capital efficiency, and strategic execution.
         </p>
-        <a href="about.html" style="display:inline-flex;align-items:center;gap:10px;color:#0F141E;font-weight:700;font-size:15.5px;padding-bottom:4px;border-bottom:2px solid #0F141E;transition:all 0.2s ease;">
+        <a href="about.html" class="underline-link-accent" style="display:inline-flex;align-items:center;gap:10px;color:#0F141E;font-weight:700;font-size:15.5px;padding-bottom:4px;border-bottom:2px solid #0F141E;transition:all 0.2s ease;">
           Learn More About Our Group
           <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
@@ -216,23 +313,19 @@
   <section style="background:#F7F6F2;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);">
     <div style="max-width:1240px;margin:0 auto;">
       <div class="reveal" style="max-width:720px;margin:0 auto 40px;text-align:center;">
-        <div style="display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
+        <div style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F27518;"></span>
           Portfolio Snapshot
         </div>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.4vw,44px);color:#0F141E;letter-spacing:-0.02em;margin:0 0 28px;line-height:1.2;">
           <span class="text-gradient">Diverse portfolio</span>, strong finances, reinvesting dividends for growth.
         </h2>
-        <span style="display:inline-flex;align-items:center;gap:8px;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:14.5px;padding:13px 26px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);cursor:default;">
-          Explore our cases
-          <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2 12L12 2M12 2H4M12 2V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
       </div>
 
       <div class="reveal reveal-stagger r-grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
 
         <!-- Sceniuz -->
-        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
+        <a href="business.html#technology" class="hover-card portfolio-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;text-decoration:none;color:inherit;">
           <div style="height:4px;background:#8E1D1B;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/sceniuz-logo.png" alt="Sceniuz Information Technology" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -242,10 +335,10 @@
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:#0F141E;margin:0 0 10px;line-height:1.35;letter-spacing:-0.01em;">Sceniuz</h3>
             <p style="font-size:16px;line-height:1.55;color:#3F434C;margin:0;">Enterprise data engineering and analytics consulting for global clients.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Futura -->
-        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
+        <a href="business.html#hospitality" class="hover-card portfolio-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;text-decoration:none;color:inherit;">
           <div style="height:4px;background:#16256B;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/futura-logo.png" alt="Futura Hotels &amp; Resorts" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -255,10 +348,10 @@
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:#0F141E;margin:0 0 10px;line-height:1.35;letter-spacing:-0.01em;">Futura Hotels &amp; Resorts</h3>
             <p style="font-size:16px;line-height:1.55;color:#3F434C;margin:0;">A growing portfolio of hotels and resorts across key leisure destinations.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Happy Hours -->
-        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
+        <a href="business.html#hospitality" class="hover-card portfolio-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;text-decoration:none;color:inherit;">
           <div style="height:4px;background:#0F141E;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/happyhours-logo.png" alt="Happy Hours Platform" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -268,10 +361,10 @@
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:#0F141E;margin:0 0 10px;line-height:1.35;letter-spacing:-0.01em;">Happy Hours</h3>
             <p style="font-size:16px;line-height:1.55;color:#3F434C;margin:0;">A 'Fun Mobile App' for promotional offers on food, drinks, bars, movies, adventures and more.</p>
           </div>
-        </div>
+        </a>
 
         <!-- Preeti's -->
-        <div class="hover-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;">
+        <a href="business.html#retail" class="hover-card portfolio-card" style="border-radius:20px;overflow:hidden;position:relative;background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);box-shadow:0 20px 45px rgba(15,20,30,0.08);display:flex;flex-direction:column;text-decoration:none;color:inherit;">
           <div style="height:4px;background:#F27518;"></div>
           <div style="aspect-ratio:16/11;display:flex;align-items:center;justify-content:center;padding:28px;">
             <img src="./assets/preetis-logo.png" alt="Preeti's Retail" style="max-width:100%;max-height:100%;object-fit:contain;">
@@ -281,7 +374,7 @@
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:19px;color:#0F141E;margin:0 0 10px;line-height:1.35;letter-spacing:-0.01em;">Preeti's</h3>
             <p style="font-size:16px;line-height:1.55;color:#3F434C;margin:0;">Trusted retail products delivering quality and value to everyday households.</p>
           </div>
-        </div>
+        </a>
 
       </div>
     </div>
@@ -294,7 +387,7 @@
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);z-index:1;"></div>
     <div class="reveal" style="max-width:920px;margin:0 auto;position:relative;z-index:1;">
       <div style="max-width:680px;margin:0 auto 56px;text-align:center;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
           Track Record &amp; Trajectory
         </div>
@@ -338,7 +431,7 @@
   <section style="background:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;">
       <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
-        <div style="display:inline-flex;align-items:center;gap:10px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
+        <div style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
           <span style="display:flex;gap:3px;height:12px;align-items:center;">
             <span style="width:2.5px;height:12px;border-radius:1px;background:#16256B;"></span>
             <span style="width:2.5px;height:9px;border-radius:1px;background:#F27518;"></span>
@@ -365,11 +458,7 @@
               <span style="font-size:10.5px;font-weight:800;color:rgba(22,37,107,0.55);letter-spacing:0.14em;">VERTICAL 01</span>
             </div>
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#0F141E;margin:0 0 12px;letter-spacing:-0.01em;">Heavy Engineering</h3>
-            <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0 0 24px;">Large-scale industrial developments, civil infrastructure, and turnkey project delivery managed with rigorous operational discipline.</p>
-          </div>
-          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;color:#16256B;font-weight:700;font-size:15px;border-top:1px solid rgba(16,17,20,0.06);padding-top:18px;">
-            Explore Capabilities
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0;">Large-scale industrial developments, civil infrastructure, and turnkey project delivery managed with rigorous operational discipline.</p>
           </div>
         </div>
 
@@ -385,11 +474,7 @@
               <span style="font-size:10.5px;font-weight:800;color:rgba(242,117,24,0.65);letter-spacing:0.14em;">VERTICAL 02</span>
             </div>
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#0F141E;margin:0 0 12px;letter-spacing:-0.01em;">Information Technology</h3>
-            <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0 0 24px;">Enterprise data engineering, certified Microsoft &amp; Qlik analytical consulting, and high-velocity digital transformation architecture.</p>
-          </div>
-          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;color:#F27518;font-weight:700;font-size:15px;border-top:1px solid rgba(16,17,20,0.06);padding-top:18px;">
-            Explore Capabilities
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0;">Enterprise data engineering, certified Microsoft &amp; Qlik analytical consulting, and high-velocity digital transformation architecture.</p>
           </div>
         </div>
 
@@ -405,14 +490,17 @@
               <span style="font-size:10.5px;font-weight:800;color:rgba(142,29,27,0.6);letter-spacing:0.14em;">VERTICAL 03</span>
             </div>
             <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#0F141E;margin:0 0 12px;letter-spacing:-0.01em;">Luxury Hospitality</h3>
-            <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0 0 24px;">Curated hospitality investments and institutional hotel assets partnered with world-renowned international hotel brands.</p>
-          </div>
-          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;color:#8E1D1B;font-weight:700;font-size:15px;border-top:1px solid rgba(16,17,20,0.06);padding-top:18px;">
-            Explore Capabilities
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <p style="font-size:16px;line-height:1.65;color:#3F434C;margin:0;">Curated hospitality investments and institutional hotel assets partnered with world-renowned international hotel brands.</p>
           </div>
         </div>
 
+      </div>
+
+      <div class="reveal" style="text-align:center;margin-top:44px;">
+        <a href="business.html" class="underline-link-accent" style="display:inline-flex;align-items:center;gap:10px;color:#0F141E;font-weight:700;font-size:16px;padding-bottom:4px;border-bottom:2px solid #0F141E;">
+          Explore Business
+          <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
       </div>
     </div>
   </section>
@@ -422,7 +510,7 @@
   <section style="background:#0F141E;color:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;">
       <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
           Executive Governance
         </div>
@@ -458,10 +546,10 @@
       </div>
 
       <div style="text-align:center;margin-top:44px;">
-        <span style="display:inline-flex;align-items:center;gap:10px;color:#FFFFFF;font-weight:700;font-size:16px;padding-bottom:4px;border-bottom:2px solid rgba(255,255,255,0.3);cursor:default;">
+        <a href="leadership.html" class="underline-link-accent" style="display:inline-flex;align-items:center;gap:10px;color:#FFFFFF;font-weight:700;font-size:16px;padding-bottom:4px;border-bottom:2px solid rgba(255,255,255,0.3);">
           Meet Our Full Board &amp; Leadership Team
           <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
+        </a>
       </div>
     </div>
   </section>
@@ -470,7 +558,7 @@
   <section style="background:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);">
     <div style="max-width:1240px;margin:0 auto;">
       <div class="reveal" style="max-width:680px;margin:0 auto 52px;text-align:center;">
-        <div style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
+        <div style="display:inline-flex;align-items:center;gap:8px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#8E1D1B;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
           Market Presence
         </div>
@@ -521,7 +609,7 @@
       <p style="font-size:16px;line-height:1.65;color:#4A4E57;margin:0 0 34px;">
         Whether exploring joint ventures, capital investments, or technology advisory, our corporate desk responds within one business day.
       </p>
-      <a href="contact.html" style="display:inline-flex;align-items:center;gap:10px;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);transition:all 0.25s ease;">
+      <a href="contact.html" class="cta-solid-blue" style="display:inline-flex;align-items:center;gap:10px;background:#16256B;color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);transition:all 0.25s ease;">
         Initiate a Discussion
         <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -529,60 +617,63 @@
   </section>
 
   <!-- CORPORATE FOOTER (CARD-FLOAT STYLE) -->
-  <footer style="background:#0F141E;padding:0 clamp(24px,4.5vw,64px) 0;">
-    <div style="max-width:1240px;margin:0 auto;position:relative;top:28px;background:#FAF9F6;border-radius:28px 28px 0 0;padding:clamp(44px,6vw,64px) clamp(32px,4.5vw,56px) clamp(56px,7vw,72px);box-shadow:0 -1px 2px rgba(16,17,20,0.03),0 -18px 40px rgba(16,17,20,0.06);">
+  <footer class="site-footer">
+    <div class="site-footer-card">
       <div style="display:flex;justify-content:flex-end;margin-bottom:8px;">
-        <a href="#page-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;">
+        <a href="#page-top" class="back-to-top" style="display:inline-flex;align-items:center;gap:8px;color:#0F141E;font-weight:700;font-size:14px;">
           Back to top
           <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M7 12V2M7 2L2 7M7 2L12 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
       <div class="r-footer-grid" style="display:grid;grid-template-columns:minmax(240px,1.3fr) repeat(2,minmax(150px,1fr));gap:40px;">
         <div>
-          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-            <span style="display:flex;gap:3px;height:18px;">
-              <span style="width:3px;border-radius:2px;background:#16256B;"></span>
-              <span style="width:3px;border-radius:2px;background:#F27518;"></span>
-              <span style="width:3px;border-radius:2px;background:#8E1D1B;"></span>
+          <div class="site-footer-brand">
+            <span class="site-footer-brand-bars">
+              <span style="background:#16256B;"></span>
+              <span style="background:#F27518;"></span>
+              <span style="background:#8E1D1B;"></span>
             </span>
-            <span style="color:#0F141E;font-weight:800;font-size:17px;letter-spacing:0.04em;">MAHAPATRA</span>
+            <span class="site-footer-brand-name">MAHAPATRA</span>
           </div>
-          <p style="font-size:16px;line-height:1.6;color:#3F434C;max-width:280px;margin:0 0 20px;">
+          <p class="site-footer-tagline">
             A diversified global conglomerate built on Leadership with Trust, founded by Preeti Mahapatra.
           </p>
           <div style="display:flex;gap:10px;">
-            <a href="#" aria-label="LinkedIn" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;">
+            <a href="#" aria-label="LinkedIn" class="social-btn social-btn--linkedin">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11.02 5 2.5 2.5 0 01-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.5 8.65 22 11 22 14.1V21h-4v-6.3c0-1.5-.03-3.4-2.08-3.4-2.08 0-2.4 1.63-2.4 3.3V21h-4V9z"/></svg>
             </a>
-            <a href="#" aria-label="X" style="width:36px;height:36px;border-radius:50%;background:#FFFFFF;border:1px solid rgba(16,17,20,0.1);display:flex;align-items:center;justify-content:center;color:#0F141E;">
+            <a href="#" aria-label="X" class="social-btn social-btn--x">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.6 8.7L23.5 22h-7.1l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.3l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-btn social-btn--instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor"/></svg>
+            </a>
+            <a href="#" aria-label="YouTube" class="social-btn social-btn--youtube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 6.9a2.9 2.9 0 00-2.05-2.06C18.6 4.3 12 4.3 12 4.3s-6.6 0-8.45.54A2.9 2.9 0 001.5 6.9 30 30 0 001 12a30 30 0 00.5 5.1 2.9 2.9 0 002.05 2.06C5.4 19.7 12 19.7 12 19.7s6.6 0 8.45-.54a2.9 2.9 0 002.05-2.06A30 30 0 0023 12a30 30 0 00-.5-5.1zM9.8 15.3V8.7l5.75 3.3z"/></svg>
             </a>
           </div>
         </div>
         <div>
-          <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Navigation</div>
-          <div style="display:flex;flex-direction:column;gap:11px;">
-            <a href="about.html" style="color:#3F434C;font-size:14px;">About Our Group</a>
-            <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Executive Leadership</span>
-            <a href="contact.html" style="color:#3F434C;font-size:14px;">Corporate Inquiries</a>
-            <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Engineering</span>
-            <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Information Technology</span>
-            <span style="color:rgba(94,99,110,0.5);font-size:14px;cursor:default;">Hospitality</span>
+          <div class="site-footer-heading">Navigation</div>
+          <div class="site-footer-col">
+            <a href="about.html" class="footer-link">About Our Group</a>
+            <a href="leadership.html" class="footer-link">Executive Leadership</a>
+            <a href="business.html" class="footer-link">Our Businesses</a>
+            <a href="contact.html" class="footer-link">Corporate Inquiries</a>
           </div>
         </div>
         <div>
-          <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div>
-          <div style="display:flex;flex-direction:column;gap:11px;">
-            <a href="mailto:contactus@mahapatrauniversal.com" style="color:#3F434C;font-size:14px;word-break:break-word;">contactus@mahapatrauniversal.com</a>
-            <a href="tel:+912262642345" style="color:#3F434C;font-size:14px;">022 6264 2345</a>
-            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>
+          <div class="site-footer-heading">Contacts</div>
+          <div class="site-footer-col">
+            <a href="mailto:contactus@mahapatrauniversal.com" class="footer-link" style="word-break:break-word;">contactus@mahapatrauniversal.com</a>
+            <a href="tel:+912262642345" class="footer-link">022 6264 2345</a>
+            <span class="site-footer-address">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>
           </div>
         </div>
       </div>
     </div>
-    <div style="background:#0F141E;padding:36px clamp(24px,4.5vw,64px) 24px;margin-top:0;">
-      <div class="r-footer-bottom" style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;padding-top:28px;">
-        <a href="#" style="color:rgba(255,255,255,0.55);font-size:13px;font-weight:600;">Privacy Policy</a>
+    <div class="site-footer-bottom-bar">
+      <div class="r-footer-bottom" style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
         <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;letter-spacing:0.02em;">Mahapatra Universal Limited</span>
         <span style="color:rgba(255,255,255,0.55);font-size:13px;">Copyright 2026 All rights reserved.</span>
       </div>
