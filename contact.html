@@ -49,10 +49,14 @@
     </div>
   </header>
 
-  <div style="height:clamp(80px,10vw,98px);"></div>
+  <div style="position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="position:absolute;top:0;left:0;right:0;height:clamp(560px,60vw,700px);background-image:radial-gradient(rgba(16,17,20,0.12) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(ellipse at center, rgba(22,37,107,0.10) 0%, rgba(242,117,24,0.07) 42%, transparent 70%);pointer-events:none;z-index:0;"></div>
 
-  <!-- CONTACT HERO -->
-  <section style="padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(44px,6vw,60px);background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="height:clamp(80px,10vw,98px);"></div>
+
+    <!-- CONTACT HERO -->
+    <section style="position:relative;padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(44px,6vw,60px);z-index:1;">
     <div class="fade-up" style="max-width:880px;margin:0 auto;text-align:center;animation-delay:0.1s;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(16,17,20,0.09);box-shadow:0 2px 10px rgba(16,17,20,0.04);color:#8E1D1B;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
         <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
@@ -65,7 +69,8 @@
         For strategic investment, institutional joint ventures, vendor partnerships, or media relations — our corporate office responds within one business day.
       </p>
     </div>
-  </section>
+    </section>
+  </div>
 
   <!-- FORM & CONTACT DETAILS SPLIT -->
   <section style="background:#FFFFFF;padding:0 clamp(24px,4.5vw,64px) clamp(64px,8vw,100px);">
@@ -162,18 +167,37 @@
               <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;text-transform:uppercase;">Media &amp; Public Relations</div>
               <a href="mailto:media@mahapatrauniversal.com" class="dept-link" style="color:#FFFFFF;font-size:15px;font-weight:600;word-break:break-word;">media@mahapatrauniversal.com</a>
             </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;">
+              <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;text-transform:uppercase;">Engineering</div>
+              <a href="mailto:engineering@mahapatrauniversal.com" class="dept-link" style="color:#FFFFFF;font-size:15px;font-weight:600;word-break:break-word;">engineering@mahapatrauniversal.com</a>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:14px;">
+              <div style="font-size:12px;color:rgba(255,255,255,0.5);font-weight:600;text-transform:uppercase;">Phone</div>
+              <a href="tel:+912262642345" class="dept-link" style="color:#FFFFFF;font-size:15px;font-weight:600;">022 6264 2345</a>
+            </div>
           </div>
         </div>
 
         <!-- Headquarters Address -->
         <div style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.08);border-radius:22px;padding:30px 28px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 20px rgba(16,17,20,0.04),0 20px 40px -10px rgba(142,29,27,0.08);">
-          <div style="color:#8E1D1B;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Corporate Headquarters</div>
+          <div style="color:#8E1D1B;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Registered Office</div>
           <p style="font-size:16px;line-height:1.7;color:#0F141E;margin:0;font-weight:500;">
             Mahapatra Universal Limited<br/>
-            Rushabh Chambers, Office No. 5F,<br/>
-            Makwana Road, Marol, Andheri East,<br/>
+            Office No. 5C-F, 5th Floor, Rushabh Chambers,<br/>
+            Makwana Road, Gamdevi, Marol, Andheri (E),<br/>
             Mumbai, Maharashtra 400059, India
           </p>
+        </div>
+
+        <!-- Branch Office -->
+        <div style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.08);border-radius:22px;padding:30px 28px;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 20px rgba(16,17,20,0.04),0 20px 40px -10px rgba(22,37,107,0.08);">
+          <div style="color:#16256B;font-weight:700;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;">Branch Office &ndash; Bhubaneswar</div>
+          <p style="font-size:16px;line-height:1.7;color:#0F141E;margin:0 0 10px;font-weight:500;">
+            2nd Floor, West Wing, PGL Citi Mart,<br/>
+            Plot No. M-15, NH-5, H.B. Colony,<br/>
+            Baramunda, Bhubaneswar &ndash; 751003, India
+          </p>
+          <a href="tel:+916746833333" class="dept-link" style="color:#16256B;font-size:15px;font-weight:700;">0674-6833333</a>
         </div>
 
         <!-- Map / Visual Frame -->
@@ -231,7 +255,8 @@
           <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div>
           <div style="display:flex;flex-direction:column;gap:11px;">
             <a href="mailto:contactus@mahapatrauniversal.com" class="footer-link" style="color:#3F434C;font-size:14px;word-break:break-word;">contactus@mahapatrauniversal.com</a>
-            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span>
+            <a href="tel:+912262642345" class="footer-link" style="color:#3F434C;font-size:14px;">022 6264 2345</a>
+            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>
           </div>
         </div>
       </div>

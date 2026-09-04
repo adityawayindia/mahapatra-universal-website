@@ -13,6 +13,21 @@
       });
     }
 
+    // Dossier tab links: scroll to section without changing the URL hash
+    var dossierTabs = document.querySelectorAll('.dossier-tab[href^="#"]');
+    if (dossierTabs.length) {
+      dossierTabs.forEach(function (link) {
+        link.addEventListener('click', function (e) {
+          var id = link.getAttribute('href').slice(1);
+          var target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    }
+
     // Scroll-reveal animations
     var revealEls = document.querySelectorAll('.reveal');
     if (revealEls.length) {
@@ -75,6 +90,9 @@
 
     // Milestones scrubber
     initMilestones();
+
+    // Dossier nav horizontal scroll (drag + wheel)
+    initDossierScroll();
 
     // Contact form
     initContactForm();
@@ -158,17 +176,148 @@
       }, 220);
     }
 
+    function goPrev() { goTo((active + milestones.length - 1) % milestones.length); }
+    function goNext() { goTo((active + 1) % milestones.length); }
+
     trackItems.forEach(function (item, i) {
       item.addEventListener('click', function () { goTo(i); });
     });
-    if (prevBtn) prevBtn.addEventListener('click', function () {
-      goTo((active + milestones.length - 1) % milestones.length);
-    });
-    if (nextBtn) nextBtn.addEventListener('click', function () {
-      goTo((active + 1) % milestones.length);
-    });
+    if (prevBtn) prevBtn.addEventListener('click', goPrev);
+    if (nextBtn) nextBtn.addEventListener('click', goNext);
+
+    // Swipe (touch / pen) to move between milestones
+    var swipeArea = root.querySelector('[data-ms-swipe]') || root;
+    var startX = 0, startY = 0, startT = 0, tracking = false, decided = false, horizontal = false;
+
+    swipeArea.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { tracking = false; return; }
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+      startT = Date.now();
+      tracking = true;
+      decided = false;
+      horizontal = false;
+    }, { passive: true });
+
+    swipeArea.addEventListener('touchmove', function (e) {
+      if (!tracking || e.touches.length !== 1) return;
+      var dx = e.touches[0].clientX - startX;
+      var dy = e.touches[0].clientY - startY;
+      // Lock the gesture to one axis once it clears the slop threshold,
+      // so vertical page scrolling is never hijacked.
+      if (!decided) {
+        if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+        decided = true;
+        horizontal = Math.abs(dx) > Math.abs(dy);
+      }
+      if (horizontal && e.cancelable) e.preventDefault();
+    }, { passive: false });
+
+    swipeArea.addEventListener('touchend', function (e) {
+      if (!tracking) return;
+      tracking = false;
+      if (!horizontal) return;
+      var t = e.changedTouches[0];
+      var dx = t.clientX - startX;
+      var elapsed = Date.now() - startT;
+      // Commit on a long enough drag, or a short fast flick.
+      if (Math.abs(dx) > 50 || (Math.abs(dx) > 25 && elapsed < 300)) {
+        if (dx < 0) goNext(); else goPrev();
+      }
+    }, { passive: true });
+
+    swipeArea.addEventListener('touchcancel', function () { tracking = false; }, { passive: true });
 
     render();
+  }
+
+  function initDossierScroll() {
+    var el = document.querySelector('.dossier-scroll');
+    if (!el) return;
+
+    var prevBtn = document.querySelector('[data-dossier-prev]');
+    var nextBtn = document.querySelector('[data-dossier-next]');
+    var thumb = document.querySelector('[data-dossier-thumb]');
+
+    function maxScroll() { return el.scrollWidth - el.clientWidth; }
+
+    function updateUI() {
+      var max = maxScroll();
+      var scrollable = max > 2;
+
+      if (prevBtn) prevBtn.disabled = !scrollable || el.scrollLeft <= 2;
+      if (nextBtn) nextBtn.disabled = !scrollable || el.scrollLeft >= max - 2;
+
+      if (thumb) {
+        if (!scrollable) {
+          thumb.style.width = '100%';
+          thumb.style.left = '0';
+        } else {
+          var thumbWidth = Math.max(12, (el.clientWidth / el.scrollWidth) * 100);
+          var travel = 100 - thumbWidth;
+          var progress = el.scrollLeft / max;
+          thumb.style.width = thumbWidth + '%';
+          thumb.style.left = (travel * progress) + '%';
+        }
+      }
+    }
+
+    el.addEventListener('scroll', updateUI, { passive: true });
+    window.addEventListener('resize', updateUI);
+
+    if (prevBtn) prevBtn.addEventListener('click', function () {
+      el.scrollBy({ left: -el.clientWidth * 0.6, behavior: 'smooth' });
+    });
+    if (nextBtn) nextBtn.addEventListener('click', function () {
+      el.scrollBy({ left: el.clientWidth * 0.6, behavior: 'smooth' });
+    });
+
+    // Vertical wheel scrolls the strip horizontally
+    el.addEventListener('wheel', function (e) {
+      if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
+      if (maxScroll() <= 0) return;
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    }, { passive: false });
+
+    // Links/text are natively draggable in most browsers, which hijacks
+    // mousemove before our custom drag-to-scroll ever sees it.
+    el.addEventListener('dragstart', function (e) { e.preventDefault(); });
+
+    // Click-and-drag scrolling for mouse users
+    var isDown = false;
+    var startX = 0;
+    var startScroll = 0;
+    var dragged = false;
+
+    el.addEventListener('mousedown', function (e) {
+      isDown = true;
+      dragged = false;
+      startX = e.pageX;
+      startScroll = el.scrollLeft;
+      el.classList.add('is-dragging');
+    });
+    window.addEventListener('mouseup', function () {
+      if (!isDown) return;
+      isDown = false;
+      el.classList.remove('is-dragging');
+    });
+    window.addEventListener('mousemove', function (e) {
+      if (!isDown) return;
+      var delta = e.pageX - startX;
+      if (Math.abs(delta) > 4) dragged = true;
+      el.scrollLeft = startScroll - delta;
+    });
+    // Suppress the tab click that follows a drag
+    el.addEventListener('click', function (e) {
+      if (dragged) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+      dragged = false;
+    }, true);
+
+    updateUI();
   }
 
   function initContactForm() {

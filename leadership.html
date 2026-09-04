@@ -49,10 +49,14 @@
     </div>
   </header>
 
-  <div style="height:clamp(80px,10vw,98px);"></div>
+  <div style="position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="position:absolute;top:0;left:0;right:0;height:clamp(560px,60vw,700px);background-image:radial-gradient(rgba(16,17,20,0.12) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(ellipse at center, rgba(22,37,107,0.10) 0%, rgba(242,117,24,0.07) 42%, transparent 70%);pointer-events:none;z-index:0;"></div>
 
-  <!-- LEADERSHIP HERO -->
-  <section style="padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(48px,6vw,72px);background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="height:clamp(80px,10vw,98px);"></div>
+
+    <!-- LEADERSHIP HERO -->
+    <section style="position:relative;padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(48px,6vw,72px);z-index:1;">
     <div class="fade-up" style="max-width:880px;margin:0 auto;text-align:center;animation-delay:0.1s;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(16,17,20,0.09);box-shadow:0 2px 10px rgba(16,17,20,0.04);color:#16256B;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
         <span style="width:6px;height:6px;border-radius:50%;background:#16256B;"></span>
@@ -62,10 +66,11 @@
         The strategic minds <span class="text-gradient">shaping the enterprise.</span>
       </h1>
       <p style="font-size:16px;line-height:1.68;color:#4A4E57;max-width:680px;margin:0 auto;">
-        Sixteen years of disciplined leadership, strategic asset turnaround, and scalable global investment — guided by Preeti and Harihara Mahapatra.
+        Disciplined stewardship, cross-sector expertise, and long-term stakeholder value — guided by Preeti and Hari Mahapatra, and delivered by a management team spanning decades of industry leadership.
       </p>
     </div>
-  </section>
+    </section>
+  </div>
 
   <!-- MANAGEMENT (DARK UNIFIED TEAM SECTION) -->
   <section style="background:#0F141E;color:#FFFFFF;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
@@ -77,65 +82,136 @@
           Team
         </div>
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.2vw,42px);color:#FFFFFF;letter-spacing:-0.02em;margin:0 0 16px;">Management</h2>
-        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,0.65);margin:0;">Sixteen years of disciplined leadership, strategic asset turnaround, and scalable global investment guiding every operating subsidiary.</p>
+        <p style="font-size:16px;line-height:1.65;color:rgba(255,255,255,0.65);margin:0;">Disciplined stewardship and cross-sector expertise guiding every operating subsidiary.</p>
       </div>
-      <!-- Preeti - featured -->
-      <div class="r-split" style="display:grid;grid-template-columns:minmax(240px,0.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,48px);align-items:center;margin-bottom:36px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:clamp(24px,3vw,36px);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-        <div style="position:relative;z-index:1;">
-          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:rgba(255,255,255,0.03);">
-            <img src="./assets/preeti.png" alt="Preeti Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+      <!-- Founders — bento pair, distinctly highlighted -->
+      <div class="bento-founders" style="margin-bottom:40px;align-items:start;">
+        <div class="bento-founder-card reveal" style="background:var(--grad-brand);border-radius:27px;padding:1.5px;">
+        <div style="background:linear-gradient(160deg,rgba(142,29,27,0.07) 0%,#12161E 45%);border-radius:25.5px;padding:clamp(20px,2.2vw,26px);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-45%;left:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(142,29,27,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:16px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
+            Founder
           </div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#FFFFFF;margin-top:16px;">Preeti Mahapatra</div>
-          <div style="color:#F2A15C;font-weight:700;font-size:14px;margin-top:4px;">Founder &amp; Chairperson</div>
+          <div class="bento-founder-row" style="position:relative;z-index:1;display:flex;gap:20px;align-items:flex-start;margin-bottom:18px;">
+            <div style="width:min(34%,168px);flex-shrink:0;border-radius:16px;overflow:hidden;aspect-ratio:4/5;border:2px solid rgba(142,29,27,0.35);">
+              <img src="./assets/preeti.png" alt="Preeti Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+            </div>
+            <div style="padding-top:4px;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:#FFFFFF;">Preeti Mahapatra</div>
+              <div style="color:#F2A15C;font-weight:700;font-size:14.5px;margin-top:6px;">Founder &amp; Mentor</div>
+            </div>
+          </div>
+          <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;">
+            <span class="bento-chip">Master's, International Business (Finance) &amp; Export Mgmt</span>
+            <span class="bento-chip">Launched brands across Europe, Asia &amp; the Middle East</span>
+            <span class="bento-chip">Philanthropy — education, shelter &amp; disaster relief</span>
+          </div>
         </div>
-        <div style="position:relative;z-index:1;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:24px 26px;">
-          <div style="font-weight:800;font-size:14px;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;">Experience and Qualifications:</div>
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;flex-shrink:0;margin-top:6px;"></span>Strategic alliances with certified Microsoft &amp; Qlik technology partners</div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;flex-shrink:0;margin-top:6px;"></span>Philanthropic institutions active across Gujarat, UP, Maharashtra &amp; Odisha</div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#8E1D1B;flex-shrink:0;margin-top:6px;"></span>High-level public governance experience and sporting franchise leadership</div>
+        </div>
+        <div class="bento-founder-card reveal" style="background:var(--grad-brand);border-radius:27px;padding:1.5px;">
+        <div style="background:linear-gradient(160deg,rgba(22,37,107,0.09) 0%,#12161E 45%);border-radius:25.5px;padding:clamp(20px,2.2vw,26px);position:relative;overflow:hidden;">
+          <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(22,37,107,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+          <div style="position:relative;z-index:1;display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:0.1em;color:#F2A15C;text-transform:uppercase;margin-bottom:16px;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#16256B;"></span>
+            Founder
           </div>
+          <div class="bento-founder-row" style="position:relative;z-index:1;display:flex;gap:20px;align-items:flex-start;margin-bottom:18px;">
+            <div style="width:min(34%,168px);flex-shrink:0;border-radius:16px;overflow:hidden;aspect-ratio:4/5;border:2px solid rgba(22,37,107,0.4);">
+              <img src="./assets/hari.png" alt="Hari Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
+            </div>
+            <div style="padding-top:4px;">
+              <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:#FFFFFF;">Hari Mahapatra</div>
+              <div style="color:#F2A15C;font-weight:700;font-size:14.5px;margin-top:6px;">Managing Director</div>
+            </div>
+          </div>
+          <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;">
+            <span class="bento-chip">MBA &middot; 25+ years of experience</span>
+            <span class="bento-chip">Investments spanning manufacturing to financial services</span>
+            <span class="bento-chip">International, multicultural &amp; engineered-systems expertise</span>
+          </div>
+        </div>
         </div>
       </div>
-      <!-- Harihara - featured -->
-      <div class="r-split r-rev" style="display:grid;grid-template-columns:minmax(0,1.15fr) minmax(240px,0.85fr);gap:clamp(28px,4vw,48px);align-items:center;margin-bottom:56px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:clamp(24px,3vw,36px);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:-40%;right:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-        <div style="position:relative;z-index:1;">
-          <div style="font-weight:800;font-size:14px;color:#FFFFFF;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:16px;">Experience and Qualifications:</div>
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#16256B;flex-shrink:0;margin-top:6px;"></span>Master of Business Administration (MBA) &middot; 16+ Years Capital Stewardship</div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#16256B;flex-shrink:0;margin-top:6px;"></span>Cross-border asset turnaround expertise across Asia, Europe, and UAE</div>
-            <div style="display:flex;gap:12px;align-items:flex-start;font-size:16px;color:rgba(255,255,255,0.8);line-height:1.5;"><span style="width:7px;height:7px;border-radius:50%;background:#16256B;flex-shrink:0;margin-top:6px;"></span>Institutional board oversight and debt-equity restructuring mastery</div>
-          </div>
-        </div>
-        <div style="position:relative;z-index:1;">
-          <div style="border-radius:18px;overflow:hidden;aspect-ratio:4/5;background:rgba(255,255,255,0.03);">
-            <img src="./assets/hari.png" alt="Harihara Mahapatra" style="width:100%;height:100%;object-fit:cover;object-position:top center;display:block;">
-          </div>
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:20px;color:#FFFFFF;margin-top:16px;">Harihara Mahapatra</div>
-          <div style="color:#F2A15C;font-weight:700;font-size:14px;margin-top:4px;">Managing Director</div>
-        </div>
+
+      <div style="display:flex;align-items:center;gap:16px;margin:44px 0 32px;">
+        <span style="font-size:12px;font-weight:800;letter-spacing:0.1em;color:rgba(255,255,255,0.45);text-transform:uppercase;white-space:nowrap;">Management Team</span>
+        <span style="height:1px;flex:1;background:rgba(255,255,255,0.1);"></span>
       </div>
-      <!-- Anil + Himansu - standard grid -->
-      <div class="r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
-        <div class="director-card accent-blue" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-          <div style="position:relative;z-index:1;width:88px;height:88px;border-radius:50%;overflow:hidden;margin:0 auto 18px;border:3px solid rgba(255,255,255,0.1);">
-            <img src="./assets/anil.jpg" alt="Anil Kumar" style="width:100%;height:100%;object-fit:cover;display:block;">
+
+      <!-- Management Team — uniform bento grid -->
+      <div class="bento-team">
+        <div class="director-card bento-team-card accent-blue reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/nambiar.jpg" alt="Prabhudas Nambiar" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Prabhudas Nambiar</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Director &ndash; Account / Finance</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Master's in Accounting &amp; Finance with 25+ years of global experience; with the group since incorporation, leading its financial restructuring.</p>
           </div>
-          <div style="position:relative;z-index:1;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#FFFFFF;">Anil Kumar</div>
-          <div style="position:relative;z-index:1;color:#F2A15C;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-top:4px;">Director</div>
-          <p style="position:relative;z-index:1;font-size:16px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Overseeing corporate compliance, operational standards, and multi-vertical governance.</p>
         </div>
-        <div class="director-card accent-red" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:28px 24px;text-align:center;position:relative;overflow:hidden;">
-          <div style="position:absolute;top:-40%;left:-20%;width:70%;height:70%;background:radial-gradient(circle,rgba(255,255,255,0.04) 0%,transparent 70%);pointer-events:none;"></div>
-          <div style="position:relative;z-index:1;width:88px;height:88px;border-radius:50%;overflow:hidden;margin:0 auto 18px;border:3px solid rgba(255,255,255,0.1);">
-            <img src="./assets/himansu.jpg" alt="Himansu Nayak" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <div class="director-card bento-team-card accent-red reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/dhure.jpg" alt="Vishal Dhure" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Vishal Dhure</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">CEO &ndash; Sceniuz</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Over 20 years of expertise in data analytics and software development, driving profitability and operations for the IT division.</p>
           </div>
-          <div style="position:relative;z-index:1;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#FFFFFF;">Himansu Nayak</div>
-          <div style="position:relative;z-index:1;color:#F2A15C;font-weight:700;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;margin-top:4px;">Director</div>
-          <p style="position:relative;z-index:1;font-size:16px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Leading strategic project execution, resource allocation, and institutional stakeholders.</p>
+        </div>
+        <div class="director-card bento-team-card accent-blue reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/kapai.jpg" alt="Vikas Kapai" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Vikas Kapai</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">CEO &ndash; Futura Hotels &amp; Resorts</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">30-year hospitality career including Hyatt, Leela, Hilton, Marriott and Accor; IHM-Pusa graduate excelling in hotel operations and brand management.</p>
+          </div>
+        </div>
+        <div class="director-card bento-team-card accent-red reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/shah.jpg" alt="Ankush Shah" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Ankush Shah</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Chief Operating Officer (COO)</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">24 years of execution experience scaling digital transformation; Columbia Business School graduate who has also taught at SPJIMR and Mumbai University.</p>
+          </div>
+        </div>
+        <div class="director-card bento-team-card accent-blue reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/kaushik.jpg" alt="Ravi Kaushik" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Ravi Kaushik</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Director</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">20+ years in media leadership and strategic growth consulting, beginning his career at Aaj Tak, Star News and CNBC TV18.</p>
+          </div>
+        </div>
+        <div class="director-card bento-team-card accent-red reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/gupta.jpg" alt="Anshul Gupta" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Anshul Gupta</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Chief Revenue Officer (CRO)</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">27+ years across strategic advisory and enterprise transformation with leadership roles at Gartner, EY, Tech Mahindra and L&amp;T.</p>
+          </div>
+        </div>
+        <div class="director-card bento-team-card accent-blue reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/mishra.jpg" alt="Kirti Mishra" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Kirti Mishra</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Director &amp; Business Head &ndash; New Business</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">25+ years across Telecom, Financial Services, Media and Technology; NIT Rourkela and XIMB alumnus with leadership roles at Wipro Infotech, Idea Cellular and Dish TV.</p>
+          </div>
+        </div>
+        <div class="director-card bento-team-card accent-red reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/bavkar.jpg" alt="Pranali Bavkar" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Pranali Bavkar</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Human Resources &ndash; Group Head</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Bridges management and employees across recruitment, training, performance appraisals and labour law compliance for the group.</p>
+          </div>
+        </div>
+        <div class="director-card bento-team-card accent-blue reveal" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:20px;overflow:hidden;">
+          <div style="aspect-ratio:1/1;overflow:hidden;"><img src="./assets/sutar.jpg" alt="Sephali Sutar" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+          <div style="padding:20px 20px 24px;">
+            <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#FFFFFF;">Sephali Sutar</div>
+            <div style="color:#F2A15C;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;margin-top:5px;">Vice President &ndash; Corporate Affairs</div>
+            <p style="font-size:14.5px;color:rgba(255,255,255,0.6);margin:10px 0 0;line-height:1.55;">Strategic PR representative across corporate affairs, brand management, public policy, government relations and media communications.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -147,7 +223,7 @@
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,42px);color:#0F141E;letter-spacing:-0.02em;margin:0 0 28px;">
         Connect with Group Leadership
       </h2>
-      <a href="contact.html" class="cta-gradient-lift" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(100deg,#16256B 0%,#F27518 50%,#8E1D1B 100%);color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);">
+      <a href="contact.html" class="cta-solid-navy" style="display:inline-flex;align-items:center;gap:10px;background:#16256B;color:#FFFFFF;font-weight:700;font-size:16px;padding:17px 36px;border-radius:100px;box-shadow:0 8px 24px rgba(15,20,30,0.18);">
         Reach Executive Secretariat
         <svg width="15" height="15" viewBox="0 0 14 14" fill="none"><path d="M2 7H12M12 7L7 2M12 7L7 12" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -200,7 +276,8 @@
           <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div>
           <div style="display:flex;flex-direction:column;gap:11px;">
             <a href="mailto:contactus@mahapatrauniversal.com" class="footer-link" style="color:#3F434C;font-size:14px;word-break:break-word;">contactus@mahapatrauniversal.com</a>
-            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span>
+            <a href="tel:+912262642345" class="footer-link" style="color:#3F434C;font-size:14px;">022 6264 2345</a>
+            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>
           </div>
         </div>
       </div>

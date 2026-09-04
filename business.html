@@ -49,10 +49,14 @@
     </div>
   </header>
 
-  <div style="height:clamp(80px,10vw,98px);"></div>
+  <div style="position:relative;background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="position:absolute;top:0;left:0;right:0;height:clamp(560px,60vw,700px);background-image:radial-gradient(rgba(16,17,20,0.12) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 65% 85% at 50% 20%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:760px;height:520px;background:radial-gradient(ellipse at center, rgba(22,37,107,0.10) 0%, rgba(242,117,24,0.07) 42%, transparent 70%);pointer-events:none;z-index:0;"></div>
 
-  <!-- BUSINESS HERO -->
-  <section style="padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(44px,6vw,60px);background:linear-gradient(180deg,#FFFFFF 0%,#FAF9F6 100%);">
+    <div style="height:clamp(80px,10vw,98px);"></div>
+
+    <!-- BUSINESS HERO -->
+    <section style="position:relative;padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(44px,6vw,60px);z-index:1;">
     <div class="fade-up" style="max-width:880px;margin:0 auto;text-align:center;animation-delay:0.1s;">
       <div style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(16,17,20,0.09);box-shadow:0 2px 10px rgba(16,17,20,0.04);color:#F27518;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
         <span style="width:6px;height:6px;border-radius:50%;background:#F27518;"></span>
@@ -62,36 +66,47 @@
         Diversified. Disciplined. <span class="text-gradient">Built to endure.</span>
       </h1>
       <p style="font-size:16px;line-height:1.68;color:#4A4E57;max-width:680px;margin:0 auto;">
-        Three foundational operating divisions where Mahapatra Universal Limited combines strategic capital, operational governance, and long-term execution.
+        Nine foundational operating divisions where Mahapatra Universal Limited combines strategic capital, operational governance, and long-term execution.
       </p>
     </div>
-  </section>
+    </section>
+  </div>
 
   <!-- STICKY DOSSIER NAV BAR -->
-  <nav style="background:rgba(255,255,255,0.94);backdrop-filter:blur(12px);border-top:1px solid rgba(16,17,20,0.08);position:sticky;top:84px;z-index:50;">
+  <nav class="dossier-nav" style="background:rgba(255,255,255,0.94);backdrop-filter:blur(12px);border-top:1px solid rgba(16,17,20,0.08);position:sticky;top:84px;z-index:50;">
     <div style="height:2px;background:var(--grad-brand);"></div>
-    <div style="max-width:1240px;margin:0 auto;padding:0 clamp(24px,4.5vw,64px);display:flex;gap:clamp(16px,3vw,36px);overflow-x:auto;">
-      <a href="#engineering" class="dossier-tab accent-blue" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">01 &middot; Heavy Engineering</a>
-      <a href="#technology" class="dossier-tab accent-orange" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">02 &middot; Information Technology</a>
-      <a href="#hospitality" class="dossier-tab accent-red" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">03 &middot; Luxury Hospitality</a>
-      <a href="#infrastructure" class="dossier-tab accent-dark" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">04 &middot; Infrastructure</a>
-      <a href="#chemicals" class="dossier-tab accent-blue" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">05 &middot; Speciality Chemicals</a>
-      <a href="#retail" class="dossier-tab accent-orange" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">06 &middot; Consumer &amp; Retail</a>
-      <a href="#energy" class="dossier-tab accent-red" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">07 &middot; LED &amp; Solar Energy</a>
-      <a href="#fabrication" class="dossier-tab accent-dark" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">08 &middot; Electrical &amp; Fabrication</a>
-      <a href="#mining" class="dossier-tab accent-blue" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">09 &middot; Mining &amp; Logistics</a>
+    <div class="dossier-wrap">
+      <button type="button" class="dossier-arrow dossier-arrow-left" data-dossier-prev aria-label="Scroll tabs left">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dossier-scroll" style="display:flex;gap:clamp(16px,3vw,36px);overflow-x:auto;">
+        <a href="#engineering" class="dossier-tab accent-blue" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">01 &middot; Heavy Engineering</a>
+        <a href="#technology" class="dossier-tab accent-orange" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">02 &middot; Information Technology</a>
+        <a href="#hospitality" class="dossier-tab accent-red" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">03 &middot; Luxury Hospitality</a>
+        <a href="#infrastructure" class="dossier-tab accent-dark" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">04 &middot; Infrastructure</a>
+        <a href="#chemicals" class="dossier-tab accent-blue" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">05 &middot; Speciality Chemicals</a>
+        <a href="#retail" class="dossier-tab accent-orange" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">06 &middot; Consumer &amp; Retail</a>
+        <a href="#energy" class="dossier-tab accent-red" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">07 &middot; LED &amp; Solar Energy</a>
+        <a href="#fabrication" class="dossier-tab accent-dark" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">08 &middot; Electrical &amp; Fabrication</a>
+        <a href="#mining" class="dossier-tab accent-blue" style="padding:16px 4px;font-weight:700;font-size:15px;color:#0F141E;white-space:nowrap;border-bottom:3px solid transparent;">09 &middot; Mining &amp; Logistics</a>
+      </div>
+      <button type="button" class="dossier-arrow dossier-arrow-right" data-dossier-next aria-label="Scroll tabs right">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="dossier-track"><div class="dossier-thumb" data-dossier-thumb></div></div>
     </div>
   </nav>
 
   <!-- 01. ENGINEERING DEEP DIVE -->
-  <section id="engineering" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);scroll-margin-top:140px;">
+  <section id="engineering" class="dossier-section" style="--accent:22,37,107;background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:140px;">
+    <div class="dossier-glow-b" aria-hidden="true"></div>
     <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,0.92fr);gap:clamp(36px,5vw,68px);align-items:center;">
       <div>
         <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
           <div style="width:44px;height:44px;border-radius:12px;background:rgba(22,37,107,0.08);color:#16256B;display:flex;align-items:center;justify-content:center;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="#16256B" stroke-width="1.8"/><path d="M19.4 13.5a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V19.5a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1.08-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H4.5a2 2 0 110-4h.09a1.65 1.65 0 001.51-1.08 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H10a1.65 1.65 0 001-1.51V4.5a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V10a1.65 1.65 0 001.51 1h.09a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="#16256B" stroke-width="1.4"/></svg>
           </div>
-          <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#16256B;text-transform:uppercase;">01 &middot; Heavy Engineering</span>
+          <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#16256B;text-transform:uppercase;">01 &middot; Heavy Engineering</span>
         </div>
 
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;">
@@ -102,7 +117,7 @@
         </p>
 
         <!-- Structured Capabilities Checklist -->
-        <div style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:16px;padding:20px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 6px 18px rgba(22,37,107,0.05);">
+        <div style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #16256B;border-radius:16px;padding:20px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(22,37,107,0.10);">
           <div style="display:flex;gap:12px;align-items:center;font-size:16px;color:#0F141E;font-weight:600;">
             <span style="width:20px;height:20px;border-radius:50%;background:rgba(22,37,107,0.1);color:#16256B;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(22,37,107,0.2);">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 7" stroke="#16256B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -136,8 +151,9 @@
   </section>
 
   <!-- 02. IT DEEP DIVE -->
-  <section id="technology" style="background:#F7F6F2;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);border-bottom:1px solid rgba(16,17,20,0.06);scroll-margin-top:140px;">
-    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(280px,0.92fr) minmax(0,1.08fr);gap:clamp(36px,5vw,68px);align-items:center;">
+  <section id="technology" class="dossier-section" style="--accent:242,117,24;background:#F7F6F2;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);border-bottom:1px solid rgba(16,17,20,0.06);scroll-margin-top:140px;">
+    <div class="dossier-glow-b" aria-hidden="true"></div>
+    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,0.92fr);gap:clamp(36px,5vw,68px);align-items:center;">
       <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 45px rgba(15,20,30,0.08);order:2;">
         <img src="./assets/technology.jpg" alt="Data Analytics &amp; Enterprise IT" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
@@ -147,7 +163,7 @@
           <div style="width:44px;height:44px;border-radius:12px;background:rgba(242,117,24,0.1);color:#F27518;display:flex;align-items:center;justify-content:center;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="8" y="8" width="8" height="8" rx="1.5" stroke="#F27518" stroke-width="1.8"/><path d="M12 2v3M12 19v3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M2 12h3M19 12h3M4.9 19.1L7 17M17 7l2.1-2.1" stroke="#F27518" stroke-width="1.6" stroke-linecap="round"/></svg>
           </div>
-          <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#C85A07;text-transform:uppercase;">02 &middot; Information Technology</span>
+          <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#C85A07;text-transform:uppercase;">02 &middot; Information Technology</span>
         </div>
 
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;">
@@ -158,7 +174,7 @@
         </p>
 
         <!-- Structured Capabilities Checklist -->
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:16px;padding:20px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 6px 18px rgba(242,117,24,0.05);">
+        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #F27518;border-radius:16px;padding:20px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(242,117,24,0.10);">
           <div style="display:flex;gap:12px;align-items:center;font-size:16px;color:#0F141E;font-weight:600;">
             <span style="width:20px;height:20px;border-radius:50%;background:rgba(242,117,24,0.12);color:#F27518;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(242,117,24,0.2);">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 7" stroke="#F27518" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -188,25 +204,26 @@
   </section>
 
   <!-- 03. HOSPITALITY DEEP DIVE -->
-  <section id="hospitality" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);scroll-margin-top:140px;">
+  <section id="hospitality" class="dossier-section" style="--accent:142,29,27;background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:140px;">
+    <div class="dossier-glow-b" aria-hidden="true"></div>
     <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,0.92fr);gap:clamp(36px,5vw,68px);align-items:center;">
       <div>
         <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
           <div style="width:44px;height:44px;border-radius:12px;background:rgba(142,29,27,0.08);color:#8E1D1B;display:flex;align-items:center;justify-content:center;">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21V10l9-6 9 6v11" stroke="#8E1D1B" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 21v-7h6v7" stroke="#8E1D1B" stroke-width="1.8" stroke-linejoin="round"/></svg>
           </div>
-          <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#8E1D1B;text-transform:uppercase;">03 &middot; Hospitality Assets</span>
+          <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#8E1D1B;text-transform:uppercase;">03 &middot; Hospitality Assets</span>
         </div>
 
         <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;">
           Institutional hospitality assets benchmarked to global standards.
         </h2>
         <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 24px;">
-          A prime portfolio of hotel and resort assets partnered with international hospitality flags, driving strong revenue per available room (RevPAR) through active operational asset management.
+          A prime portfolio of hotel and resort assets partnered with international hospitality flags, exceeding global standards through active operational asset management.
         </p>
 
         <!-- Structured Capabilities Checklist -->
-        <div style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:16px;padding:20px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 6px 18px rgba(142,29,27,0.05);">
+        <div style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #8E1D1B;border-radius:16px;padding:20px;margin-bottom:28px;display:flex;flex-direction:column;gap:12px;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(142,29,27,0.10);">
           <div style="display:flex;gap:12px;align-items:center;font-size:16px;color:#0F141E;font-weight:600;">
             <span style="width:20px;height:20px;border-radius:50%;background:rgba(142,29,27,0.1);color:#8E1D1B;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 2px 6px rgba(142,29,27,0.2);">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 7" stroke="#8E1D1B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -240,13 +257,14 @@
   </section>
 
   <!-- 04. INFRASTRUCTURE DEEP DIVE -->
-  <section id="infrastructure" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);scroll-margin-top:180px;">
+  <section id="infrastructure" class="dossier-section" style="--accent:15,20,30;background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:180px;">
+    <div class="dossier-glow-b" aria-hidden="true"></div>
     <div style="max-width:1240px;margin:0 auto;">
       <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
         <div style="width:44px;height:44px;border-radius:12px;background:rgba(15,20,30,0.06);color:#0F141E;display:flex;align-items:center;justify-content:center;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6" stroke="#0F141E" stroke-width="1.8" stroke-linejoin="round"/></svg>
         </div>
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#0F141E;text-transform:uppercase;">04 &middot; Infrastructure Development</span>
+        <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#0F141E;text-transform:uppercase;">04 &middot; Infrastructure Development</span>
       </div>
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;max-width:820px;">
         Building the roads, cities, and industrial corridors that move India forward.
@@ -256,33 +274,41 @@
       </p>
 
       <div class="r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;">
-        <div class="pillar-card accent-dark" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(15,20,30,0.08);color:#0F141E;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 18h18M5 18l3-9h8l3 9M9 9l1-4h4l1 4" stroke="#0F141E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="pillar-card accent-dark" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #0F141E;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(16,17,20,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/infra1_road.jpg" alt="National Highway, India" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Road Infrastructure</h3>
-          <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Highway construction, operation and maintenance across India's National Highway network, positioned for early-mover advantage as NHAI investment scales.</p>
+          <div style="padding:22px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Road Infrastructure</h3>
+            <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Highway construction, operation and maintenance across India's National Highway network, positioned for early-mover advantage as NHAI investment scales.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-blue" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(22,37,107,0.08);color:#16256B;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M3 21h18M6 21V8l6-4 6 4v13" stroke="#16256B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <div class="pillar-card accent-blue" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #16256B;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(22,37,107,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/infra2_housing.jpg" alt="Urban Housing Development" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Urban &amp; Housing</h3>
-          <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Addressing India's urban housing shortage through low-cost residential development, with a long-term target of 1 crore homes over 10 years.</p>
+          <div style="padding:22px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Urban &amp; Housing</h3>
+            <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Addressing India's urban housing shortage through low-cost residential development, with a long-term target of 1 crore homes over 10 years.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-orange" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(242,117,24,0.1);color:#F27518;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M4 8h16M4 16h16" stroke="#F27518" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="pillar-card accent-orange" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #F27518;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(242,117,24,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/infra3_port.jpg" alt="Port and Cargo Logistics" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Railways, Waterways &amp; Ports</h3>
-          <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Engaged in port construction, harbor and marine structures, bridges and elevated works, alongside metro and rail-linked infrastructure projects.</p>
+          <div style="padding:22px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Railways, Waterways &amp; Ports</h3>
+            <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Engaged in port construction, harbor and marine structures, bridges and elevated works, alongside metro and rail-linked infrastructure projects.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-red" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <div style="width:44px;height:44px;border-radius:12px;background:rgba(142,29,27,0.08);color:#8E1D1B;display:flex;align-items:center;justify-content:center;margin-bottom:18px;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 21V8l8-5 8 5v13M9 21v-6h6v6" stroke="#8E1D1B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <div class="pillar-card accent-red" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #8E1D1B;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(142,29,27,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/infra4_industrial.jpg" alt="Industrial Growth Centre" style="width:100%;height:100%;object-fit:cover;display:block;">
           </div>
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Industrial Infrastructure</h3>
-          <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Developing Industrial Growth Centers, Textile Parks and SEZs, and arranging essential infrastructural inputs — roads, water, power and plantation.</p>
+          <div style="padding:22px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#0F141E;margin:0 0 8px;">Industrial Infrastructure</h3>
+            <p style="font-size:15.5px;line-height:1.6;color:#3F434C;margin:0;">Developing Industrial Growth Centers, Textile Parks and SEZs, and arranging essential infrastructural inputs — roads, water, power and plantation.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -290,49 +316,81 @@
 
   <!-- 05. SPECIALITY CHEMICALS DEEP DIVE -->
   <section id="chemicals" style="background:#F7F6F2;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);border-bottom:1px solid rgba(16,17,20,0.06);scroll-margin-top:180px;">
-    <div style="max-width:1240px;margin:0 auto;">
-      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
-        <div style="width:44px;height:44px;border-radius:12px;background:rgba(22,37,107,0.08);color:#16256B;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6l-5 9a2 2 0 001.8 3h10.4a2 2 0 001.8-3l-5-9V3" stroke="#16256B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,0.92fr);gap:clamp(36px,5vw,68px);align-items:center;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(22,37,107,0.08);color:#16256B;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 3h6M10 3v6l-5 9a2 2 0 001.8 3h10.4a2 2 0 001.8-3l-5-9V3" stroke="#16256B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#16256B;text-transform:uppercase;">05 &middot; Speciality Chemicals</span>
         </div>
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#16256B;text-transform:uppercase;">05 &middot; Speciality Chemicals</span>
-      </div>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;max-width:820px;">
-        45+ years pioneering sodium silicate manufacturing.
-      </h2>
-      <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 36px;max-width:820px;">
-        We manufacture sodium silicate in different forms and molecular ratios for a wide range of industrial applications — from laundry soap and detergent cake to fire-resisting cement, silica gel, construction chemicals, paints and paper.
-      </p>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;">
+          45+ years pioneering sodium silicate manufacturing.
+        </h2>
+        <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 22px;">
+          We manufacture sodium silicate in different forms and molecular ratios for a wide range of industrial applications — from laundry soap and detergent cake to fire-resisting cement, silica gel, construction chemicals, paints and paper.
+        </p>
 
-      <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:0;">
-        <span style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);color:#0F141E;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:100px;">Sodium Silicate</span>
-        <span style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);color:#0F141E;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:100px;">Alkaline Grade Silicate</span>
-        <span style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);color:#0F141E;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:100px;">Solid Glass Silicate</span>
-        <span style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);color:#0F141E;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:100px;">Liquid Silicate</span>
-        <span style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);color:#0F141E;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:100px;">Neutral Grade Silicate</span>
-        <span style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);color:#0F141E;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:100px;">Sodium Meta Silicate</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin-bottom:20px;">
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #16256B;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(22,37,107,0.10);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(22,37,107,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#16256B;">45+ Years</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">Manufacturing Legacy</div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #16256B;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(22,37,107,0.10);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(22,37,107,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#16256B;">5 Grades</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">Product Portfolio</div>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:10px;">
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(22,37,107,0.15);color:#0F141E;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:100px;"><span style="width:6px;height:6px;border-radius:50%;background:#16256B;flex-shrink:0;"></span>Sodium Silicate</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(22,37,107,0.15);color:#0F141E;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:100px;"><span style="width:6px;height:6px;border-radius:50%;background:#16256B;flex-shrink:0;"></span>Alkaline Grade Silicate</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(22,37,107,0.15);color:#0F141E;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:100px;"><span style="width:6px;height:6px;border-radius:50%;background:#16256B;flex-shrink:0;"></span>Solid Glass Silicate</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(22,37,107,0.15);color:#0F141E;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:100px;"><span style="width:6px;height:6px;border-radius:50%;background:#16256B;flex-shrink:0;"></span>Liquid Silicate</span>
+          <span style="display:inline-flex;align-items:center;gap:7px;background:#FFFFFF;border:1px solid rgba(22,37,107,0.15);color:#0F141E;font-weight:700;font-size:13.5px;padding:9px 16px;border-radius:100px;"><span style="width:6px;height:6px;border-radius:50%;background:#16256B;flex-shrink:0;"></span>Neutral Grade Silicate</span>
+        </div>
+      </div>
+
+      <div style="background:#F2EFE9;border:1px solid rgba(16,17,20,0.08);border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 45px rgba(15,20,30,0.08);">
+        <img src="./assets/chem_hero.jpg" alt="Chemical Manufacturing Storage Tanks" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
     </div>
   </section>
 
   <!-- 06. CONSUMER & RETAIL DEEP DIVE -->
-  <section id="retail" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);scroll-margin-top:180px;">
-    <div style="max-width:1240px;margin:0 auto;">
-      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
-        <div style="width:44px;height:44px;border-radius:12px;background:rgba(242,117,24,0.1);color:#F27518;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.5 10.5a2 2 0 01-2 1.5H7a2 2 0 01-2-1.5L3.5 7z" stroke="#F27518" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="22" r="1.4" fill="#F27518"/><circle cx="16" cy="22" r="1.4" fill="#F27518"/></svg>
+  <section id="retail" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:180px;">
+    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,0.92fr);gap:clamp(36px,5vw,68px);align-items:center;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(242,117,24,0.1);color:#F27518;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M6 2l1.5 5M18 2l-1.5 5M3.5 7h17l-1.5 10.5a2 2 0 01-2 1.5H7a2 2 0 01-2-1.5L3.5 7z" stroke="#F27518" stroke-width="1.8" stroke-linejoin="round"/><circle cx="9" cy="22" r="1.4" fill="#F27518"/><circle cx="16" cy="22" r="1.4" fill="#F27518"/></svg>
+          </div>
+          <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#C85A07;text-transform:uppercase;">06 &middot; Consumer &amp; Retail</span>
         </div>
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#C85A07;text-transform:uppercase;">06 &middot; Consumer &amp; Retail</span>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;">
+          Indianness at the core — building trusted neighbourhood retail.
+        </h2>
+        <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 28px;">
+          Our flagship retail brand, Preeti's, is a one-stop chain of neighbourhood stores offering everyday home and personal products. Ranked among the most trusted mini modern retail brands in India, we are opening one store every week toward a target of 10,000 stores nationwide.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;">
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #F27518;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(242,117,24,0.12);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(242,117,24,0.10) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#F27518;">10,000</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">Target Stores Nationwide</div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #F27518;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(242,117,24,0.12);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(242,117,24,0.10) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#F27518;">1 / Week</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">New Store Openings</div>
+          </div>
+        </div>
       </div>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;max-width:820px;">
-        Indianness at the core — building trusted neighbourhood retail.
-      </h2>
-      <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 24px;max-width:820px;">
-        Our flagship retail brand, Preeti's, is a one-stop chain of neighbourhood stores offering everyday home and personal products. Ranked among the most trusted mini modern retail brands in India, we are opening one store every week toward a target of 10,000 stores nationwide.
-      </p>
-      <div style="display:inline-flex;align-items:center;gap:10px;background:#FAF9F6;border:1px solid rgba(16,17,20,0.08);border-radius:100px;padding:12px 24px;">
-        <span style="width:8px;height:8px;border-radius:50%;background:#F27518;"></span>
-        <span style="font-weight:700;font-size:15px;color:#0F141E;">Target: 10,000 neighbourhood stores nationwide</span>
+
+      <div style="background:#F2EFE9;border:1px solid rgba(16,17,20,0.08);border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 45px rgba(15,20,30,0.08);">
+        <img src="./assets/retail.jpg" alt="Preeti's Neighbourhood Retail Store" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
     </div>
   </section>
@@ -344,7 +402,7 @@
         <div style="width:44px;height:44px;border-radius:12px;background:rgba(142,29,27,0.08);color:#8E1D1B;display:flex;align-items:center;justify-content:center;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="4.5" stroke="#8E1D1B" stroke-width="1.8"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" stroke="#8E1D1B" stroke-width="1.6" stroke-linecap="round"/></svg>
         </div>
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#8E1D1B;text-transform:uppercase;">07 &middot; LED Lighting &amp; Solar Energy</span>
+        <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#8E1D1B;text-transform:uppercase;">07 &middot; LED Lighting &amp; Solar Energy</span>
       </div>
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;max-width:820px;">
         Energy-efficient LED and solar solutions for homes, roads and industry.
@@ -354,30 +412,45 @@
       </p>
 
       <div class="r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;">
-        <div class="pillar-card accent-red" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">LED Lighting</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Batten tube lights, streetlights, moving display boards, down lights, panel lights, and astronomical timer switches with GPS clocks.</p>
+        <div class="pillar-card accent-red" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #8E1D1B;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(142,29,27,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/energy1_led.jpg" alt="LED Street Lighting" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">LED Lighting</h3>
+            <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Batten tube lights, streetlights, moving display boards, down lights, panel lights, and astronomical timer switches with GPS clocks.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-blue" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Solar Power Systems</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">On-grid and off-grid solar modules, pump sets, home lighting systems, lanterns, and solar-powered LED streetlights.</p>
+        <div class="pillar-card accent-blue" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #16256B;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(22,37,107,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/energy2_solar.jpg" alt="Solar Power Farm" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Solar Power Systems</h3>
+            <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">On-grid and off-grid solar modules, pump sets, home lighting systems, lanterns, and solar-powered LED streetlights.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-orange" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Rural &amp; Utility Solar</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Rural drinking water systems, mobile solar water ATMs, solar water heaters, DC fans, and cold storage / refrigeration.</p>
+        <div class="pillar-card accent-orange" style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #F27518;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(242,117,24,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/energy3_rural.jpg" alt="Residential Rooftop Solar" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Rural &amp; Utility Solar</h3>
+            <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Rural drinking water systems, mobile solar water ATMs, solar water heaters, DC fans, and cold storage / refrigeration.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 08. ELECTRICAL & FABRICATION DEEP DIVE -->
-  <section id="fabrication" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);scroll-margin-top:180px;">
+  <section id="fabrication" style="background:#FFFFFF;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:180px;">
     <div style="max-width:1240px;margin:0 auto;">
       <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
         <div style="width:44px;height:44px;border-radius:12px;background:rgba(15,20,30,0.06);color:#0F141E;display:flex;align-items:center;justify-content:center;">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M14.7 6.3l3 3L8 19l-4 1 1-4z" stroke="#0F141E" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 8l3-3 3 3-3 3" stroke="#0F141E" stroke-width="1.8" stroke-linejoin="round"/></svg>
         </div>
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#0F141E;text-transform:uppercase;">08 &middot; Electrical &amp; Mechanical Fitments</span>
+        <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#0F141E;text-transform:uppercase;">08 &middot; Electrical &amp; Mechanical Fitments</span>
       </div>
       <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;max-width:820px;">
         Precision hardware for transmission lines and rolling mills.
@@ -387,92 +460,78 @@
       </p>
 
       <div class="r-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px;">
-        <div class="pillar-card accent-dark" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Insulator Hardware</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Suspension &amp; tension strings up to six-bundle conductor for transmission lines rated up to 800 KV.</p>
+        <div class="pillar-card accent-dark" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #0F141E;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(16,17,20,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/fab1_insulator.jpg" alt="High-Voltage Transmission Tower" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Insulator Hardware</h3>
+            <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Suspension &amp; tension strings up to six-bundle conductor for transmission lines rated up to 800 KV.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-blue" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Conductor Accessories</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Midspan joints, repair sleeves, clamps, vibration and spacer dampers, and earthing rods for single or bundle conductors.</p>
+        <div class="pillar-card accent-blue" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #16256B;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(22,37,107,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/fab2_conductor.jpg" alt="Steel Conductor Cable Spools" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Conductor Accessories</h3>
+            <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Midspan joints, repair sleeves, clamps, vibration and spacer dampers, and earthing rods for single or bundle conductors.</p>
+          </div>
         </div>
-        <div class="pillar-card accent-orange" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-radius:20px;padding:28px 24px;">
-          <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Rolling Mills &amp; Equipment</h3>
-          <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Manufacturers and exporters of cold and hot rolling mills, anchored by Quality, Integrity, Strategy, Safety, Community and Sustainability.</p>
+        <div class="pillar-card accent-orange" style="background:#FAF9F6;border:1px solid rgba(16,17,20,0.07);border-top:3px solid #F27518;border-radius:20px;overflow:hidden;position:relative;box-shadow:0 1px 2px rgba(16,17,20,0.04),0 8px 24px rgba(242,117,24,0.08);">
+          <div style="aspect-ratio:16/10;overflow:hidden;">
+            <img src="./assets/fab3_mill.jpg" alt="Steel Rolling Mill" style="width:100%;height:100%;object-fit:cover;display:block;">
+          </div>
+          <div style="padding:20px 22px 24px;">
+            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:17px;color:#0F141E;margin:0 0 10px;">Rolling Mills &amp; Equipment</h3>
+            <p style="font-size:15px;line-height:1.6;color:#3F434C;margin:0;">Manufacturers and exporters of cold and hot rolling mills, anchored by Best Quality, Integrity, Strategy, Safety, Community and Sustainability.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 09. MINING & LOGISTICS DEEP DIVE -->
-  <section id="mining" style="background:#F7F6F2;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:180px;">
-    <div style="max-width:1240px;margin:0 auto;">
-      <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
-        <div style="width:44px;height:44px;border-radius:12px;background:rgba(22,37,107,0.08);color:#16256B;display:flex;align-items:center;justify-content:center;">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21l4-9 4 5 3-6 7 10H3z" stroke="#16256B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+  <section id="mining" class="dossier-section" style="--accent:22,37,107;background:#F7F6F2;padding:clamp(56px,8vw,96px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);scroll-margin-top:180px;">
+    <div class="dossier-glow-b" aria-hidden="true"></div>
+    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,0.92fr);gap:clamp(36px,5vw,68px);align-items:center;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;">
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(22,37,107,0.08);color:#16256B;display:flex;align-items:center;justify-content:center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 21l4-9 4 5 3-6 7 10H3z" stroke="#16256B" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          </div>
+          <span style="font-size:14.5px;font-weight:700;letter-spacing:0.08em;color:#16256B;text-transform:uppercase;">09 &middot; Mining &amp; Logistics</span>
         </div>
-        <span style="font-size:12.5px;font-weight:700;letter-spacing:0.08em;color:#16256B;text-transform:uppercase;">09 &middot; Mining &amp; Logistics</span>
-      </div>
-      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;max-width:820px;">
-        Integrated iron ore mining and bulk material logistics.
-      </h2>
-      <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 36px;max-width:820px;">
-        A specialized player in iron ore exploration, extraction, beneficiation and marketing, complemented by end-to-end logistics — mine-to-port transportation, freight management, stockyard operations, warehousing and multimodal transportation for bulk commodities.
-      </p>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3vw,38px);color:#0F141E;line-height:1.2;letter-spacing:-0.02em;margin:0 0 18px;">
+          Integrated iron ore mining and bulk material logistics.
+        </h2>
+        <p style="font-size:16px;line-height:1.72;color:#4A4E57;margin:0 0 28px;">
+          A specialized player in iron ore exploration, extraction, beneficiation and marketing, complemented by end-to-end logistics — mine-to-port transportation, freight management, stockyard operations, warehousing and multimodal transportation for bulk commodities.
+        </p>
 
-      <!-- Execution stats -->
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px;">
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-radius:16px;padding:22px 20px;text-align:center;">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);color:#16256B;">&#8377;66.93 Cr</div>
-          <div style="font-size:13px;font-weight:600;color:#717682;margin-top:6px;">Total Executed Value</div>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-radius:16px;padding:22px 20px;text-align:center;">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);color:#F27518;">&#8377;37.05 Cr</div>
-          <div style="font-size:13px;font-weight:600;color:#717682;margin-top:6px;">Coal Logistics (MCL/SICAL)</div>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-radius:16px;padding:22px 20px;text-align:center;">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);color:#8E1D1B;">&#8377;29.88 Cr</div>
-          <div style="font-size:13px;font-weight:600;color:#717682;margin-top:6px;">Ash Supply (NALCO NH-55)</div>
-        </div>
-        <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-radius:16px;padding:22px 20px;text-align:center;">
-          <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(24px,2.6vw,30px);color:#0F141E;">20+ Fleet</div>
-          <div style="font-size:13px;font-weight:600;color:#717682;margin-top:6px;">Hyva Heavy Tippers</div>
+        <!-- Execution stats -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;">
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #16256B;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(22,37,107,0.10);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(22,37,107,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#16256B;">2 Clients</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">Marquee Execution Partners</div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #F27518;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(242,117,24,0.10);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(242,117,24,0.09) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#F27518;">2017&ndash;23</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">MCL/SICAL &amp; NALCO NH-55</div>
+          </div>
+          <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-top:3px solid #0F141E;border-radius:16px;padding:20px;text-align:center;position:relative;overflow:hidden;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 22px rgba(16,17,20,0.08);">
+            <div style="position:absolute;top:-45%;right:-25%;width:75%;height:75%;background:radial-gradient(circle,rgba(15,20,30,0.07) 0%,transparent 70%);pointer-events:none;"></div>
+            <div style="position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#0F141E;">20+ Fleet</div>
+            <div style="position:relative;font-size:12.5px;font-weight:600;color:#717682;margin-top:6px;">Hyva Heavy Tippers</div>
+          </div>
         </div>
       </div>
 
-      <!-- Project execution table -->
-      <div style="background:#FFFFFF;border:1px solid rgba(16,17,20,0.08);border-radius:20px;overflow-x:auto;box-shadow:0 1px 2px rgba(16,17,20,0.03),0 8px 24px rgba(16,17,20,0.04);">
-        <table style="width:100%;border-collapse:collapse;min-width:640px;font-size:14.5px;">
-          <thead>
-            <tr style="background:#0F141E;">
-              <th style="text-align:left;padding:16px 20px;color:#FFFFFF;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;">Principal Client</th>
-              <th style="text-align:left;padding:16px 20px;color:#FFFFFF;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;">Work Scope</th>
-              <th style="text-align:left;padding:16px 20px;color:#FFFFFF;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;">Period</th>
-              <th style="text-align:right;padding:16px 20px;color:#FFFFFF;font-weight:700;font-size:12.5px;letter-spacing:0.04em;text-transform:uppercase;">Executed (&#8377; Cr)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr style="border-bottom:1px solid rgba(16,17,20,0.06);">
-              <td style="padding:16px 20px;font-weight:700;color:#0F141E;">SICAL Logistics Ltd.</td>
-              <td style="padding:16px 20px;color:#4A4E57;">Deployment of 20 Hyva vehicles for bulk coal transport from MCL Bhubaneswary Mines, Talcher, to KR Enterprises Washery for the NTPL Coal Handling Project.</td>
-              <td style="padding:16px 20px;color:#4A4E57;white-space:nowrap;">2017 &ndash; 2019</td>
-              <td style="padding:16px 20px;color:#0F141E;font-weight:700;text-align:right;white-space:nowrap;">37.05</td>
-            </tr>
-            <tr style="border-bottom:1px solid rgba(16,17,20,0.06);">
-              <td style="padding:16px 20px;font-weight:700;color:#0F141E;">NALCO (Phase 1)</td>
-              <td style="padding:16px 20px;color:#4A4E57;">Supply of NALCO Pond Ash for 4-laning of Angul&ndash;Sambalpur Section of NH-55, Chainage 170&ndash;195 Km.</td>
-              <td style="padding:16px 20px;color:#4A4E57;white-space:nowrap;">2018 &ndash; 2021</td>
-              <td style="padding:16px 20px;color:#0F141E;font-weight:700;text-align:right;white-space:nowrap;">13.15</td>
-            </tr>
-            <tr>
-              <td style="padding:16px 20px;font-weight:700;color:#0F141E;">NALCO (Phase 2)</td>
-              <td style="padding:16px 20px;color:#4A4E57;">Supply of NALCO Pond Ash for 4-laning of Cuttack&ndash;Sambalpur Section of NH-55, Chainage 88.90&ndash;112 Km (Angul Bypass).</td>
-              <td style="padding:16px 20px;color:#4A4E57;white-space:nowrap;">2019 &ndash; 2023</td>
-              <td style="padding:16px 20px;color:#0F141E;font-weight:700;text-align:right;white-space:nowrap;">16.73</td>
-            </tr>
-          </tbody>
-        </table>
+      <div style="background:#F2EFE9;border:1px solid rgba(16,17,20,0.08);border-radius:24px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 18px 45px rgba(15,20,30,0.08);">
+        <img src="./assets/mining_hero.jpg" alt="Open-Pit Iron Ore Mining Operation" style="width:100%;height:100%;object-fit:cover;display:block;">
       </div>
-      <p style="font-size:12.5px;color:#8E8A80;margin:14px 0 0;">Contract baseline reflects tendered projects; excludes rate-contract SICAL deployment.</p>
     </div>
   </section>
 
@@ -538,7 +597,8 @@
           <div style="color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;">Contacts</div>
           <div style="display:flex;flex-direction:column;gap:11px;">
             <a href="mailto:contactus@mahapatrauniversal.com" class="footer-link" style="color:#3F434C;font-size:14px;word-break:break-word;">contactus@mahapatrauniversal.com</a>
-            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Andheri East, Mumbai, India</span>
+            <a href="tel:+912262642345" class="footer-link" style="color:#3F434C;font-size:14px;">022 6264 2345</a>
+            <span style="color:#3F434C;font-size:13.5px;line-height:1.5;">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>
           </div>
         </div>
       </div>
