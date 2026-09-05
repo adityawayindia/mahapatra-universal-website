@@ -80,7 +80,7 @@
     // Hero word cycler
     var heroWordEl = document.querySelector('.hero-word');
     if (heroWordEl) {
-      var words = ['Leadership', 'Integrity', 'Stewardship'];
+      var words = ['Leadership', 'Integrity', 'Purpose'];
       var idx = 0;
       setInterval(function () {
         heroWordEl.classList.add('is-fading');
