@@ -36,6 +36,8 @@
       show = true;                       // refresh: always show
     } else if (type === 'back_forward') {
       show = false;                      // restored history entry
+    } else if (sessionStorage.getItem('mu-splash-shown')) {
+      show = false;                      // already shown once this browser session
     } else if (document.referrer) {
       var r = document.createElement('a'); r.href = document.referrer;
       if (r.host === location.host) show = false;   // internal page switch
@@ -43,6 +45,7 @@
   } catch (e) { show = true; }
   if (!show) document.documentElement.className += ' mu-no-splash';
   else { document.documentElement.className += ' mu-splash-lock'; setTimeout(function(){ document.documentElement.classList.remove('mu-splash-lock'); }, 6000); }
+  try { sessionStorage.setItem('mu-splash-shown', '1'); } catch (e) {}
 })();
 </script>
 <link rel="stylesheet" href="./main.css">
@@ -102,14 +105,14 @@
     <!-- ABOUT HERO -->
     <section style="position:relative;padding:clamp(40px,6vw,72px) clamp(24px,4.5vw,64px) clamp(48px,6vw,72px);z-index:1;">
     <div class="fade-up" style="max-width:880px;margin:0 auto;text-align:center;position:relative;animation-delay:0.1s;">
-      <div style="display:inline-flex;align-items:center;gap:8px;background:#FFFFFF;border:1px solid rgba(16,17,20,0.09);box-shadow:0 2px 10px rgba(16,17,20,0.04);color:#8E1D1B;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
-        <span style="width:6px;height:6px;border-radius:50%;background:#8E1D1B;"></span>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);box-shadow:0 2px 10px rgba(0,0,0,0.2);color:#F2A15C;font-size:13px;font-weight:700;letter-spacing:0.08em;padding:7px 18px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;">
+        <span style="width:6px;height:6px;border-radius:50%;background:#F2A15C;"></span>
         About Mahapatra Universal
       </div>
-      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#0F141E;font-size:clamp(34px,4.6vw,56px);line-height:1.12;letter-spacing:-0.03em;margin:0 0 22px;">
-        Building resilient enterprises, <span class="text-gradient">empowering</span> global economies.
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;color:#FFFFFF;font-size:clamp(34px,4.6vw,56px);line-height:1.12;letter-spacing:-0.03em;margin:0 0 22px;">
+        Building resilient enterprises, <span class="text-gradient-dark-bg">empowering</span> global economies.
       </h1>
-      <p style="font-size:16px;line-height:1.68;color:#4A4E57;max-width:680px;margin:0 auto;">
+      <p style="font-size:16px;line-height:1.68;color:rgba(255,255,255,0.72);max-width:680px;margin:0 auto;">
         A diversified multi-industry conglomerate founded by Preeti Mahapatra, spanning four signature brands and eleven business verticals across seven countries.
       </p>
     </div>
@@ -335,6 +338,7 @@
         <div>
           <div class="site-footer-heading">Contacts</div>
           <div class="site-footer-col">
+            <span class="footer-link" style="color:#0F141E;font-weight:700;">Mahapatra Universal Limited</span>
             <a href="mailto:contactus@mahapatrauniversal.com" class="footer-link" style="word-break:break-word;">contactus@mahapatrauniversal.com</a>
             <a href="tel:+912262642345" class="footer-link">022 6264 2345</a>
             <span class="site-footer-address">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>

@@ -38,6 +38,8 @@
       show = true;                       // refresh: always show
     } else if (type === 'back_forward') {
       show = false;                      // restored history entry
+    } else if (sessionStorage.getItem('mu-splash-shown')) {
+      show = false;                      // already shown once this browser session
     } else if (document.referrer) {
       var r = document.createElement('a'); r.href = document.referrer;
       if (r.host === location.host) show = false;   // internal page switch
@@ -45,6 +47,7 @@
   } catch (e) { show = true; }
   if (!show) document.documentElement.className += ' mu-no-splash';
   else { document.documentElement.className += ' mu-splash-lock'; setTimeout(function(){ document.documentElement.classList.remove('mu-splash-lock'); }, 6000); }
+  try { sessionStorage.setItem('mu-splash-shown', '1'); } catch (e) {}
 })();
 </script>
 <link rel="stylesheet" href="./main.css">
@@ -642,6 +645,7 @@
         <div>
           <div class="site-footer-heading">Contacts</div>
           <div class="site-footer-col">
+            <span class="footer-link" style="color:#0F141E;font-weight:700;">Mahapatra Universal Limited</span>
             <a href="mailto:contactus@mahapatrauniversal.com" class="footer-link" style="word-break:break-word;">contactus@mahapatrauniversal.com</a>
             <a href="tel:+912262642345" class="footer-link">022 6264 2345</a>
             <span class="site-footer-address">Rushabh Chambers, Gamdevi, Marol, Andheri East, Mumbai, Maharashtra 400059</span>
