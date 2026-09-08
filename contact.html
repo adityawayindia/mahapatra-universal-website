@@ -122,8 +122,9 @@
   </div>
 
   <!-- FORM & CONTACT DETAILS SPLIT -->
-  <section style="background:#FFFFFF;padding:0 clamp(24px,4.5vw,64px) clamp(64px,8vw,100px);">
-    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,0.85fr);gap:clamp(36px,5vw,68px);align-items:start;">
+  <section class="contact-section--dark" style="background:#0F141E;padding:clamp(64px,8vw,100px) clamp(24px,4.5vw,64px);position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,0.14) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 30%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 50% 30%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div class="r-split" style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,0.85fr);gap:clamp(36px,5vw,68px);align-items:stretch;position:relative;z-index:1;">
 
       <!-- Corporate Inquiry Form Card -->
       <div class="contact-form-card">
@@ -131,19 +132,19 @@
 
         <div data-contact-success-panel style="display:none;">
           <div style="text-align:center;padding:48px 16px;">
-            <div style="width:64px;height:64px;border-radius:50%;background:rgba(22,37,107,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 7" stroke="#16256B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <div style="width:64px;height:64px;border-radius:50%;background:rgba(242,161,92,0.14);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 12.5l5 5L20 7" stroke="#F2A15C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
-            <h3 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:#0F141E;margin:0 0 12px;">Inquiry Dispatched</h3>
-            <p style="font-size:16px;line-height:1.6;color:#3F434C;margin:0;">Thank you for contacting Mahapatra Universal Limited. Your request has been routed to the appropriate vertical secretariat.</p>
+            <h3 class="contact-form-heading" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:#FFFFFF;margin:0 0 12px;">Inquiry Dispatched</h3>
+            <p class="contact-form-body" style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.7);margin:0;">Thank you for contacting Mahapatra Universal Limited. Your request has been routed to the appropriate vertical secretariat.</p>
           </div>
         </div>
 
         <div data-contact-form-panel>
           <div>
             <div class="r-stack-sm" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;">
-              <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#0F141E;letter-spacing:-0.02em;margin:0;">Corporate Inquiry Desk</h2>
-              <span style="font-size:12px;font-weight:700;color:#8E8A80;letter-spacing:0.04em;">RESPONSE TIME: 24H</span>
+              <h2 class="contact-form-heading" style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2.4vw,28px);color:#FFFFFF;letter-spacing:-0.02em;margin:0;">Corporate Inquiry Desk</h2>
+              <span class="contact-form-subheading" style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:0.04em;">RESPONSE TIME: 24H</span>
             </div>
 
             <form data-contact-form novalidate>
@@ -187,7 +188,7 @@
                 <div class="field-error-msg" id="contact-message-error" role="alert"></div>
               </div>
 
-              <button type="submit" class="cta-solid-red" style="width:100%;background:#0F141E;color:#FFFFFF;font-weight:700;font-size:16px;letter-spacing:0.02em;padding:17px;border:none;border-radius:100px;cursor:pointer;box-shadow:0 8px 24px rgba(15,20,30,0.18);">
+              <button type="submit" class="site-header-cta" style="width:100%;justify-content:center;font-size:16px;letter-spacing:0.02em;padding:17px;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;">
                 Submit Official Inquiry
               </button>
             </form>
@@ -239,8 +240,10 @@
         </a>
       </aside>
     </div>
+  </section>
 
-    <!-- OFFICES & MAP -->
+  <!-- OFFICES & MAP -->
+  <section style="background:#FFFFFF;padding:0 clamp(24px,4.5vw,64px) clamp(64px,8vw,100px);">
     <div class="contact-offices">
       <div class="contact-offices-stack">
         <div class="contact-office-card contact-office-card--hq">
@@ -272,6 +275,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- CORPORATE FOOTER (CARD-FLOAT STYLE) -->
   <footer class="site-footer">
@@ -328,7 +332,10 @@
     <div class="site-footer-bottom-bar">
       <div class="r-footer-bottom" style="max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center;">
         <span style="color:rgba(255,255,255,0.7);font-size:13px;font-weight:700;letter-spacing:0.02em;">Mahapatra Universal Limited</span>
-        <span style="color:rgba(255,255,255,0.55);font-size:13px;">Copyright 2026 All rights reserved.</span>
+        <span class="footer-legal-line" style="color:rgba(255,255,255,0.55);font-size:13px;">
+          <a href="privacy-policy.html" style="color:rgba(255,255,255,0.55);text-decoration:underline;">Privacy Policy</a>
+          <span class="footer-copyright-line">&copy;&nbsp;2026 All rights reserved.</span>
+        </span>
       </div>
     </div>
   </footer>

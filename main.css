@@ -186,6 +186,31 @@ footer p, footer span, footer a{font-weight:500;}
 .site-footer-col{display:flex;flex-direction:column;gap:11px;}
 .site-footer-address{color:#3F434C;font-size:16px;line-height:1.5;}
 .site-footer-bottom-bar{background:#0F141E;padding:24px clamp(24px,4.5vw,64px) 28px;border-top:1px solid rgba(255,255,255,0.08);}
+.footer-legal-line{display:inline-flex;flex-wrap:wrap;align-items:center;gap:0;}
+.footer-copyright-line{display:inline;}
+.footer-copyright-line::before{content:"\00a0\00b7\00a0";}
+@media (max-width:640px){
+  .footer-legal-line{flex-direction:column;gap:6px;}
+  .footer-copyright-line{display:block;}
+  .footer-copyright-line::before{content:none;}
+}
+
+/* Legal / policy document body */
+.legal-doc{display:flex;flex-direction:column;}
+.legal-section{padding:28px 0;border-top:1px solid rgba(16,17,20,0.08);}
+.legal-section:first-child{border-top:none;padding-top:0;}
+.legal-section h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(19px,2vw,22px);color:#0F141E;letter-spacing:-0.01em;margin:0 0 14px;}
+.legal-section p{font-size:16px;line-height:1.75;color:#3F434C;margin:0 0 14px;}
+.legal-section p:last-child{margin-bottom:0;}
+.legal-section ul{margin:0 0 14px;padding-left:20px;display:flex;flex-direction:column;gap:10px;}
+.legal-section ul:last-child{margin-bottom:0;}
+.legal-section li{font-size:16px;line-height:1.65;color:#3F434C;}
+.legal-section li strong{color:#0F141E;}
+.legal-contact-card{margin-top:8px;background:#FAF9F6;border:1px solid rgba(16,17,20,0.08);border-radius:16px;padding:24px 26px;display:flex;flex-direction:column;gap:8px;}
+.legal-contact-name{font-weight:800;color:#0F141E;font-size:16px;}
+.legal-contact-card a{color:#16256B;font-weight:600;font-size:15.5px;text-decoration:none;width:fit-content;}
+.legal-contact-card a:hover{text-decoration:underline;}
+.legal-contact-address{color:#4A4E57;font-size:14.5px;line-height:1.55;margin-top:4px;}
 
 /* Accent-colored hover cards (About pillars / Leadership directors) */
 .pillar-card{transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
@@ -377,18 +402,18 @@ img{max-width:100%;}
 
 /* Inquiry form card */
 .contact-form-card{
-  background:#FFFFFF;
-  border:1px solid rgba(16,17,20,0.08);
+  background:#151B2B;
+  border:1px solid rgba(255,255,255,0.1);
   border-radius:24px;
   padding:clamp(28px,4vw,44px);
-  box-shadow:0 1px 2px rgba(16,17,20,0.04),0 12px 35px rgba(15,20,30,0.04),0 28px 56px -14px rgba(22,37,107,0.08);
+  box-shadow:0 1px 2px rgba(0,0,0,0.2),0 12px 35px rgba(0,0,0,0.2);
   position:relative;
   overflow:hidden;
 }
 
 /* Contact form fields */
 .contact-field{display:flex;flex-direction:column;min-width:0;}
-.contact-field label{display:block;font-size:14px;font-weight:700;color:#0F141E;margin-bottom:8px;}
+.contact-field label{display:block;font-size:14px;font-weight:700;color:#FFFFFF;margin-bottom:8px;}
 .contact-field input,
 .contact-field select,
 .contact-field textarea{
@@ -397,50 +422,56 @@ img{max-width:100%;}
   padding:14px 16px;
   font-size:15px;
   border-radius:12px;
-  border:1px solid rgba(16,17,20,0.14);
+  border:1px solid rgba(255,255,255,0.16);
   font-family:'Plus Jakarta Sans',sans-serif;
-  background:#FAFAF8;
-  color:#0F141E;
+  background:rgba(255,255,255,0.06);
+  color:#FFFFFF;
   transition:border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
+.contact-field input::placeholder,
+.contact-field textarea::placeholder{color:rgba(255,255,255,0.4);}
 .contact-field input:focus,
 .contact-field select:focus,
-.contact-field textarea:focus{background:#FFFFFF;}
+.contact-field textarea:focus{background:rgba(255,255,255,0.09);}
 .contact-field textarea{resize:vertical;}
 .contact-field select{
   appearance:none;
   -webkit-appearance:none;
   padding-right:42px;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2.5 5L7 9.5L11.5 5' stroke='%230F141E' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2.5 5L7 9.5L11.5 5' stroke='%23FFFFFF' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat:no-repeat;
   background-position:right 16px center;
   cursor:pointer;
 }
+.contact-field select option{color:#0F141E;}
+.contact-field .iti__selected-dial-code{color:#FFFFFF;}
+.contact-field .iti__selected-country{background:transparent;}
 
 /* Departmental directory (right rail) */
 .contact-directory{
-  position:sticky;
-  top:104px;
-  background:#FAF9F6;
-  color:#0F141E;
-  border:1px solid rgba(16,17,20,0.08);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  background:#151B2B;
+  color:#FFFFFF;
+  border:1px solid rgba(255,255,255,0.1);
   border-radius:24px;
   padding:clamp(26px,3vw,34px) clamp(24px,2.6vw,30px);
-  box-shadow:0 1px 2px rgba(16,17,20,0.04),0 12px 30px rgba(16,17,20,0.05),0 26px 52px -14px rgba(22,37,107,0.10);
+  box-shadow:0 1px 2px rgba(0,0,0,0.2),0 12px 30px rgba(0,0,0,0.2);
   overflow:hidden;
 }
 .contact-directory-accent{position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);}
 .contact-directory-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
-  color:#8E1D1B;font-weight:700;font-size:12px;
+  color:#F2A15C;font-weight:700;font-size:12px;
   letter-spacing:0.12em;text-transform:uppercase;margin-bottom:12px;
 }
-.contact-directory-eyebrow span{width:6px;height:6px;border-radius:50%;background:#8E1D1B;flex-shrink:0;}
+.contact-directory-eyebrow span{width:6px;height:6px;border-radius:50%;background:#F2A15C;flex-shrink:0;}
 .contact-directory-title{
   font-family:'Plus Jakarta Sans',sans-serif;
   font-weight:800;font-size:clamp(20px,2vw,23px);
   line-height:1.28;letter-spacing:-0.02em;
-  color:#0F141E;margin:0 0 24px;
+  color:#FFFFFF;margin:0 0 24px;
 }
 
 .contact-dept-list{display:flex;flex-direction:column;}
@@ -448,44 +479,44 @@ img{max-width:100%;}
   display:flex;flex-direction:column;gap:3px;
   padding:13px 12px;margin:0 -12px;
   border-radius:12px;
-  border-top:1px solid rgba(16,17,20,0.08);
+  border-top:1px solid rgba(255,255,255,0.12);
   transition:background 0.22s ease,transform 0.22s ease;
 }
 .contact-dept:first-child{border-top:0;padding-top:0;}
 .contact-dept-role{
-  font-size:11px;color:#8E8A80;
+  font-size:11px;color:rgba(255,255,255,0.5);
   font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
 }
 .contact-dept-value{
-  color:#0F141E;font-size:14.5px;font-weight:600;
+  color:#FFFFFF;font-size:14.5px;font-weight:600;
   word-break:break-word;transition:color 0.2s ease;
 }
 @media (hover:hover){
-  .contact-dept:hover{background:#FFFFFF;}
-  .contact-dept:hover .contact-dept-value{color:#8E1D1B;}
+  .contact-dept:hover{background:rgba(255,255,255,0.06);}
+  .contact-dept:hover .contact-dept-value{color:#F2A15C;}
 }
 
 .contact-phone-block{
   display:flex;align-items:center;gap:14px;
-  margin-top:24px;padding:16px 18px;
-  background:#FFFFFF;
-  border:1px solid rgba(16,17,20,0.1);
+  margin-top:auto;padding:16px 18px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.14);
   border-radius:16px;
   transition:background 0.22s ease,border-color 0.22s ease,box-shadow 0.22s ease;
 }
 .contact-phone-icon{
   width:42px;height:42px;flex-shrink:0;border-radius:12px;
-  background:rgba(142,29,27,0.08);color:#8E1D1B;
+  background:rgba(242,117,24,0.14);color:#F2A15C;
   display:flex;align-items:center;justify-content:center;
 }
 .contact-phone-label{
   display:block;font-size:11px;font-weight:700;
   letter-spacing:0.08em;text-transform:uppercase;
-  color:#8E8A80;margin-bottom:2px;
+  color:rgba(255,255,255,0.5);margin-bottom:2px;
 }
-.contact-phone-value{display:block;font-size:17px;font-weight:800;color:#0F141E;letter-spacing:-0.01em;}
+.contact-phone-value{display:block;font-size:17px;font-weight:800;color:#FFFFFF;letter-spacing:-0.01em;}
 @media (hover:hover){
-  .contact-phone-block:hover{border-color:rgba(142,29,27,0.3);box-shadow:0 6px 18px rgba(142,29,27,0.08);}
+  .contact-phone-block:hover{border-color:rgba(242,161,92,0.4);box-shadow:0 6px 18px rgba(0,0,0,0.25);}
 }
 
 /* Offices + map band */
