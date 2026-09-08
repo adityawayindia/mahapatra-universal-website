@@ -137,8 +137,10 @@
   </header>
 
   <!-- HERO SECTION (Fits exactly within 100vh viewport) -->
-  <section class="r-hero" style="min-height:100vh;box-sizing:border-box;padding:clamp(90px,11vh,112px) clamp(24px,4.5vw,64px) clamp(20px,3.5vh,40px);display:flex;align-items:center;position:relative;background-image:linear-gradient(rgba(0,0,0,0.32), rgba(0,0,0,0.32)), url('./assets/hero-bg.png');background-size:cover;background-position:center;">
-    <div class="r-hero-grid" style="max-width:1240px;width:100%;margin:0 auto;position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,380px);gap:clamp(32px,5vw,56px);align-items:center;">
+  <section class="r-hero" style="min-height:100vh;box-sizing:border-box;padding:clamp(90px,11vh,112px) clamp(24px,4.5vw,64px) clamp(20px,3.5vh,40px);display:flex;align-items:center;position:relative;overflow:hidden;background:#0F141E;">
+    <div class="r-hero-bg" aria-hidden="true"></div>
+    <div class="r-hero-scrim" aria-hidden="true"></div>
+    <div class="r-hero-grid" style="max-width:1240px;width:100%;margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(280px,380px);gap:clamp(32px,5vw,56px);align-items:center;">
 
       <div class="fade-up" style="animation-delay:0.1s;">
 
@@ -149,7 +151,7 @@
             Guided by <span class="hero-word">Leadership</span> with Trust.
           </h1>
 
-          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.82);max-width:560px;margin:clamp(14px,2vh,24px) 0 clamp(18px,2.5vh,28px);font-weight:400;">
+          <p style="font-size:16px;line-height:1.6;color:rgba(255,255,255,0.96);max-width:560px;margin:clamp(14px,2vh,24px) 0 clamp(18px,2.5vh,28px);font-weight:500;text-shadow:0 1px 3px rgba(0,0,0,0.45),0 2px 12px rgba(0,0,0,0.3);">
             Mahapatra Universal Limited is a diversified multinational conglomerate spanning Engineering, Information Technology, and Hospitality — four signature brands and eleven business verticals across seven countries.
           </p>
 
@@ -212,9 +214,9 @@
   <!-- METRICS / STATS STRIP -->
   <section style="background:linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);background-image:radial-gradient(circle at 15% 20%,rgba(22,37,107,0.35) 0%,transparent 45%),radial-gradient(circle at 85% 80%,rgba(142,29,27,0.28) 0%,transparent 45%),linear-gradient(160deg,#0F141E 0%,#141B2C 55%,#1A1428 100%);color:#FFFFFF;border-bottom:1px solid rgba(255,255,255,0.06);position:relative;overflow:hidden;">
     <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-brand);"></div>
-    <div class="reveal reveal-stagger" style="max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,56px) clamp(24px,4.5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,3vw,40px);position:relative;">
+    <div class="reveal reveal-stagger r-metrics-grid" style="max-width:1240px;margin:0 auto;padding:clamp(40px,5vw,56px) clamp(24px,4.5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:clamp(24px,3vw,40px);position:relative;">
 
-      <div style="position:relative;padding:8px 12px;">
+      <div class="r-metric r-metric--first" style="position:relative;padding:8px 12px;">
         <div style="font-size:12px;font-weight:700;letter-spacing:0.12em;color:#9FA6B2;text-transform:uppercase;margin-bottom:10px;">Corporate Scope</div>
         <div style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(38px,4.2vw,52px);color:#FFFFFF;letter-spacing:-0.03em;line-height:1;">
           <span data-stat-target="4">0</span>
@@ -295,8 +297,9 @@
   </section>
 
   <!-- PORTFOLIO SNAPSHOT -->
-  <section style="background:#F7F6F2;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);">
-    <div style="max-width:1240px;margin:0 auto;">
+  <section style="background:#F7F6F2;padding:clamp(64px,8vw,110px) clamp(24px,4.5vw,64px);border-top:1px solid rgba(16,17,20,0.06);position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background-image:radial-gradient(rgba(16,17,20,0.14) 1.5px, transparent 1.5px);background-size:24px 24px;-webkit-mask-image:radial-gradient(ellipse 70% 80% at 50% 30%, #000 0%, transparent 75%);mask-image:radial-gradient(ellipse 70% 80% at 50% 30%, #000 0%, transparent 75%);pointer-events:none;z-index:0;"></div>
+    <div style="max-width:1240px;margin:0 auto;position:relative;z-index:1;">
       <div class="reveal" style="max-width:720px;margin:0 auto 40px;text-align:center;">
         <div style="display:inline-flex;align-items:center;gap:10px;font-size:16px;font-weight:700;letter-spacing:0.1em;color:#0F141E;text-transform:uppercase;margin-bottom:14px;">
           <span style="width:6px;height:6px;border-radius:50%;background:#F27518;"></span>

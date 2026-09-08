@@ -39,6 +39,40 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
   overflow: hidden;
 }
 
+/* Hero background: slow Ken Burns zoom, kicked off once the intro splash clears.
+   The image sits on its own layer at background-size:cover (exact coverage at any aspect
+   ratio) and is scaled with transform, so zooming can only ever grow past the edges —
+   never reveal a gap. The section's overflow:hidden clips the overscan. */
+.r-hero-bg{
+  position:absolute;
+  inset:0;
+  background-image:url('./assets/hero-bg.png');
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  transform:scale(1.06);
+  transform-origin:center 45%;
+  z-index:0;
+}
+.r-hero-scrim{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.32);
+  pointer-events:none;
+  z-index:1;
+}
+@keyframes heroBgZoom{
+  from{transform:scale(1.06);}
+  to{transform:scale(1.20);}
+}
+.r-hero.hero-bg-animate .r-hero-bg{
+  animation:heroBgZoom 18s ease-out forwards;
+  will-change:transform;
+}
+@media (prefers-reduced-motion: reduce){
+  .r-hero.hero-bg-animate .r-hero-bg{animation:none;}
+}
+
 /* Interior-page hero: layered brand-color glow over the dot texture */
 .section-hero-bg{
   position:relative;
@@ -104,8 +138,9 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
 .site-header-logo img{height:34px;width:auto;display:block;}
 
 .site-nav{display:flex;align-items:center;gap:8px;}
-.site-nav a, .site-nav span{color:rgba(15,20,30,0.86);font-weight:600;font-size:15px;letter-spacing:0.01em;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.2s ease,background 0.2s ease;padding:8px 16px;border-radius:100px;}
-.site-nav a.active{font-weight:700;background:rgba(15,20,30,0.06);background-image:var(--grad-brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;}
+.site-nav a, .site-nav span{position:relative;color:rgba(15,20,30,0.86);font-weight:600;font-size:15px;letter-spacing:0.01em;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.2s ease,background 0.2s ease;padding:8px 16px;border-radius:100px;}
+.site-nav a.active{font-weight:700;color:#0F141E;}
+.site-nav a.active::after{content:"";position:absolute;left:16px;right:16px;bottom:4px;height:2px;border-radius:2px;background-image:var(--grad-brand);}
 .site-nav a:hover{color:#0F141E;}
 .site-nav span{color:rgba(15,20,30,0.35);cursor:default;}
 
@@ -349,12 +384,20 @@ img{max-width:100%;}
   .r-hero{min-height:auto!important;padding-top:clamp(108px,15vh,132px)!important;padding-bottom:clamp(48px,7vh,72px)!important;}
   .r-hero-grid{grid-template-columns:minmax(0,1fr)!important;gap:36px!important;}
   .r-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:36px!important;}
-  .r-metric{border-left:0!important;}
+  /* Metrics become centered, self-contained cards once they stack */
+  .r-metric{
+    padding:22px 18px!important;
+    text-align:center;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.1)!important;
+    border-radius:16px;
+  }
   .bento-founders{grid-template-columns:minmax(0,1fr)!important;}
   .bento-team-card{flex-basis:calc(50% - 10px)!important;max-width:calc(50% - 10px)!important;}
 }
 
 @media (max-width:640px){
+  .r-metrics-grid{grid-template-columns:minmax(0,1fr)!important;gap:16px!important;}
   .r-grid-4{grid-template-columns:minmax(0,1fr)!important;}
   .r-footer-grid{grid-template-columns:minmax(0,1fr)!important;gap:30px!important;}
   .r-footer-bottom{flex-direction:column!important;align-items:center!important;text-align:center!important;gap:10px!important;}

@@ -6,9 +6,16 @@
   (function initSplash() {
     var splash = document.getElementById('mu-splash');
     var root = document.documentElement;
+
+    function startHeroAnimation() {
+      var hero = document.querySelector('.r-hero');
+      if (hero) hero.classList.add('hero-bg-animate');
+    }
+
     if (!splash || root.classList.contains('mu-no-splash')) {
       root.classList.remove('mu-splash-lock');
       if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
+      startHeroAnimation();
       return;
     }
 
@@ -23,6 +30,7 @@
       splash.classList.add('is-leaving');
       root.classList.remove('mu-splash-lock');
       window.scrollTo(0, 0);
+      startHeroAnimation();
       setTimeout(function () {
         if (splash.parentNode) splash.parentNode.removeChild(splash);
       }, 800);
