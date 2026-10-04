@@ -2,6 +2,24 @@
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
 
+  // Header blur band: hidden at the very top of the page, shown from the first scroll onward.
+  (function initHeaderBlur() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+
+    var ticking = false;
+    function update() {
+      ticking = false;
+      header.classList.toggle('header-blur-on', window.scrollY > 4);
+    }
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
+  })();
+
   // Intro splash: dismiss once the page is ready, after a short minimum on-screen time.
   (function initSplash() {
     var splash = document.getElementById('mu-splash');
@@ -125,10 +143,18 @@
     var phoneInputs = document.querySelectorAll('input[type="tel"][data-intl-phone]');
     if (phoneInputs.length && window.intlTelInput) {
       phoneInputs.forEach(function (input) {
-        window.intlTelInput(input, {
+        var iti = window.intlTelInput(input, {
           initialCountry: 'in',
           separateDialCode: true,
+          strictMode: true,   // digits only, capped at the longest valid length for the chosen country
           utilsScript: 'https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/js/utils.js',
+        });
+        input._iti = iti;
+        // Re-check the number against the new country's rules when the country changes
+        input.addEventListener('countrychange', function () {
+          if (input.value.trim() || input.classList.contains('form-field-invalid')) {
+            showFieldError(input, validateField(input));
+          }
         });
       });
     }
@@ -141,6 +167,9 @@
 
     // Hero enquiry form
     initHeroForm();
+
+    // Careers application form
+    initCareerForm();
   });
 
   // ---- Shared form validation ----
@@ -163,6 +192,25 @@
     var value = input.value.trim();
     var required = input.hasAttribute('required');
 
+    if (input.type === 'checkbox') {
+      return required && !input.checked ? 'Please confirm to continue.' : '';
+    }
+
+    if (input.type === 'file') {
+      var file = input.files && input.files[0];
+      if (!file) return required ? 'Please attach your resume.' : '';
+      var allowed = (input.getAttribute('data-allowed-ext') || '').split(',');
+      var ext = file.name.split('.').pop().toLowerCase();
+      if (allowed[0] && allowed.indexOf(ext) === -1) {
+        return 'Please upload a ' + allowed.join(', ').toUpperCase() + ' file.';
+      }
+      var maxMb = parseFloat(input.getAttribute('data-max-mb'));
+      if (maxMb && file.size > maxMb * 1024 * 1024) {
+        return 'File is too large. Maximum size is ' + maxMb + ' MB.';
+      }
+      return '';
+    }
+
     if (!value) {
       if (required) return 'Please enter your ' + fieldLabel(input) + '.';
       return '';
@@ -176,10 +224,20 @@
       return 'Please enter a valid name (letters only).';
     }
 
+    if (input.type === 'url' && !/^(https?:\/\/)?[^\s\/.]+(\.[^\s\/.]+)+(\/\S*)?$/i.test(value)) {
+      return 'Please enter a valid link (e.g. linkedin.com/in/yourname).';
+    }
+
     if (input.type === 'tel') {
       var digits = value.replace(/[^0-9]/g, '');
       if (!PHONE_RE.test(value) || digits.length < 7 || digits.length > 15) {
         return 'Please enter a valid phone number.';
+      }
+      // Country-specific length/format check (null = validation data not loaded yet)
+      var iti = input._iti;
+      if (iti && iti.isValidNumber() === false) {
+        var country = iti.getSelectedCountryData();
+        return 'Please enter a valid ' + (country && country.name ? country.name.replace(/\s*\(.*\)/, '') : 'local') + ' phone number.';
       }
     }
 
@@ -234,6 +292,11 @@
           showFieldError(input, validateField(input));
         }
       });
+      if (input.type === 'file' || input.type === 'checkbox') {
+        input.addEventListener('change', function () {
+          showFieldError(input, validateField(input));
+        });
+      }
     });
   }
 
@@ -269,7 +332,7 @@
       { year: '2011', label: 'Group Inception', category: 'FOUNDATION', color: '#5B7FE0', colorRgb: '91,127,224',
         desc: 'Mahapatra Universal Limited was formally incorporated, establishing the cornerstone for a scalable, diversified multi-sector industrial conglomerate.' },
       { year: '2011-2023', label: 'Multi-Sector Expansion', category: 'DIVERSIFICATION', color: '#F27518', colorRgb: '242,117,24',
-        desc: 'Scaled into five independent operating subsidiaries across 11 key verticals -- Engineering, Data Technology, Hospitality, and Asset Restructuring across 7 countries.' },
+        desc: 'Scaled into five independent operating subsidiaries across 12 key verticals -- Engineering, Data Technology, Hospitality, and Asset Restructuring across 7 countries.' },
       { year: '2023', label: '₹1,100 Cr Strategic SpiceJet Stake', category: 'AVIATION CAPITAL', color: '#E0615C', colorRgb: '224,97,92',
         desc: 'Preeti and Harihara Mahapatra orchestrated an equity acquisition exceeding 21% in SpiceJet, supporting landmark capital restructuring in commercial aviation.' },
       { year: '2025', label: 'Odisha Pro T20 Franchise Ownership', category: 'SPORTS ASSET', color: '#4FC3A1', colorRgb: '79,195,161',
@@ -405,6 +468,46 @@
       if (!validateForm(form)) return;
       if (formPanel) formPanel.style.display = 'none';
       if (successPanel) successPanel.style.display = 'block';
+    });
+  }
+
+  function initCareerForm() {
+    var form = document.querySelector('[data-career-form]');
+    if (!form) return;
+    var formPanel = document.querySelector('[data-career-form-panel]');
+    var successPanel = document.querySelector('[data-career-success-panel]');
+
+    // Resume drop zone: show the chosen file name and highlight while dragging
+    var upload = form.querySelector('[data-career-upload]');
+    if (upload) {
+      var fileInput = upload.querySelector('input[type="file"]');
+      var titleEl = upload.querySelector('[data-upload-title]');
+      var defaultTitle = titleEl.textContent;
+      fileInput.addEventListener('change', function () {
+        var file = fileInput.files && fileInput.files[0];
+        titleEl.textContent = file ? file.name : defaultTitle;
+        upload.classList.toggle('has-file', !!file);
+      });
+      ['dragenter', 'dragover'].forEach(function (evt) {
+        upload.addEventListener(evt, function () { upload.classList.add('is-dragover'); });
+      });
+      ['dragleave', 'drop'].forEach(function (evt) {
+        upload.addEventListener(evt, function () { upload.classList.remove('is-dragover'); });
+      });
+    }
+
+    setupLiveValidation(form);
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!validateForm(form)) return;
+      if (formPanel) formPanel.style.display = 'none';
+      if (successPanel) {
+        var card = successPanel.parentNode;
+        card.style.display = 'flex';
+        card.style.flexDirection = 'column';
+        card.style.justifyContent = 'center';
+        successPanel.style.display = 'block';
+      }
     });
   }
 

@@ -1,0 +1,25 @@
+# Mahapatra Universal Limited
+
+> Mahapatra Universal Limited is a diversified Indian conglomerate driving growth across infrastructure, energy, and industrial fabrication, with 12 business verticals. It builds the foundations of a stronger, more sustainable India.
+
+Contact: contactus@mahapatrauniversal.com
+
+## Company
+
+- [Home](https://mahapatrauniversal.com/): Overview of the group and its core sectors.
+- [About Us](https://mahapatrauniversal.com/about.html): Legacy, mission, and values.
+- [Leadership](https://mahapatrauniversal.com/leadership.html): The leadership team steering the group's vision.
+
+## Businesses
+
+- [Our Businesses](https://mahapatrauniversal.com/business.html): Infrastructure development (road and urban development), energy solutions (including solar power), and industrial fabrication and manufacturing.
+
+## Engage
+
+- [Careers](https://mahapatrauniversal.com/career.html): Opportunities across engineering, technology, finance, hospitality, mining, renewables and more.
+- [Contact Us](https://mahapatrauniversal.com/contact.html): Corporate office, business, HR, and media contacts by phone or email.
+
+## Optional
+
+- [Privacy Policy](https://mahapatrauniversal.com/privacy-policy.html): How personal information is collected, used, and protected.
+- [Sitemap](https://mahapatrauniversal.com/sitemap.xml)
