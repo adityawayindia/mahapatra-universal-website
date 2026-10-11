@@ -192,10 +192,12 @@
             </div>
           </div>
           <div style="position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:10px;">
-            <span class="bento-chip">Master's, International Business (Finance) &amp; Export Mgmt</span>
+            <span class="bento-chip">Master's, International Business (Finance) &amp; Export Management</span>
             <span class="bento-chip">Launched brands across Europe, Asia &amp; the Middle East</span>
             <span class="bento-chip">Philanthropy — education, shelter &amp; disaster relief</span>
           </div>
+          <div class="founder-more" id="more-preeti"><div><p>A master's degree in International Business (Finance) and Export Management, and the launch of international brands across Europe, Asia and the Middle East. She has orchestrated investments in engineering, IT, hospitality, solar power, gems and jewellery and mining — consolidating six companies into one division and completing two further acquisitions — and directs a non-profit for education and disaster management.</p></div></div>
+          <button type="button" class="founder-toggle" aria-expanded="false" aria-controls="more-preeti"><span>Read more</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
         </div>
         <div class="bento-founder-card reveal" style="background:var(--grad-brand);border-radius:27px;padding:1.5px;">
@@ -218,6 +220,8 @@
             <span class="bento-chip">Investments spanning manufacturing to financial services</span>
             <span class="bento-chip">International, multicultural &amp; engineered-systems expertise</span>
           </div>
+          <div class="founder-more" id="more-hari"><div><p>Over twenty-five years spearheading investments from manufacturing to financial services, with a strong emphasis on organisational development and nurturing talent. An MBA with a record across international and multicultural landscapes — start-ups, turnarounds and rapid-change environments — and an understanding of complex engineered systems that underpins the critical business drivers of several industries.</p></div></div>
+          <button type="button" class="founder-toggle" aria-expanded="false" aria-controls="more-hari"><span>Read more</span><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
         </div>
       </div>
@@ -403,6 +407,16 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.querySelectorAll('.founder-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        var open = panel.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open);
+        btn.firstElementChild.textContent = open ? 'Show less' : 'Read more';
+      });
+    });
+  </script>
 
 </div>
 </div>

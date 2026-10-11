@@ -283,6 +283,14 @@ footer p, footer span, footer a{font-weight:500;}
 @media (hover:hover){
   .bento-chip:hover{background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.22);}
 }
+.founder-more{position:relative;z-index:1;display:grid;grid-template-rows:0fr;transition:grid-template-rows 0.45s cubic-bezier(0.16,1,0.3,1);}
+.founder-more > div{overflow:hidden;min-height:0;}
+.founder-more p{font-size:15.5px;line-height:1.7;color:rgba(255,255,255,0.7);margin:0;padding-top:18px;}
+.founder-more.is-open{grid-template-rows:1fr;}
+.founder-toggle{position:relative;z-index:1;display:inline-flex;align-items:center;gap:8px;margin-top:18px;background:none;border:0;padding:0;cursor:pointer;font:inherit;font-size:14px;font-weight:700;color:#F2A15C;}
+.founder-toggle svg{transition:transform 0.35s ease;}
+.founder-toggle[aria-expanded="true"] svg{transform:rotate(180deg);}
+@media (prefers-reduced-motion:reduce){.founder-more,.founder-toggle svg{transition:none;}}
 .bento-team{display:flex;flex-wrap:wrap;justify-content:center;gap:20px;}
 .bento-team-card{flex:0 1 calc(25% - 15px);max-width:calc(25% - 15px);box-sizing:border-box;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
 @media (hover:hover){
