@@ -134,11 +134,13 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
 .site-header::before{content:'';position:absolute;top:0;left:0;right:0;height:calc(100% + 36px);z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(255,255,255,0.4),rgba(255,255,255,0));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);opacity:0;transition:opacity 0.3s ease;}
 .site-header.header-blur-on::before{opacity:1;}
 .site-header-inner{max-width:1320px;margin:0 auto;background:rgba(255,255,255,0.8);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(16,17,20,0.08);border-radius:100px;padding:10px 12px 10px clamp(20px,2.4vw,28px);display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 24px rgba(16,17,20,0.08), 0 2px 6px rgba(16,17,20,0.04);}
-.site-header-logo{display:flex;align-items:center;gap:13px;flex-shrink:0;transition:opacity 0.2s ease;}
+.site-header-logo{display:flex;align-items:center;gap:4px;flex-shrink:0;transition:opacity 0.2s ease;}
 @media (hover:hover){
   .site-header-logo:hover{opacity:0.75;}
 }
-.site-header-logo img{height:34px;width:auto;display:block;}
+.site-header-logo img{width:auto;display:block;}
+.site-header-logo .logo-mark{height:46px;}
+.site-header-logo .logo-word{height:40px;}
 
 .site-nav{display:flex;align-items:center;gap:8px;}
 .site-nav a, .site-nav span{position:relative;color:rgba(15,20,30,0.86);font-weight:600;font-size:15px;letter-spacing:0.01em;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.2s ease,background 0.2s ease;padding:8px 16px;border-radius:100px;}
@@ -178,7 +180,8 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
 @media (max-width:900px){
   .site-header{padding-top:28px;}
   .site-header-inner{padding:12px 14px 12px 24px;}
-  .site-header-logo img{height:40px;}
+  .site-header-logo .logo-mark{height:40px;}
+  .site-header-logo .logo-word{height:34px;}
   .hamburger-btn{width:46px;height:46px;}
   .hamburger-btn span{left:13px;}
   .hamburger-btn span:nth-child(1){top:18px;}
@@ -226,7 +229,7 @@ footer p, footer span, footer a{font-weight:500;}
 .site-footer{background:#0F141E;padding:0 clamp(24px,4.5vw,64px) 0;}
 .site-footer-card{max-width:1240px;margin:0 auto;position:relative;top:28px;margin-bottom:28px;background:#FAF9F6;border-radius:28px 28px 0 0;padding:clamp(44px,6vw,64px) clamp(32px,4.5vw,56px) clamp(56px,7vw,72px);box-shadow:0 -1px 2px rgba(16,17,20,0.03),0 -18px 40px rgba(16,17,20,0.06);}
 .site-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
-.site-footer-brand img{height:30px;width:auto;display:block;}
+.site-footer-brand img{height:130px;width:auto;display:block;}
 .site-footer-tagline{font-size:16px;line-height:1.6;color:#3F434C;max-width:280px;margin:0 0 20px;}
 .site-footer-heading{color:#0F141E;font-weight:700;font-size:14.5px;margin-bottom:16px;letter-spacing:0.02em;}
 .site-footer-col{display:flex;flex-direction:column;gap:11px;}
@@ -775,7 +778,7 @@ html.mu-no-splash #mu-splash{display:none;}
 
 /* logo: wipes in from the left, settling from soft to sharp */
 .mu-splash-logo{
-  width:clamp(230px,42vw,420px);height:auto;display:block;
+  width:clamp(170px,26vw,260px);height:auto;display:block;
   -webkit-clip-path:inset(0 100% 0 0);clip-path:inset(0 100% 0 0);
   filter:blur(6px);opacity:0;transform:translateY(8px);
   animation:muLogoIn 1.05s cubic-bezier(0.22,1,0.36,1) 0.18s forwards;
