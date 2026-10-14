@@ -134,13 +134,16 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
 .site-header::before{content:'';position:absolute;top:0;left:0;right:0;height:calc(100% + 36px);z-index:-1;pointer-events:none;background:linear-gradient(to bottom,rgba(255,255,255,0.4),rgba(255,255,255,0));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 45%,transparent 100%);opacity:0;transition:opacity 0.3s ease;}
 .site-header.header-blur-on::before{opacity:1;}
 .site-header-inner{max-width:1320px;margin:0 auto;background:rgba(255,255,255,0.8);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border:1px solid rgba(16,17,20,0.08);border-radius:100px;padding:10px 12px 10px clamp(20px,2.4vw,28px);display:flex;align-items:center;justify-content:space-between;box-shadow:0 8px 24px rgba(16,17,20,0.08), 0 2px 6px rgba(16,17,20,0.04);}
-.site-header-logo{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;flex-shrink:0;transition:opacity 0.2s ease;}
+.site-header-logo{display:grid;place-items:center start;overflow:hidden;flex-shrink:0;transition:opacity 0.2s ease;}
 @media (hover:hover){
   .site-header-logo:hover{opacity:0.75;}
 }
-.site-header-logo img{width:auto;display:block;}
-.site-header-logo .logo-mark{height:24px;}
-.site-header-logo .logo-word{height:33px;}
+.site-header-logo img{width:auto;display:block;grid-area:1/1;animation:logoSwap 14s ease-in-out infinite;}
+.site-header-logo .logo-mark{height:50px;animation-delay:-7s;}
+.site-header-logo .logo-word{height:42px;}
+/* slow slide: the visible logo exits left while the other enters from the right */
+@keyframes logoSwap{0%,38%{opacity:1;transform:translateX(0);}50%{opacity:0;transform:translateX(-48px);}50.01%,88%{opacity:0;transform:translateX(48px);}100%{opacity:1;transform:translateX(0);}}
+@media (prefers-reduced-motion:reduce){.site-header-logo img{animation:none;}.site-header-logo .logo-mark{opacity:0;}}
 
 .site-nav{display:flex;align-items:center;gap:8px;}
 .site-nav a, .site-nav span{position:relative;color:rgba(15,20,30,0.86);font-weight:600;font-size:15px;letter-spacing:0.01em;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.2s ease,background 0.2s ease;padding:8px 16px;border-radius:100px;}
@@ -180,8 +183,8 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
 @media (max-width:900px){
   .site-header{padding-top:28px;}
   .site-header-inner{padding:11px 14px 11px 24px;}
-  .site-header-logo .logo-mark{height:21px;}
-  .site-header-logo .logo-word{height:29px;}
+  .site-header-logo .logo-mark{height:42px;}
+  .site-header-logo .logo-word{height:36px;}
   .hamburger-btn{width:46px;height:46px;}
   .hamburger-btn span{left:13px;}
   .hamburger-btn span:nth-child(1){top:18px;}
