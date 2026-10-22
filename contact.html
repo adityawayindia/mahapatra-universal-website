@@ -25,8 +25,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@23/build/css/intlTelInput.css">
-<link rel="preload" as="image" href="./assets/mul_final_logo_1st_half.png?v=5" fetchpriority="high">
-<link rel="preload" as="image" href="./assets/mul_final_logo_2st_half.png?v=6" fetchpriority="high">
+<!-- <link rel="preload" as="image" href="./assets/mul_final_logo_1st_half.png?v=5" fetchpriority="high"> -->
+<!-- <link rel="preload" as="image" href="./assets/mul_final_logo_2st_half.png?v=6" fetchpriority="high"> -->
 <link rel="preload" as="image" href="./assets/mul_final_logo.png?v=4" fetchpriority="high">
 <script>
 /* Intro splash gate — runs before <body> paints so page-to-page navigation never flashes it. */
@@ -125,7 +125,10 @@
   <header class="site-header">
     <div class="site-header-inner">
       <a href="index.html" class="site-header-logo">
+        <img class="logo-full" fetchpriority="high" decoding="sync" src="./assets/mul_final_logo.png?v=4" alt="Mahapatra Universal Limited" width="780" height="650">
+        <!-- Split logo (disabled for now)
         <img class="logo-mark" fetchpriority="high" decoding="sync" src="./assets/mul_final_logo_1st_half.png?v=5" alt="Mahapatra Universal Limited" width="400" height="317"><img class="logo-word" fetchpriority="high" decoding="sync" src="./assets/mul_final_logo_2st_half.png?v=6" alt="" width="500" height="161">
+        -->
       </a>
 
       <nav class="site-nav">

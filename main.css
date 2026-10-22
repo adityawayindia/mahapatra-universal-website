@@ -141,6 +141,7 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
 .site-header-logo img{width:auto;display:block;}
 .site-header-logo .logo-mark{height:24px;}
 .site-header-logo .logo-word{height:42px;}
+.site-header-logo .logo-full{height:66px;width:auto;max-width:none;aspect-ratio:780/650;object-fit:contain;flex-shrink:0;}
 
 .site-nav{display:flex;align-items:center;gap:8px;}
 .site-nav a, .site-nav span{position:relative;color:rgba(15,20,30,0.86);font-weight:600;font-size:15px;letter-spacing:0.01em;font-family:'Plus Jakarta Sans',sans-serif;transition:color 0.2s ease,background 0.2s ease;padding:8px 16px;border-radius:100px;}
@@ -182,6 +183,7 @@ input:focus, textarea:focus, select:focus{outline:none;border-color:#16256B !imp
   .site-header-inner{padding:11px 14px 11px 24px;}
   .site-header-logo .logo-mark{height:21px;}
   .site-header-logo .logo-word{height:36px;}
+  .site-header-logo .logo-full{height:57px;}
   .hamburger-btn{width:46px;height:46px;}
   .hamburger-btn span{left:13px;}
   .hamburger-btn span:nth-child(1){top:18px;}
